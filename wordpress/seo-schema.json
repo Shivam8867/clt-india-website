@@ -1,0 +1,61 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://cltindia.org/#organization",
+      "name": "CLT India (Children's LoveCastles Trust)",
+      "url": "https://cltindia.org",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://cltindia.org/#logo",
+        "url": "https://cltindia.org/wp-content/uploads/2024/06/Clt-Logo-Black-1.png",
+        "contentUrl": "https://cltindia.org/wp-content/uploads/2024/06/Clt-Logo-Black-1.png",
+        "caption": "CLT India Logo",
+        "width": "321",
+        "height": "167"
+      },
+      "sameAs": [
+        "https://www.facebook.com/CLTIndia.1997",
+        "https://instagram.com/cltindia",
+        "https://twitter.com/CLT_India",
+        "https://www.linkedin.com/company/cltindia/"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-9900000000",
+          "contactType": "customer support",
+          "areaServed": "IN"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://cltindia.org/#website",
+      "url": "https://cltindia.org",
+      "name": "CLT India",
+      "alternateName": "Children's LoveCastles Trust",
+      "publisher": {
+        "@id": "https://cltindia.org/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://cltindia.org/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://cltindia.org/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://cltindia.org"
+        }
+      ]
+    }
+  ]
+}
