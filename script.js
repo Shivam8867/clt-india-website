@@ -160,48 +160,23 @@ document.addEventListener('keydown', (e) => {
 /* === STICKY HEADER === */
 const header = document.getElementById('site-header');
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 60) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-
-  // Scroll to top button
-  const scrollTop = document.getElementById('scrollTop');
-  if (window.scrollY > 400) {
-    scrollTop?.classList.add('visible');
-  } else {
-    scrollTop?.classList.remove('visible');
-  }
-}, { passive: true });
-
-/* === HAMBURGER MENU === */
-const hamburger = document.getElementById('hamburger');
-const mainNav = document.getElementById('main-nav');
-
-hamburger?.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  mainNav.classList.toggle('open');
-});
-
-// Mobile dropdown toggle
-document.querySelectorAll('.has-dropdown > a').forEach(link => {
-  link.addEventListener('click', function(e) {
-    if (window.innerWidth <= 900) {
-      e.preventDefault();
-      this.parentElement.classList.toggle('open');
+if (header) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
     }
-  });
-});
 
-// Close nav on link click
-document.querySelectorAll('.nav-list a:not(.has-dropdown > a)').forEach(link => {
-  link.addEventListener('click', () => {
-    mainNav.classList.remove('open');
-    hamburger.classList.remove('active');
-  });
-});
+    // Scroll to top button
+    const scrollTop = document.getElementById('scrollTop');
+    if (window.scrollY > 400) {
+      scrollTop?.classList.add('visible');
+    } else {
+      scrollTop?.classList.remove('visible');
+    }
+  }, { passive: true });
+}
 
 /* === SCROLL TO TOP === */
 document.getElementById('scrollTop')?.addEventListener('click', () => {
@@ -288,6 +263,9 @@ document.getElementById('newsletterForm')?.addEventListener('submit', function(e
 const navLinks = document.querySelectorAll('.nav-list > li > a');
 const sections = document.querySelectorAll('section[id]');
 
+if (navLinks.length === 0 || sections.length === 0) {
+  // nav not yet loaded (dynamically included) — skip
+} else {
 const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -303,6 +281,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 
 sections.forEach(section => sectionObserver.observe(section));
+}
 
 /* === KEYBOARD ACCESSIBILITY === */
 document.addEventListener('keydown', (e) => {
