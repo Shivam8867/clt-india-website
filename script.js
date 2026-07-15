@@ -157,27 +157,6 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') lightbox.classList.remove('active');
 });
 
-/* === STICKY HEADER === */
-const header = document.getElementById('site-header');
-
-if (header) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-
-    // Scroll to top button
-    const scrollTop = document.getElementById('scrollTop');
-    if (window.scrollY > 400) {
-      scrollTop?.classList.add('visible');
-    } else {
-      scrollTop?.classList.remove('visible');
-    }
-  }, { passive: true });
-}
-
 /* === SCROLL TO TOP === */
 document.getElementById('scrollTop')?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -283,10 +262,4 @@ const sectionObserver = new IntersectionObserver((entries) => {
 sections.forEach(section => sectionObserver.observe(section));
 }
 
-/* === KEYBOARD ACCESSIBILITY === */
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    mainNav?.classList.remove('open');
-    hamburger?.classList.remove('active');
-  }
-});
+

@@ -15,15 +15,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function initHeader() {
   var header = document.getElementById('site-header');
-  if (header) {
-    window.addEventListener('scroll', function () {
+  var scrollTop = document.getElementById('scrollTop');
+  window.addEventListener('scroll', function () {
+    if (header) {
       if (window.scrollY > 60) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
-    }, { passive: true });
-  }
+    }
+    if (scrollTop) {
+      if (window.scrollY > 400) {
+        scrollTop.classList.add('visible');
+      } else {
+        scrollTop.classList.remove('visible');
+      }
+    }
+  }, { passive: true });
 
   var hamburger = document.getElementById('hamburger');
   var mainNav = document.getElementById('main-nav');
