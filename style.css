@@ -1715,8 +1715,9 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 
 .challenge-item {
   display: flex;
-  gap: 18px;
-  padding: 20px;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 20px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius);
@@ -1726,13 +1727,13 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 .challenge-item:hover {
   background: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.35);
-  transform: translateX(4px);
+  transform: translateY(-4px);
 }
 
 .challenge-icon-box {
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
   background: rgba(255, 255, 255, 0.15);
   color: var(--white);
   display: flex;
@@ -1740,6 +1741,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
   justify-content: center;
   flex-shrink: 0;
   transition: all 0.3s ease;
+  margin-bottom: 4px;
 }
 
 .challenge-item:hover .challenge-icon-box {
