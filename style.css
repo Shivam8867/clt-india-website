@@ -1516,7 +1516,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 
 @media (max-width: 600px) {
   .hero-section { height: 80vh; min-height: 500px; }
-  .slide { align-items: flex-start; padding: 75px 0 0; }
+  .slide { align-items: flex-start; padding: 130px 0; }
   .slide-content { padding: 0 42px; }
   .slide-title { font-size: clamp(2rem, 8vw, 2.6rem); margin-bottom: 12px; }
   .slide-desc { font-size: 0.82rem; margin-bottom: 20px; }
@@ -2088,7 +2088,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
   .hero-section { height: 75vh; min-height: 420px; }
   .slide-content { padding: 0 24px; }
   .slide-title { font-size: clamp(1.8rem, 7vw, 2.2rem); margin-bottom: 8px; }
-  .slide { align-items: flex-start; padding: 50px 0 0; }
+  .slide { align-items: flex-start; padding: 100px 0; }
   .slide-desc { font-size: 0.75rem; margin-bottom: 14px; }
   .slide-badge { font-size: 0.55rem; padding: 3px 10px; margin-bottom: 10px; }
   .slider-btn { width: 28px; height: 28px; font-size: 0.65rem; }
