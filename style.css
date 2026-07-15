@@ -270,7 +270,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   list-style: none;
 }
 
@@ -280,12 +280,31 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 10px 14px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  padding: 8px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
   color: var(--text);
-  border-radius: 8px;
+  border-radius: 6px;
   transition: var(--transition);
+  position: relative;
+}
+
+.nav-list > li > a::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 2px;
+  background: var(--teal);
+  border-radius: 2px;
+  transition: transform 0.25s ease;
+}
+
+.nav-list > li > a:hover::after,
+.nav-list > li > a.active::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 .nav-list > li > a:hover,
@@ -300,12 +319,12 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 /* Dropdown */
 .dropdown {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 6px);
   left: 50%;
   transform: translateX(-50%);
   background: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-lg);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.06);
   min-width: 230px;
   border: 1px solid var(--border);
   overflow: hidden;
@@ -314,6 +333,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
   transform: translateX(-50%) translateY(-8px);
   transition: all 0.25s ease;
   z-index: 100;
+  padding: 6px;
 }
 
 .has-dropdown:hover .dropdown {
@@ -324,19 +344,18 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 
 .dropdown li a {
   display: block;
-  padding: 12px 20px;
-  font-size: 0.88rem;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  font-weight: 500;
   color: var(--text);
-  border-bottom: 1px solid var(--border);
+  border-radius: 8px;
   transition: var(--transition);
 }
 
-.dropdown li:last-child a { border-bottom: none; }
-
 .dropdown li a:hover {
-  background: rgba(8,143,143,0.06);
+  background: rgba(8,143,143,0.07);
   color: var(--teal);
-  padding-left: 28px;
+  padding-left: 20px;
 }
 
 /* Hamburger */
@@ -1123,31 +1142,8 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
    ================================================ */
 .newsletter-section {
   padding: 100px 0;
-  background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 50%, #0f3460 100%);
+  background: #f2f2f2;
   position: relative;
-  overflow: hidden;
-}
-
-.newsletter-section::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(241,174,68,0.08) 0%, transparent 70%);
-  border-radius: 50%;
-}
-
-.newsletter-section::after {
-  content: '';
-  position: absolute;
-  bottom: -30%;
-  left: -5%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(8,143,143,0.1) 0%, transparent 70%);
-  border-radius: 50%;
 }
 
 .newsletter-grid {
@@ -1160,7 +1156,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 }
 
 .newsletter-content p {
-  color: rgba(255,255,255,0.75);
+  color: var(--text);
   margin-bottom: 32px;
   font-size: 1.05rem;
 }
@@ -1173,25 +1169,25 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
   flex: 1;
   padding: 14px 20px;
   border-radius: 50px;
-  border: 2px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.08);
-  color: var(--white);
+  border: 2px solid var(--border);
+  background: var(--white);
+  color: var(--text);
   font-size: 0.95rem;
   outline: none;
   transition: var(--transition);
   font-family: inherit;
 }
 
-.newsletter-form input[type="email"]::placeholder { color: rgba(255,255,255,0.45); }
+.newsletter-form input[type="email"]::placeholder { color: var(--text-light); }
 
 .newsletter-form input[type="email"]:focus {
-  border-color: var(--gold);
-  background: rgba(255,255,255,0.12);
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(8,143,143,0.1);
 }
 
 .btn-send {
-  background: var(--gold);
-  color: var(--dark);
+  background: var(--teal);
+  color: var(--white);
   border: none;
   padding: 14px 28px;
   border-radius: 50px;
@@ -1204,14 +1200,14 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 }
 
 .btn-send:hover {
-  background: var(--gold-dark);
+  background: var(--teal-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(241,174,68,0.4);
+  box-shadow: 0 6px 20px rgba(8,143,143,0.35);
 }
 
 .form-note {
   font-size: 0.78rem;
-  color: rgba(255,255,255,0.4);
+  color: var(--text-light);
   margin: 0 !important;
 }
 
@@ -1222,20 +1218,20 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 }
 
 .gi-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--white);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 20px 24px;
   display: flex;
   align-items: center;
   gap: 16px;
   transition: var(--transition);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .gi-card:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(241,174,68,0.3);
+  border-color: var(--teal);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
   transform: translateX(6px);
 }
 
@@ -1244,19 +1240,21 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 .gi-card h4 {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--dark);
   margin-bottom: 4px;
 }
 
-.gi-card p { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin: 0; flex: 1; }
+.gi-card p { font-size: 0.82rem; color: var(--text-light); margin: 0; flex: 1; }
+
+.newsletter-section .section-title.light { color: var(--dark); }
 
 /* ================================================
    FOOTER
    ================================================ */
 .site-footer {
-  background: #0a0f1e;
+  background: #088f8f;
   padding: 80px 0 0;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.9);
 }
 
 .footer-grid {
@@ -1303,9 +1301,9 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 }
 
 .social-link:hover {
-  background: var(--teal);
-  border-color: var(--teal);
-  color: var(--white);
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--dark);
   transform: translateY(-3px);
 }
 
