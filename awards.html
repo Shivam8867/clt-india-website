@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Awards | CLT India</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --header-h: 80px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    .awards-hero {
+      margin-top: var(--header-h);
+      padding: 6rem 1.5rem 4rem;
+      background: #088f8f;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .awards-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+    .awards-hero .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .awards-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: #fff;
+      position: relative;
+      line-height: 1.2;
+    }
+    .awards-hero h1 span {
+      background: rgba(255,255,255,0.2);
+      padding: 0 0.3rem;
+    }
+    .awards-hero p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 1rem auto 0;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    /* Featured awards */
+    .featured-section {
+      padding: 5rem 1.5rem;
+      background: #f7fafc;
+    }
+    .featured-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .featured-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .featured-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 35px rgba(8,143,143,0.1);
+    }
+    .featured-card .card-img {
+      height: 200px;
+      overflow: hidden;
+    }
+    .featured-card .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .featured-card:hover .card-img img {
+      transform: scale(1.06);
+    }
+    .featured-card .card-body {
+      padding: 1.5rem;
+    }
+    .featured-card .card-body h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 0.5rem;
+    }
+    .featured-card .card-body p {
+      color: #555;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+    .featured-card .card-tag {
+      display: inline-block;
+      background: rgba(8,143,143,0.08);
+      color: #088f8f;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.7rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Gallery grid */
+    .gallery-section {
+      padding: 5rem 1.5rem 6rem;
+      background: #fff;
+    }
+    .gallery-section .section-head {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .gallery-section .section-head h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+    .gallery-section .section-head p {
+      color: #666;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+    .gallery-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      columns: 4;
+      column-gap: 1.25rem;
+    }
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 1.25rem;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid #eee;
+    }
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 1100px) { .gallery-grid { columns: 3; } }
+    @media (max-width: 768px) { .gallery-grid { columns: 2; } }
+    @media (max-width: 480px) { .gallery-grid { columns: 1; } }
+
+    /* Lightbox */
+    .lb-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .lb-overlay.active {
+      display: flex;
+    }
+    .lb-overlay img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    .lb-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 2.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .lb-close:hover { opacity: 1; }
+
+    @media (max-width: 768px) {
+      .awards-hero { padding: 4rem 1rem 3rem; }
+      .featured-section { padding: 3rem 1rem; }
+      .gallery-section { padding: 3rem 1rem 4rem; }
+      .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo-wrap">
+        <img src="assets/Clt-Logo.png" alt="CLT India Logo" class="logo-img">
+        <span class="logo-tagline">Children's LoveCastles Trust</span>
+      </a>
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="about.html">About Us</a></li>
+          <li class="has-dropdown">
+            <a href="index.html#work">Our Work <span class="arrow">&#9660;</span></a>
+            <ul class="dropdown">
+              <li><a href="index.html#epatashale">e-Patashale</a></li>
+              <li><a href="index.html#egr">Early Grade Reading (EGR)</a></li>
+              <li><a href="index.html#digital">Digital Literacy</a></li>
+              <li><a href="index.html#teacher">Teacher Connect Program</a></li>
+              <li><a href="index.html#community">Community Outreach</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#impact">Our Impact</a></li>
+          <li><a href="index.html#involved">Get Involved</a></li>
+          <li><a href="index.html#resources">Resource Centre</a></li>
+          <li><a href="index.html#blog">Blog</a></li>
+        </ul>
+      </nav>
+      <a href="donate.html" class="btn-get-involved">Donate</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="awards-hero">
+    <div class="hero-badge">Recognition &amp; Accolades</div>
+    <h1>Our <span>Awards</span> &amp; Honors</h1>
+    <p>Celebrating milestones that validate our mission of delivering quality education through low-cost digital innovation.</p>
+  </section>
+
+  <!-- Featured Awards -->
+  <section class="featured-section">
+    <div class="featured-grid">
+      <div class="featured-card">
+        <div class="card-img"><img src="assets/ficci-award.jpg" alt="USAID & FICCI Award"></div>
+        <div class="card-body">
+          <span class="card-tag">Millennium Alliance</span>
+          <h3>USAID &amp; FICCI</h3>
+          <p><strong>June 2013</strong> — Received the Millennium Alliance Award for low-cost innovation in e-Learning.</p>
+          <p style="margin-top:0.5rem;"><strong>August 2020</strong> — Awarded a second time for the Early Grade Reading (EGR) Initiative.</p>
+        </div>
+      </div>
+      <div class="featured-card">
+        <div class="card-img"><img src="assets/awards_optimized/14.jpg" alt="Digital India Award"></div>
+        <div class="card-body">
+          <span class="card-tag">Digital India</span>
+          <h3>Digital India Award 2017</h3>
+          <p>Honored by the Times Network for digital innovation in e-Education learning solutions.</p>
+        </div>
+      </div>
+      <div class="featured-card">
+        <div class="card-img"><img src="assets/manthan-award.jpg" alt="Manthan Award"></div>
+        <div class="card-body">
+          <span class="card-tag">Manthan Award</span>
+          <h3>Manthan Award 2014</h3>
+          <p>Recognized in the "Field of Science and Technology" — Manthan Award South West India 2014.</p>
+        </div>
+      </div>
+      <div class="featured-card">
+        <div class="card-img"><img src="assets/social-innovation.jpg" alt="Social Innovation Award"></div>
+        <div class="card-body">
+          <span class="card-tag">World CSR Day</span>
+          <h3>Social Innovation</h3>
+          <p>Recognized as one of the 50 most impactful social innovators globally on World CSR Day 2017.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Award Photo Gallery -->
+  <section class="gallery-section">
+    <div class="section-head">
+      <h2>Award Ceremony Highlights</h2>
+      <p>Moments captured from our award ceremonies and recognition events.</p>
+    </div>
+    <div class="gallery-grid" id="awardGallery"></div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lb-overlay" id="lbOverlay">
+    <button class="lb-close" id="lbClose">&times;</button>
+    <img id="lbImg" src="" alt="Award">
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="footer-logo">
+            <a href="index.html" class="logo-wrap" style="gap: 12px; display: inline-flex;">
+              <img src="assets/Clt-Logo.png" alt="CLT India Logo" class="logo-img footer-logo-img" style="height: 44px; filter: brightness(0) invert(1);">
+            </a>
+          </div>
+          <p class="footer-tagline">Access To Quality Education For All</p>
+          <p class="footer-desc">Children's LoveCastle Trust India has been transforming children's learning experiences since 1997, based in Jakkur, Bangalore.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#impact">Our Impact</a></li>
+            <li><a href="index.html#involved">Get Involved</a></li>
+            <li><a href="index.html#resources">Resource Centre</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Our Programs</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#epatashale">e-Patashale</a></li>
+            <li><a href="index.html#egr">Early Grade Reading (EGR)</a></li>
+            <li><a href="index.html#digital">Digital Literacy</a></li>
+            <li><a href="index.html#teacher">Teacher Connect Program</a></li>
+            <li><a href="index.html#community">Community Outreach</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact Us</h4>
+          <div class="footer-contact">
+            <div class="contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Jakkur, Bangalore, Karnataka, India</span>
+            </div>
+            <div class="contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>info@cltindia.org</span>
+            </div>
+            <div class="contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.58 2.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+91 9606184748</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Children's LoveCastle Trust India. All Rights Reserved.</p>
+        <p>Registered NGO | Empowering Children Since 2000</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
+
+  <script src="script.js"></script>
+  <script>
+    // Load all award images into gallery
+    const gallery = document.getElementById('awardGallery');
+    for (let i = 1; i <= 22; i++) {
+      const div = document.createElement('div');
+      div.className = 'gallery-item';
+      const img = document.createElement('img');
+      img.src = 'assets/awards_optimized/' + i + '.jpg';
+      img.alt = 'Award ' + i;
+      img.loading = 'lazy';
+      img.addEventListener('click', () => {
+        document.getElementById('lbImg').src = img.src;
+        document.getElementById('lbOverlay').classList.add('active');
+      });
+      div.appendChild(img);
+      gallery.appendChild(div);
+    }
+
+    // Lightbox
+    document.getElementById('lbClose').addEventListener('click', () => {
+      document.getElementById('lbOverlay').classList.remove('active');
+    });
+    document.getElementById('lbOverlay').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) {
+        document.getElementById('lbOverlay').classList.remove('active');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') document.getElementById('lbOverlay').classList.remove('active');
+    });
+  </script>
+</body>
+</html>

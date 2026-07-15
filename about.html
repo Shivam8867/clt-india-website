@@ -430,6 +430,54 @@
       margin-bottom: 0.5rem;
     }
 
+    /* Awards CTA card - full height */
+    .award-cta-card {
+      grid-column: span 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 380px;
+      background: #f1ae44;
+      border: none;
+      cursor: pointer;
+    }
+    .award-cta-card::after { display: none; }
+    .award-cta-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(8, 143, 143, 0.15);
+    }
+    .award-cta-inner {
+      text-align: center;
+      padding: 2rem;
+      width: 100%;
+    }
+    .award-cta-inner h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin: 0 0 0.5rem;
+    }
+    .award-cta-inner p {
+      color: rgba(26,26,46,0.75);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0 0 1.5rem;
+    }
+    .award-explore-btn {
+      display: inline-block;
+      background: #1a1a2e;
+      color: #fff;
+      padding: 0.7rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .award-explore-btn:hover {
+      background: #088f8f;
+      transform: translateY(-2px);
+    }
 
     /* ===== TEAM STYLING & GOVERNANCE ===== */
     .team-section {
@@ -525,45 +573,7 @@
     .member-card:nth-child(2n) .member-role {
       color: var(--text-light);
     }
-    .read-bio-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      border: none;
-      background: rgba(8,143,143,0.08);
-      color: var(--teal);
-      padding: 0.5rem 1.25rem;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.82rem;
-      transition: all 0.25s ease;
-      cursor: pointer;
-      width: 100%;
-    }
-    .read-bio-btn::after {
-      content: '\2192';
-      font-size: 0.9rem;
-      transition: transform 0.2s ease;
-    }
-    .member-card:nth-child(2n) .read-bio-btn {
-      background: rgba(241,174,68,0.1);
-      color: var(--gold-dark);
-    }
-    .read-bio-btn:hover {
-      background: var(--teal);
-      color: var(--white);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(8, 143, 143, 0.2);
-    }
-    .read-bio-btn:hover::after {
-      transform: translateX(3px);
-    }
-    .member-card:nth-child(2n) .read-bio-btn:hover {
-      background: var(--gold);
-      color: var(--dark);
-      box-shadow: 0 4px 12px rgba(241,174,68,0.25);
-    }
+    .member-card { cursor: pointer; }
 
     /* Core Operations Team Styling */
     .core-team-grid {
@@ -912,7 +922,7 @@
         </div>
         <div class="award-card">
           <div class="award-image-wrap">
-            <img src="assets/digital-india-award.jpg" alt="Digital India Award" class="award-img">
+            <img src="assets/awards_optimized/14.jpg" alt="Digital India Award" class="award-img">
           </div>
           <h3>Digital India</h3>
           <p>CLT India was honored with the Digital India Award 2017 for its "Digital innovation in e-Education" learning solutions by the Times Network.</p>
@@ -930,6 +940,13 @@
           </div>
           <h3>Social Innovation</h3>
           <p>Recognized as one of the 50 most impactful social innovators globally on World CSR Day 2017.</p>
+        </div>
+        <div class="award-card award-cta-card">
+          <div class="award-cta-inner">
+            <h3>More Awards</h3>
+            <p>A glimpse of our recognitions and achievements over the years.</p>
+            <a href="awards.html" class="award-explore-btn">Explore All Awards →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -953,21 +970,18 @@
           </div>
           <div class="member-name">Bhagya Rangachar</div>
           <div class="member-role">Founder & Managing Trustee</div>
-          <button class="read-bio-btn">Read Bio</button>
         </div>
         <div class="member-card" data-member="gayathri">
           <div class="member-avatar-wrap">
             <img src="assets/board/gayathri.png" alt="Gayathri Krishna" class="member-avatar-img">
           </div>
           <div class="member-name">Gayathri Krishna</div>
-          <button class="read-bio-btn">Read Bio</button>
         </div>
         <div class="member-card" data-member="ashish">
           <div class="member-avatar-wrap">
             <img src="assets/board/ashish.webp" alt="Ashish Kasi" class="member-avatar-img">
           </div>
           <div class="member-name">Ashish Kasi</div>
-          <button class="read-bio-btn">Read Bio</button>
         </div>
       </div>
 
@@ -983,49 +997,43 @@
             <img src="assets/board/kentaro.webp" alt="Kentaro Toyama" class="member-avatar-img">
           </div>
           <div class="member-name">Kentaro Toyama</div>
-          <button class="read-bio-btn">Read Bio</button>
         </div>
         <div class="member-card" data-member="rohit">
           <div class="member-avatar-wrap">
             <img src="assets/board/rohit.webp" alt="Rohit Setty" class="member-avatar-img">
           </div>
           <div class="member-name">Rohit Setty</div>
-          <button class="read-bio-btn">Read Bio</button>
         </div>
         <div class="member-card" data-member="marina">
           <div class="member-avatar-wrap">
             <img src="assets/board/marina.webp" alt="Marina Kundu" class="member-avatar-img">
           </div>
           <div class="member-name">Marina Kundu</div>
-          <button class="read-bio-btn">Read Bio</button>
         </div>
         <div class="member-card" data-member="francis">
           <div class="member-avatar-wrap">
             <img src="assets/board/francis.webp" alt="Francis Vérillaud" class="member-avatar-img">
           </div>
           <div class="member-name">Francis Vérillaud</div>
-          <button class="read-bio-btn">Read Bio</button>
         </div>
         <div class="member-card" data-member="farookh">
           <div class="member-avatar-wrap">
             <img src="assets/board/farookh.jpg" alt="Farookh Syed" class="member-avatar-img">
           </div>
           <div class="member-name">Farookh Syed</div>
-          <button class="read-bio-btn">Read Bio</button>
         </div>
         <div class="member-card" data-member="ian">
           <div class="member-avatar-wrap">
             <img src="assets/board/ian.webp" alt="Ian Correa" class="member-avatar-img">
           </div>
           <div class="member-name">Ian Correa</div>
-          <button class="read-bio-btn">Read Bio</button>
         </div>
       </div>
 
       <!-- Core Operations Team -->
       <div class="team-title-wrap">
         <span class="section-label" style="color:var(--primary-teal);">Operations</span>
-        <h2>Our <span>Core Team</span></h2>
+        <h2>Our <span style="color:#000;background:none;-webkit-text-fill-color:#000;background-clip:unset;">Core Team</span></h2>
         <p class="section-subtitle">The dedicated builders executing e-Patashale and digital programs daily</p>
       </div>
       <div class="core-team-grid">
@@ -1062,7 +1070,7 @@
             <img src="assets/team/shivam.jpeg" alt="Shivam Kumar V" class="member-avatar-img">
           </div>
           <div class="member-name" style="font-size:1.15rem;">Shivam Kumar V</div>
-          <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Associate (IT & Web)</div>
+          <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Associate (IT &amp; WEB Developer)</div>
         </div>
       </div>
 
