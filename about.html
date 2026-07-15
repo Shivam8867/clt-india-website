@@ -37,7 +37,7 @@
     }
     .history-intro-title {
       font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-      font-weight: 800;
+      font-weight: 700;
       line-height: 1.35;
       text-align: center;
       max-width: 950px;
@@ -143,8 +143,8 @@
     }
     .history-quote-text {
       font-size: 1.2rem;
-      line-height: 1.8;
-      color: #2d3748;
+      line-height: 1.7;
+      color: var(--text);
       margin-bottom: 2rem;
       font-style: italic;
       position: relative;
@@ -170,7 +170,7 @@
     .author-details h4 {
       font-size: 1.15rem;
       margin: 0;
-      color: #1a202c;
+      color: var(--dark);
     }
     .author-details p {
       font-size: 0.9rem;
@@ -179,10 +179,10 @@
       font-weight: 600;
     }
     .history-title-wrap h2 {
-      font-size: 2.2rem;
-      font-weight: 800;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 700;
       margin-bottom: 1.5rem;
-      color: #0f172a;
+      color: var(--dark);
       line-height: 1.2;
     }
     .history-title-wrap h2 span {
@@ -192,9 +192,9 @@
       background-clip: text;
     }
     .history-text {
-      color: #4a5568;
-      line-height: 1.8;
-      font-size: 1.05rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      font-size: 1.02rem;
       margin-bottom: 1.5rem;
     }
     .stat-callout-card {
@@ -264,7 +264,7 @@
     }
     .era-card:nth-child(even) {
       background: var(--accent-amber);
-      color: #1a202c;
+      color: var(--dark);
       box-shadow: 0 10px 30px rgba(241, 174, 68, 0.12);
     }
     .era-card:hover {
@@ -301,7 +301,7 @@
     .era-card:nth-child(even) .era-year {
       background: rgba(0, 0, 0, 0.08);
       border-color: rgba(0, 0, 0, 0.15);
-      color: #0f172a;
+      color: var(--dark);
     }
     .era-desc {
       font-size: 0.9rem;
@@ -310,7 +310,7 @@
       margin: 0;
     }
     .era-card:nth-child(even) .era-desc {
-      color: #1a202c;
+      color: var(--dark);
     }
     .era-desc strong {
       color: var(--text-white);
@@ -332,7 +332,7 @@
       line-height: 1.5;
     }
     .era-card:nth-child(even) .era-nested-list li {
-      color: #2d3748;
+      color: var(--text);
     }
 
     /* Mobile / Tablet Views */
@@ -418,15 +418,15 @@
       transform: scale(1.08);
     }
     .award-card h3 {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #1e293b;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark);
       margin-bottom: 1rem;
     }
     .award-card p {
-      color: #64748b;
+      color: var(--text-light);
       font-size: 0.95rem;
-      line-height: 1.65;
+      line-height: 1.7;
       margin-bottom: 0.5rem;
     }
 
@@ -445,9 +445,9 @@
       margin-bottom: 5rem;
     }
     .team-title-wrap h2 {
-      font-size: 3rem;
-      font-weight: 800;
-      color: #0f172a;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      color: var(--dark);
       margin-bottom: 0.5rem;
     }
     .team-title-wrap h2 span {
@@ -463,25 +463,38 @@
       margin-bottom: 7rem;
     }
     .member-card {
-      background: #f8fafc;
-      border: 1px solid rgba(0,0,0,0.03);
-      border-radius: 12px;
-      padding: 3.5rem 2.25rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem 1.75rem 2rem;
       text-align: center;
-      transition: all 0.4s ease;
+      transition: all 0.3s ease;
       position: relative;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
     }
     .member-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(8, 143, 143, 0.08);
-      background: var(--white);
-      border-color: rgba(8, 143, 143, 0.12);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(8, 143, 143, 0.1);
+      border-color: rgba(8, 143, 143, 0.15);
     }
     .member-avatar-wrap {
       position: relative;
-      width: 110px;
-      height: 110px;
-      margin: 0 auto 2rem;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1.5rem;
+    }
+    .member-avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      border: 3px solid var(--white);
+      transition: transform 0.3s ease;
+      display: block;
+    }
+    .member-card:hover .member-avatar-img {
+      transform: scale(1.04);
     }
     .member-avatar {
       width: 100%;
@@ -494,65 +507,62 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 25px rgba(8, 143, 143, 0.15);
-      border: 4px solid var(--white);
-      transition: transform 0.4s ease;
-    }
-    .member-card:nth-child(2n) .member-avatar {
-      background: var(--gradient-amber);
-      box-shadow: 0 8px 25px rgba(241, 174, 68, 0.15);
-    }
-    .member-card:nth-child(3n) .member-avatar {
-      background: linear-gradient(135deg, #0ba3a3 0%, #00c49f 100%);
-      box-shadow: 0 8px 25px rgba(11, 163, 163, 0.15);
-    }
-    .member-card:hover .member-avatar {
-      transform: scale(1.05);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      border: 3px solid var(--white);
     }
     .member-name {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #1e293b;
-      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
     }
     .member-role {
-      font-size: 0.95rem;
-      color: var(--primary-teal);
-      font-weight: 700;
-      margin-bottom: 1.75rem;
-      letter-spacing: 0.02em;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
     }
     .member-card:nth-child(2n) .member-role {
-      color: var(--accent-amber);
+      color: var(--text-light);
     }
     .read-bio-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border: 2px solid var(--primary-teal);
-      background: transparent;
-      color: var(--primary-teal);
-      padding: 0.65rem 1.75rem;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
+      gap: 6px;
+      border: none;
+      background: rgba(8,143,143,0.08);
+      color: var(--teal);
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      transition: all 0.25s ease;
       cursor: pointer;
       width: 100%;
     }
+    .read-bio-btn::after {
+      content: '\2192';
+      font-size: 0.9rem;
+      transition: transform 0.2s ease;
+    }
     .member-card:nth-child(2n) .read-bio-btn {
-      border-color: var(--accent-amber);
-      color: var(--accent-amber);
+      background: rgba(241,174,68,0.1);
+      color: var(--gold-dark);
     }
-    .member-card:hover .read-bio-btn {
-      background: var(--primary-teal);
+    .read-bio-btn:hover {
+      background: var(--teal);
       color: var(--white);
-      box-shadow: 0 8px 20px rgba(8, 143, 143, 0.2);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(8, 143, 143, 0.2);
     }
-    .member-card:nth-child(2n):hover .read-bio-btn {
-      background: var(--accent-amber);
-      color: var(--white);
-      box-shadow: 0 8px 20px rgba(241, 174, 68, 0.2);
+    .read-bio-btn:hover::after {
+      transform: translateX(3px);
+    }
+    .member-card:nth-child(2n) .read-bio-btn:hover {
+      background: var(--gold);
+      color: var(--dark);
+      box-shadow: 0 4px 12px rgba(241,174,68,0.25);
     }
 
     /* Core Operations Team Styling */
@@ -563,25 +573,25 @@
       margin-top: 3rem;
     }
     .core-card {
-      background: #f8fafc;
-      border-radius: 12px;
-      padding: 2.5rem 2rem;
+      background: var(--white);
+      border-radius: 14px;
+      padding: 2rem 1.5rem;
       text-align: center;
-      border: 1px solid rgba(0,0,0,0.02);
+      border: 1px solid var(--border);
       transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
     }
     .core-card:hover {
-      background: var(--white);
       transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.04);
-      border-color: rgba(8, 143, 143, 0.08);
+      box-shadow: 0 12px 25px rgba(8, 143, 143, 0.08);
+      border-color: rgba(8, 143, 143, 0.12);
     }
     .core-avatar {
       width: 78px;
       height: 78px;
       border-radius: 50%;
       background: #eaecef;
-      color: #475569;
+      color: var(--text-light);
       font-weight: 700;
       font-size: 1.5rem;
       display: flex;
@@ -590,10 +600,12 @@
       margin: 0 auto 1.5rem;
       border: 3px solid var(--white);
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
     }
     .core-card:hover .core-avatar {
       background: var(--gradient-brand);
       color: var(--white);
+      transform: scale(1.05);
     }
 
     /* ===== BIO MODAL OVERLAY ===== */
@@ -652,10 +664,10 @@
       transform: rotate(90deg);
     }
     .modal-name {
-      font-size: 2.2rem;
-      font-weight: 800;
+      font-size: 1.6rem;
+      font-weight: 700;
       margin-bottom: 0.5rem;
-      color: #0f172a;
+      color: var(--dark);
       line-height: 1.2;
     }
     .modal-role {
@@ -668,9 +680,9 @@
       padding-bottom: 0.25rem;
     }
     .modal-body-text {
-      color: #475569;
-      line-height: 1.85;
-      font-size: 1.02rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      font-size: 0.95rem;
     }
     .modal-body-text p {
       margin-bottom: 1.5rem;
@@ -931,13 +943,13 @@
       <!-- Board of Trustees -->
       <div class="team-title-wrap">
         <span class="section-label" style="color:var(--primary-teal);">Governance</span>
-        <h2>Our <span>Board</span></h2>
+        <h2>Our <span style="color:#000;background:none;-webkit-text-fill-color:#000;background-clip:unset;">Board</span></h2>
         <p class="section-subtitle">Guiding CLT India towards scale, compliance, and lasting impact</p>
       </div>
       <div class="team-grid">
         <div class="member-card" data-member="bhagya">
           <div class="member-avatar-wrap">
-            <div class="member-avatar">BR</div>
+            <img src="assets/board/bhagya.png" alt="Bhagya Rangachar" class="member-avatar-img">
           </div>
           <div class="member-name">Bhagya Rangachar</div>
           <div class="member-role">Founder & Managing Trustee</div>
@@ -945,18 +957,16 @@
         </div>
         <div class="member-card" data-member="gayathri">
           <div class="member-avatar-wrap">
-            <div class="member-avatar">GK</div>
+            <img src="assets/board/gayathri.png" alt="Gayathri Krishna" class="member-avatar-img">
           </div>
           <div class="member-name">Gayathri Krishna</div>
-          <div class="member-role">Trustee</div>
           <button class="read-bio-btn">Read Bio</button>
         </div>
         <div class="member-card" data-member="ashish">
           <div class="member-avatar-wrap">
-            <div class="member-avatar">AK</div>
+            <img src="assets/board/ashish.webp" alt="Ashish Kasi" class="member-avatar-img">
           </div>
           <div class="member-name">Ashish Kasi</div>
-          <div class="member-role">Trustee</div>
           <button class="read-bio-btn">Read Bio</button>
         </div>
       </div>
@@ -964,73 +974,50 @@
       <!-- Advisory Committee -->
       <div class="team-title-wrap">
         <span class="section-label" style="color:var(--primary-teal);">Advisory</span>
-        <h2>Advisory <span>Committee</span></h2>
+        <h2>Advisory <span style="color:#000;background:none;-webkit-text-fill-color:#000;background-clip:unset;">Committee</span></h2>
         <p class="section-subtitle">Academic and technological experts steering our pedagogy models</p>
       </div>
       <div class="team-grid">
         <div class="member-card" data-member="kentaro">
           <div class="member-avatar-wrap">
-            <div class="member-avatar">KT</div>
+            <img src="assets/board/kentaro.webp" alt="Kentaro Toyama" class="member-avatar-img">
           </div>
           <div class="member-name">Kentaro Toyama</div>
-          <div class="member-role">Advisory Board Member</div>
           <button class="read-bio-btn">Read Bio</button>
         </div>
         <div class="member-card" data-member="rohit">
           <div class="member-avatar-wrap">
-            <div class="member-avatar">RS</div>
+            <img src="assets/board/rohit.webp" alt="Rohit Setty" class="member-avatar-img">
           </div>
           <div class="member-name">Rohit Setty</div>
-          <div class="member-role">Advisory Board Member</div>
           <button class="read-bio-btn">Read Bio</button>
         </div>
         <div class="member-card" data-member="marina">
           <div class="member-avatar-wrap">
-            <div class="member-avatar">MK</div>
+            <img src="assets/board/marina.webp" alt="Marina Kundu" class="member-avatar-img">
           </div>
           <div class="member-name">Marina Kundu</div>
-          <div class="member-role">Advisory Board Member</div>
           <button class="read-bio-btn">Read Bio</button>
         </div>
         <div class="member-card" data-member="francis">
           <div class="member-avatar-wrap">
-            <div class="member-avatar">FV</div>
+            <img src="assets/board/francis.webp" alt="Francis Vérillaud" class="member-avatar-img">
           </div>
           <div class="member-name">Francis Vérillaud</div>
-          <div class="member-role">Advisory Board Member</div>
           <button class="read-bio-btn">Read Bio</button>
         </div>
         <div class="member-card" data-member="farookh">
           <div class="member-avatar-wrap">
-            <div class="member-avatar">FS</div>
+            <img src="assets/board/farookh.jpg" alt="Farookh Syed" class="member-avatar-img">
           </div>
           <div class="member-name">Farookh Syed</div>
-          <div class="member-role">Advisory Board Member</div>
           <button class="read-bio-btn">Read Bio</button>
         </div>
         <div class="member-card" data-member="ian">
           <div class="member-avatar-wrap">
-            <div class="member-avatar">IC</div>
+            <img src="assets/board/ian.webp" alt="Ian Correa" class="member-avatar-img">
           </div>
           <div class="member-name">Ian Correa</div>
-          <div class="member-role">Advisory Board Member</div>
-          <button class="read-bio-btn">Read Bio</button>
-        </div>
-      </div>
-
-      <!-- Executive Leadership -->
-      <div class="team-title-wrap">
-        <span class="section-label" style="color:var(--primary-teal);">Leadership</span>
-        <h2>Executive <span>Leadership</span></h2>
-        <p class="section-subtitle">Directing operations, IT systems, and partnership deployments</p>
-      </div>
-      <div class="team-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 420px)); justify-content: center;">
-        <div class="member-card" data-member="sunil">
-          <div class="member-avatar-wrap">
-            <div class="member-avatar">SR</div>
-          </div>
-          <div class="member-name">Sunil Rangreji</div>
-          <div class="member-role">Chief Executive Officer (CEO)</div>
           <button class="read-bio-btn">Read Bio</button>
         </div>
       </div>
@@ -1043,44 +1030,39 @@
       </div>
       <div class="core-team-grid">
         <div class="core-card">
-          <div class="core-avatar">S</div>
+          <div class="member-avatar-wrap" style="width:90px;height:90px;margin-bottom:1.5rem;">
+            <img src="assets/team/sachin.jpeg" alt="Sachin" class="member-avatar-img">
+          </div>
           <div class="member-name" style="font-size:1.15rem;">Sachin</div>
           <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Head – IT & Field Operations</div>
         </div>
         <div class="core-card">
-          <div class="core-avatar">SP</div>
+          <div class="member-avatar-wrap" style="width:90px;height:90px;margin-bottom:1.5rem;">
+            <img src="assets/team/shruthi.jpeg" alt="Shruthi Pujari" class="member-avatar-img">
+          </div>
           <div class="member-name" style="font-size:1.15rem;">Shruthi Pujari</div>
           <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Project Manager (STEM)</div>
         </div>
         <div class="core-card">
-          <div class="core-avatar">Y</div>
+          <div class="member-avatar-wrap" style="width:90px;height:90px;margin-bottom:1.5rem;">
+            <img src="assets/team/yamuna.png" alt="Yamuna" class="member-avatar-img">
+          </div>
           <div class="member-name" style="font-size:1.15rem;">Yamuna</div>
           <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Head (Accounts & HR)</div>
         </div>
         <div class="core-card">
-          <div class="core-avatar">AC</div>
-          <div class="member-name" style="font-size:1.15rem;">Aravinda C</div>
-          <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Head - Partner & Fundraising</div>
-        </div>
-        <div class="core-card">
-          <div class="core-avatar">SC</div>
+          <div class="member-avatar-wrap" style="width:90px;height:90px;margin-bottom:1.5rem;">
+            <img src="assets/team/shivacharan.jpg" alt="Shivacharan H R" class="member-avatar-img">
+          </div>
           <div class="member-name" style="font-size:1.15rem;">Shivacharan H R</div>
           <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Associate (Operations)</div>
         </div>
         <div class="core-card">
-          <div class="core-avatar">SK</div>
+          <div class="member-avatar-wrap" style="width:90px;height:90px;margin-bottom:1.5rem;">
+            <img src="assets/team/shivam.jpeg" alt="Shivam Kumar V" class="member-avatar-img">
+          </div>
           <div class="member-name" style="font-size:1.15rem;">Shivam Kumar V</div>
           <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Associate (IT & Web)</div>
-        </div>
-        <div class="core-card">
-          <div class="core-avatar">R</div>
-          <div class="member-name" style="font-size:1.15rem;">Rajashekar O</div>
-          <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Education Coordinator</div>
-        </div>
-        <div class="core-card">
-          <div class="core-avatar">SN</div>
-          <div class="member-name" style="font-size:1.15rem;">Suraj Nilajkar</div>
-          <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Graphic Designer</div>
         </div>
       </div>
 
