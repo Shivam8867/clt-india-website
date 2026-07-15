@@ -22,7 +22,7 @@
 
       <nav class="main-nav" id="main-nav">
         <ul class="nav-list">
-          <li><a href="#about">About Us</a></li>
+          <li><a href="about.html">About Us</a></li>
           <li class="has-dropdown">
             <a href="#work">Our Work <span class="arrow">&#9660;</span></a>
             <ul class="dropdown">
@@ -53,7 +53,7 @@
     <div class="hero-slider" id="heroSlider">
 
       <!-- Slide 1 -->
-      <div class="slide active" style="background-image: url('assets/img.png');">
+      <div class="slide active" style="background-image: url('assets/Hero slide/1.png');">
         <div class="slide-overlay"></div>
         <div class="slide-content">
           <div class="slide-badge">Children's LoveCastle Trust India</div>
@@ -67,7 +67,7 @@
       </div>
 
       <!-- Slide 2 -->
-      <div class="slide" style="background-image: url('assets/jaikishan-patel-2eMemvByB-8-unsplash-1.png');">
+      <div class="slide" style="background-image: url('assets/Hero slide/2.png');">
         <div class="slide-overlay"></div>
         <div class="slide-content">
           <div class="slide-badge">Children's LoveCastle Trust India</div>
@@ -81,11 +81,25 @@
       </div>
 
       <!-- Slide 3 -->
-      <div class="slide" style="background-image: url('assets/img.png');">
+      <div class="slide" style="background-image: url('assets/Hero slide/3.png');">
         <div class="slide-overlay" style="background: linear-gradient(135deg, rgba(8,143,143,0.85) 0%, rgba(0,0,0,0.5) 100%);"></div>
         <div class="slide-content">
+          <div class="slide-badge">e-Patashale 2.0</div>
+          <h1 class="slide-title">Connecting high quality<br>content &amp; teaching<br>to rural classrooms</h1>
+          <p class="slide-desc">We design interactive pedagogy for Science, Technology, Engineering and Mathematics (STEM), and deliver it on a purpose-built low cost digital platform</p>
+          <div class="slide-btns">
+            <a href="#impact" class="btn-primary">Our Impact</a>
+            <a href="#about" class="btn-outline">About Us</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide" style="background-image: url('assets/Hero slide/4.png');">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
           <div class="slide-badge">Children's LoveCastle Trust India</div>
-          <h1 class="slide-title">Access To Quality<br>Education<br>For All</h1>
+          <h1 class="slide-title">Digitally empowering<br>Teachers with Tech<br>&amp; Blackboard teaching</h1>
           <p class="slide-desc">We design interactive pedagogy for Science, Technology, Engineering and Mathematics (STEM), and deliver it on a purpose-built low cost digital platform</p>
           <div class="slide-btns">
             <a href="#impact" class="btn-primary">Our Impact</a>
@@ -102,6 +116,7 @@
       <span class="dot active" data-index="0"></span>
       <span class="dot" data-index="1"></span>
       <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
     </div>
   </section>
 
@@ -502,11 +517,47 @@
     </div>
   </section>
 
+  <!-- GALLERY SLIDER SECTION -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Photo Gallery</span>
+        <h2 class="section-title">Glimpse of CLT e-Patashale</h2>
+        <p class="section-subtitle">A visual walkthrough of our digital STEM ecosystem in action</p>
+      </div>
+      <div class="gallery-wrapper">
+        <button class="gallery-btn gallery-prev" id="galleryPrev" aria-label="Previous">&#10094;</button>
+        <div class="gallery-slider" id="gallerySlider">
+          <div class="gallery-track" id="galleryTrack">
+            <div class="gallery-slide"><img src="assets/gallery/gallery-1.png" alt="CLT e-Patashale"></div>
+            <div class="gallery-slide"><img src="assets/gallery/gallery-2.jpg" alt="CLT e-Patashale"></div>
+            <div class="gallery-slide"><img src="assets/gallery/gallery-3.jpg" alt="CLT e-Patashale"></div>
+            <div class="gallery-slide"><img src="assets/gallery/gallery-4.jpg" alt="CLT e-Patashale"></div>
+            <div class="gallery-slide"><img src="assets/gallery/gallery-5.jpg" alt="CLT e-Patashale"></div>
+            <div class="gallery-slide"><img src="assets/gallery/gallery-6.jpg" alt="CLT e-Patashale"></div>
+            <div class="gallery-slide"><img src="assets/gallery/gallery-7.png" alt="CLT e-Patashale"></div>
+            <div class="gallery-slide"><img src="assets/gallery/gallery-8.png" alt="CLT e-Patashale"></div>
+            <div class="gallery-slide"><img src="assets/gallery/gallery-9.png" alt="CLT e-Patashale"></div>
+            <div class="gallery-slide"><img src="assets/gallery/gallery-10.jpg" alt="CLT e-Patashale"></div>
+          </div>
+        </div>
+        <button class="gallery-btn gallery-next" id="galleryNext" aria-label="Next">&#10095;</button>
+      </div>
+      <div class="gallery-dots" id="galleryDots"></div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  </div>
+
   <!-- VIDEO SECTION -->
   <section class="video-section">
     <div class="container">
       <div class="section-header centered">
-        <span class="section-label">See Our Work</span>
+        <span class="section-label">Visual Stories</span>
         <h2 class="section-title">Watch Our Story</h2>
         <p class="section-subtitle">See how CLT India is changing lives through education</p>
       </div>
@@ -703,7 +754,7 @@
         <div class="footer-col">
           <h4 class="footer-heading">Quick Links</h4>
           <ul class="footer-links">
-            <li><a href="#about">About Us</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="#impact">Our Impact</a></li>
             <li><a href="#involved">Get Involved</a></li>
             <li><a href="#resources">Resource Centre</a></li>

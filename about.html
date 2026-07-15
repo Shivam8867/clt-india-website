@@ -1,275 +1,1184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About CLT India | Our Legacy, Team & Achievements</title>
-    
-    <!-- Meta SEO Tags -->
-    <meta name="description" content="Learn about CLT India (Children's LoveCastles Trust), our legacy since 1997, award-winning pedagogical models, leadership, and partners.">
-    <meta property="og:title" content="About CLT India | Children's LoveCastles Trust">
-    <meta property="og:description" content="Explore our timeline, team members, awards, and partner ecosystem.">
-    <meta property="og:image" content="https://cltindia.org/wp-content/uploads/2024/08/font-2.png">
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <link rel="stylesheet" href="style.css?v=1.10">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLT India | About Us</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== THEME COHESION VARIABLES & UTILITIES ===== */
+    :root {
+      --primary-teal: var(--teal);
+      --accent-amber: var(--gold);
+      --bg-dark-slate: var(--dark);
+      --bg-dark-card: var(--dark-2);
+      --text-white: var(--white);
+      --text-muted-gray: var(--text-light);
+      --gradient-brand: linear-gradient(135deg, var(--teal) 0%, var(--gold) 100%);
+      --gradient-teal: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
+      --gradient-amber: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      --glass-bg: rgba(255, 255, 255, 0.95);
+      --glass-border: var(--border);
+      --shadow-premium: var(--shadow);
+      --shadow-hover: var(--shadow-lg);
+      --header-h: 80px;
+    }
+
+    /* ===== HERO SECTION WITH GLOW EFFECTS ===== */
+
+    /* ===== DUAL COLUMN HISTORY SECTION ===== */
+    .history-section {
+      padding: 8rem 1.5rem 6rem;
+      background: #f7fafc;
+      position: relative;
+      margin-top: var(--header-h);
+    }
+    .history-intro-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.35;
+      text-align: center;
+      max-width: 950px;
+      margin: 0 auto 5rem;
+      color: var(--dark);
+      position: relative;
+    }
+    .history-intro-title span {
+      color: var(--accent-amber);
+    }
+    .history-intro-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-brand);
+      margin: 1.5rem auto 0;
+      border-radius: 2px;
+    }
+    .history-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    @media (max-width: 991px) {
+      .history-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .history-section {
+        padding: 3rem 0.5rem 2rem;
+        margin-top: var(--header-h);
+      }
+      .history-section .container {
+        padding: 0 0.5rem;
+      }
+      .history-intro-title {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+      }
+      .history-grid {
+        gap: 2rem;
+      }
+      .history-quote-card {
+        padding: 1.25rem 0.6rem;
+      }
+      .history-quote-card::before {
+        font-size: 5.5rem;
+        top: -1.5rem;
+        left: 0.4rem;
+      }
+      .history-quote-text {
+        text-align: left;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+      .stat-callout-card {
+        padding: 1.25rem 1rem;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      .stat-number {
+        font-size: 2.2rem;
+      }
+    }
+    .history-quote-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 3.5rem;
+      box-shadow: var(--shadow-premium);
+      border: 1px solid rgba(8, 143, 143, 0.08);
+      position: relative;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .history-quote-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+    .history-quote-card::before {
+      content: '“';
+      font-size: 12rem;
+      font-family: serif;
+      position: absolute;
+      top: -3.5rem;
+      left: 1rem;
+      color: rgba(8, 143, 143, 0.08);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .history-quote-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 4px;
+      background: var(--gradient-brand);
+      border-radius: 12px 0 0 12px;
+    }
+    .history-quote-text {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #2d3748;
+      margin-bottom: 2rem;
+      font-style: italic;
+      position: relative;
+      z-index: 2;
+    }
+    .history-author-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .author-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--gradient-brand);
+      color: var(--text-white);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(8, 143, 143, 0.2);
+    }
+    .author-details h4 {
+      font-size: 1.15rem;
+      margin: 0;
+      color: #1a202c;
+    }
+    .author-details p {
+      font-size: 0.9rem;
+      color: var(--primary-teal);
+      margin: 0;
+      font-weight: 600;
+    }
+    .history-title-wrap h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+    .history-title-wrap h2 span {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .history-text {
+      color: #4a5568;
+      line-height: 1.8;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+    .stat-callout-card {
+      background: var(--primary-teal);
+      border: none;
+      border-left: 5px solid var(--accent-amber);
+      border-radius: 8px;
+      padding: 1.75rem 2rem;
+      margin: 2rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      box-shadow: 0 8px 25px rgba(8, 143, 143, 0.15);
+      transition: var(--transition);
+    }
+    .stat-callout-card:hover {
+      transform: translateX(4px);
+      box-shadow: 0 12px 30px rgba(8, 143, 143, 0.25);
+    }
+    .stat-number {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--accent-amber);
+      line-height: 1;
+      font-family: 'Roboto', sans-serif;
+      white-space: nowrap;
+    }
+    .stat-text {
+      font-size: 0.95rem;
+      color: var(--text-white);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .stat-text strong {
+      color: var(--text-white);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* ===== COMPACT TIMELINE GRID - 4 BRAND COLOR CARDS (NO LINES) ===== */
+    .timeline-section {
+      padding: 8rem 1.5rem;
+      background: var(--white);
+      position: relative;
+    }
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: 95%;
+      margin: 4rem auto 0;
+      position: relative;
+    }
+    .era-card {
+      border-radius: 12px;
+      padding: 2.5rem 1.75rem;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      border: none;
+    }
+    /* Alternating Card Backgrounds */
+    .era-card:nth-child(odd) {
+      background: var(--primary-teal);
+      color: var(--text-white);
+      box-shadow: 0 10px 30px rgba(8, 143, 143, 0.12);
+    }
+    .era-card:nth-child(even) {
+      background: var(--accent-amber);
+      color: #1a202c;
+      box-shadow: 0 10px 30px rgba(241, 174, 68, 0.12);
+    }
+    .era-card:hover {
+      transform: translateY(-8px);
+    }
+    .era-card:nth-child(odd):hover {
+      box-shadow: 0 15px 35px rgba(8, 143, 143, 0.28);
+    }
+    .era-card:nth-child(even):hover {
+      box-shadow: 0 15px 35px rgba(241, 174, 68, 0.28);
+    }
+    .era-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .era-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    /* Styling Year Badges for High Contrast */
+    .era-year {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      margin-top: 0.15rem;
+    }
+    .era-card:nth-child(even) .era-year {
+      background: rgba(0, 0, 0, 0.08);
+      border-color: rgba(0, 0, 0, 0.15);
+      color: #0f172a;
+    }
+    .era-desc {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .era-card:nth-child(even) .era-desc {
+      color: #1a202c;
+    }
+    .era-desc strong {
+      color: var(--text-white);
+      font-weight: 700;
+    }
+    .era-card:nth-child(even) .era-desc strong {
+      color: #000000;
+    }
+    .era-nested-list {
+      margin-top: 0.5rem;
+      padding-left: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .era-nested-list li {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+    }
+    .era-card:nth-child(even) .era-nested-list li {
+      color: #2d3748;
+    }
+
+    /* Mobile / Tablet Views */
+    @media (max-width: 991px) {
+      .timeline-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .era-card {
+        padding: 2.25rem 1.5rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .timeline-section {
+        padding: 4rem 1rem 3rem;
+      }
+      .timeline-grid {
+        margin-top: 2rem;
+      }
+    }
+
+    /* ===== AWARDS GRID WITH GLOW ===== */
+    .awards-section {
+      padding: 8rem 1.5rem;
+      background: #f7fafc;
+      position: relative;
+    }
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 4rem auto 0;
+    }
+    .award-card {
+      background: var(--white);
+      border: 1px solid rgba(8, 143, 143, 0.05);
+      border-radius: 12px;
+      padding: 1.75rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Top line accent in awards */
+    .award-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--gradient-brand);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+      z-index: 2;
+    }
+    .award-card:hover::after {
+      transform: scaleX(1);
+    }
+    .award-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(8, 143, 143, 0.08);
+      border-color: rgba(8, 143, 143, 0.12);
+    }
+    .award-image-wrap {
+      width: 100%;
+      height: 180px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      background: #f1f5f9;
+      position: relative;
+    }
+    .award-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .award-card:hover .award-img {
+      transform: scale(1.08);
+    }
+    .award-card h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 1rem;
+    }
+    .award-card p {
+      color: #64748b;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 0.5rem;
+    }
+
+
+    /* ===== TEAM STYLING & GOVERNANCE ===== */
+    .team-section {
+      padding: 8rem 1.5rem;
+      background: var(--white);
+    }
+    .team-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .team-title-wrap {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+    .team-title-wrap h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+    .team-title-wrap h2 span {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 3rem;
+      margin-bottom: 7rem;
+    }
+    .member-card {
+      background: #f8fafc;
+      border: 1px solid rgba(0,0,0,0.03);
+      border-radius: 12px;
+      padding: 3.5rem 2.25rem;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+    .member-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(8, 143, 143, 0.08);
+      background: var(--white);
+      border-color: rgba(8, 143, 143, 0.12);
+    }
+    .member-avatar-wrap {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 2rem;
+    }
+    .member-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--gradient-teal);
+      color: var(--white);
+      font-size: 2.2rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 25px rgba(8, 143, 143, 0.15);
+      border: 4px solid var(--white);
+      transition: transform 0.4s ease;
+    }
+    .member-card:nth-child(2n) .member-avatar {
+      background: var(--gradient-amber);
+      box-shadow: 0 8px 25px rgba(241, 174, 68, 0.15);
+    }
+    .member-card:nth-child(3n) .member-avatar {
+      background: linear-gradient(135deg, #0ba3a3 0%, #00c49f 100%);
+      box-shadow: 0 8px 25px rgba(11, 163, 163, 0.15);
+    }
+    .member-card:hover .member-avatar {
+      transform: scale(1.05);
+    }
+    .member-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 0.5rem;
+    }
+    .member-role {
+      font-size: 0.95rem;
+      color: var(--primary-teal);
+      font-weight: 700;
+      margin-bottom: 1.75rem;
+      letter-spacing: 0.02em;
+    }
+    .member-card:nth-child(2n) .member-role {
+      color: var(--accent-amber);
+    }
+    .read-bio-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--primary-teal);
+      background: transparent;
+      color: var(--primary-teal);
+      padding: 0.65rem 1.75rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      width: 100%;
+    }
+    .member-card:nth-child(2n) .read-bio-btn {
+      border-color: var(--accent-amber);
+      color: var(--accent-amber);
+    }
+    .member-card:hover .read-bio-btn {
+      background: var(--primary-teal);
+      color: var(--white);
+      box-shadow: 0 8px 20px rgba(8, 143, 143, 0.2);
+    }
+    .member-card:nth-child(2n):hover .read-bio-btn {
+      background: var(--accent-amber);
+      color: var(--white);
+      box-shadow: 0 8px 20px rgba(241, 174, 68, 0.2);
+    }
+
+    /* Core Operations Team Styling */
+    .core-team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .core-card {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.02);
+      transition: all 0.3s ease;
+    }
+    .core-card:hover {
+      background: var(--white);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+      border-color: rgba(8, 143, 143, 0.08);
+    }
+    .core-avatar {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      background: #eaecef;
+      color: #475569;
+      font-weight: 700;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      border: 3px solid var(--white);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .core-card:hover .core-avatar {
+      background: var(--gradient-brand);
+      color: var(--white);
+    }
+
+    /* ===== BIO MODAL OVERLAY ===== */
+    .bio-modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(7, 22, 27, 0.65);
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .bio-modal.active {
+      display: flex;
+    }
+    .modal-box {
+      background: var(--white);
+      max-width: 650px;
+      width: 100%;
+      border-radius: 16px;
+      padding: 4rem;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(7, 22, 27, 0.3);
+      max-height: 85vh;
+      overflow-y: auto;
+      border: 1px solid rgba(255,255,255,0.25);
+      animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes modalSlideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: #f1f5f9;
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: #64748b;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .modal-close:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+      transform: rotate(90deg);
+    }
+    .modal-name {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+    .modal-role {
+      font-size: 1.05rem;
+      color: var(--primary-teal);
+      font-weight: 700;
+      margin-bottom: 2rem;
+      display: inline-block;
+      border-bottom: 2px solid var(--accent-amber);
+      padding-bottom: 0.25rem;
+    }
+    .modal-body-text {
+      color: #475569;
+      line-height: 1.85;
+      font-size: 1.02rem;
+    }
+    .modal-body-text p {
+      margin-bottom: 1.5rem;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress"></div>
+  <!-- STICKY HEADER -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="index.html#home" class="logo-wrap">
+        <img src="assets/Clt-Logo.png" alt="CLT India Logo" class="logo-img">
+        <span class="logo-tagline">Children's LoveCastles Trust</span>
+      </a>
 
-    <!-- Custom Cursor -->
-    <div class="custom-cursor"></div>
-    <div class="custom-cursor-follower"></div>
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="about.html" class="nav-link active">About Us</a></li>
+          <li class="has-dropdown">
+            <a href="index.html#work">Our Work <span class="arrow">&#9660;</span></a>
+            <ul class="dropdown">
+              <li><a href="index.html#epatashale">e-Patashale</a></li>
+              <li><a href="index.html#egr">Early Grade Reading (EGR)</a></li>
+              <li><a href="index.html#digital">Digital Literacy</a></li>
+              <li><a href="index.html#teacher">Teacher Connect Program</a></li>
+              <li><a href="index.html#community">Community Outreach</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#impact">Our Impact</a></li>
+          <li><a href="index.html#involved">Get Involved</a></li>
+          <li><a href="index.html#resources">Resource Centre</a></li>
+          <li><a href="index.html#blog">Blog</a></li>
+        </ul>
+      </nav>
 
-    <!-- Header Navigation -->
-    <header class="header">
-        <div class="container">
-            <a href="index.html" class="logo-wrap">
-                <img src="assets/Clt-Logo.png" alt="CLT India Logo" class="logo-img">
-                <span class="logo-tagline">Children's LoveCastles Trust</span>
+      <a href="index.html#involved" class="btn-get-involved">Get Involved</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- History Section -->
+  <section class="history-section">
+    <div class="container" style="margin-bottom: 2rem;">
+      <h2 class="history-intro-title">The Children’s LoveCastles Trust (CLT) story <span>began in 1997</span> from a room with a view...</h2>
+    </div>
+    
+    <div class="container">
+      <div class="history-grid">
+        <div class="history-quote-card">
+          <p class="history-quote-text">
+            “From my apartment window, I would see children building castles out of the mud. Kids who should be spending their time in school were out accompanying their parents at the construction site. This scene which resonated with me would repeat itself day after day until I realized a universal truth – Children loved building castles and homes – a place of belonging, whether at the beach, a playground or here at a construction site. Children’s LoveCastles Trust (CLT) was born out of a passion to keep kids in school. To give them the education they deserve, so they can go build on their dreams and aspirations.”
+          </p>
+          <div class="history-author-wrap">
+            <div class="author-circle">BR</div>
+            <div class="author-details">
+              <h4>Bhagya Rangachar</h4>
+              <p>Founder</p>
+            </div>
+          </div>
+        </div>
+        <div class="history-title-wrap">
+          <p class="history-text">
+            There was a natural progression and evolution of our work into the education space while we were doing school mid-day meal programs. It gave us a window into the everyday struggle that the government schools were faced with: not being able to provide teachers for every grade, one-teacher-one-room schools, and teacher absenteeism at its worst. It would get much worse in rural areas to attract and retain qualified teachers.
+          </p>
+          
+          <div class="stat-callout-card">
+            <div class="stat-number">1.2M</div>
+            <p class="stat-text"><strong>Teacher shortage in India today.</strong> Retaining qualified educators in rural government classrooms remains a persistent barrier to quality education.</p>
+          </div>
+          
+          <p class="history-text">
+            Our idea was to have a hub to bring in the best of teachers to centralize pedagogy, map it to National curricula, customize it to every State, and leverage technology for its strength in replication and distribution. Personalized access and equity to quality education for every child at the local level has paid dividends.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap Journey Section -->
+  <section class="timeline-section">
+    <div class="timeline-container">
+      <div class="section-header centered">
+        <span class="section-label" style="color:var(--primary-teal);">Roadmap</span>
+        <h2 class="section-title">Our Journey</h2>
+        <p class="section-subtitle">A timeline of innovation, growth, and educational impact</p>
+      </div>
+
+      <div class="timeline-grid">
+        <!-- Box 1 -->
+        <div class="era-card">
+          <div class="era-list">
+            <div class="era-item">
+              <span class="era-year">1997</span>
+              <p class="era-desc"><strong>Trust Incorporated</strong> — Children's LoveCastles Trust is officially incorporated, starting with a room with a view.</p>
+            </div>
+            <div class="era-item">
+              <span class="era-year">1998</span>
+              <p class="era-desc"><strong>Mid-Day Meal Pioneered</strong> — Pioneered the school mid-day meal program for government school students in Karnataka.</p>
+            </div>
+            <div class="era-item">
+              <span class="era-year">2000</span>
+              <p class="era-desc"><strong>Srujana Centre Set Up</strong> — Setup the Srujana Learning Centre as a pilot for introducing ICT tools in government schools.</p>
+            </div>
+            <div class="era-item">
+              <span class="era-year">2002</span>
+              <p class="era-desc"><strong>Intel Partnership</strong> — Intel partnered with CLT to establish the only Intel Computer Club House—an after school program for under-served youth to explore technology.</p>
+            </div>
+            <div class="era-item">
+              <span class="era-year">2005</span>
+              <p class="era-desc"><strong>US Foundation Registration</strong> — CLT International Foundation Inc. is officially registered in Virginia, USA.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Box 2 -->
+        <div class="era-card">
+          <div class="era-list">
+            <div class="era-item">
+              <span class="era-year">2006</span>
+              <p class="era-desc"><strong>e-Patashale Concept</strong> — Conceptualised the e-Patashale program as the first ever digital STEM program in regional languages, piloting in 100 schools.</p>
+            </div>
+            <div class="era-item">
+              <span class="era-year">2011</span>
+              <p class="era-desc"><strong>CISCO Alliance</strong> — Partnered with CISCO to establish a digital distance-learning program for government schools.</p>
+            </div>
+            <div class="era-item">
+              <span class="era-year">2012</span>
+              <p class="era-desc"><strong>Research Cell Established</strong> — Setup a dedicated research cell for pedagogy and technology to build a scalable and replicable model for e-Patashale.</p>
+            </div>
+            <div class="era-item">
+              <span class="era-year">2013</span>
+              <p class="era-desc"><strong>USAID FICCI Award</strong> — Won the USAID FICCI Millennium Alliance Award for low-cost technology innovation in education.</p>
+            </div>
+            <div class="era-item">
+              <span class="era-year">2014</span>
+              <p class="era-desc"><strong>Ecosystem Deployment</strong> — Partnered with CSR networks and the Department of Education to scale and build sustainable e-learning classrooms.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Box 3 -->
+        <div class="era-card">
+          <div class="era-list">
+            <div class="era-item">
+              <span class="era-year">2015</span>
+              <p class="era-desc"><strong>Seven Changemakers</strong> — Identified as one of Seven Changemakers under the Dasra & USAID research on girl education impact in secondary schools.</p>
+            </div>
+            <div class="era-item">
+              <span class="era-year">2016</span>
+              <p class="era-desc"><strong>Digital Learning Box</strong> — Established the custom, SIM-enabled 'Digital Learning Box' in-house lab, enabling remote content updates and analytics.</p>
+            </div>
+            <div class="era-item">
+              <span class="era-year">2017</span>
+              <p class="era-desc"><strong>Hindi States Expansion</strong> — Extended the e-Patashale program to Hindi speaking states (UP, Bihar, Rajasthan) and started a pilot in Maharashtra.</p>
+            </div>
+            <div class="era-item">
+              <span class="era-year">2018</span>
+              <p class="era-desc"><strong>Jigi App Platform</strong> — Introduced the Jigi App Platform—custom mobile applications built specifically for teachers and learners.</p>
+            </div>
+            <div class="era-item">
+              <span class="era-year">2020</span>
+              <p class="era-desc"><strong>2nd Millennium Alliance Award</strong> — Received the 2nd Millennium Alliance Award for Early Grade Reading (EGR). Successfully launched the "Study from Home" campaign with JIGI-JIGI app downloads.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Box 4 -->
+        <div class="era-card">
+          <div class="era-list">
+            <div class="era-item">
+              <span class="era-year">2021</span>
+              <p class="era-desc"><strong>Sabera Award & Expansion</strong> — Received the Sabera Award 2021. Launched teacher upskilling digital courses, reaching 180 schools and 36,000 students.</p>
+            </div>
+            <div class="era-item">
+              <span class="era-year">2022</span>
+              <div class="era-desc">
+                <strong>Year Overview & Expansion</strong>:
+                <ul class="era-nested-list">
+                  <li><strong>Awards</strong>: Math power prize, GCPIT Award.</li>
+                  <li><strong>Programs</strong>: Girls' Educational Scholarships, Digital Literacy v1.5, Telugu Digital Literacy.</li>
+                  <li><strong>Partners</strong>: Menda Foundation (180 schools), Rotary Lakeside (40 schools), Aseem Infra (27 schools), Embassy Group.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="era-item">
+              <span class="era-year">2023</span>
+              <p class="era-desc"><strong>Program Expansion</strong> — Scaled the early grade reading courses and partnered with new rural schools to enhance learning outcomes.</p>
+            </div>
+            <div class="era-item">
+              <span class="era-year">2024</span>
+              <p class="era-desc"><strong>Digital Literacy Drive</strong> — Upgraded the Jigi platform with offline features and customized content modules for Hindi and Telugu speaking regions.</p>
+            </div>
+            <div class="era-item">
+              <span class="era-year">2025</span>
+              <p class="era-desc"><strong>Looking Ahead</strong> — Setting up digital hubs in underserved districts, targeting to reach over 50,000 students across multiple states.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards Section -->
+  <section class="awards-section">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label" style="color:var(--primary-teal);">Recognition</span>
+        <h2 class="section-title">Awards & Honors</h2>
+        <p class="section-subtitle">Validating our mission of low-cost digital education innovation</p>
+      </div>
+
+      <div class="awards-grid">
+        <div class="award-card">
+          <div class="award-image-wrap">
+            <img src="assets/ficci-award.jpg" alt="USAID & FICCI Award" class="award-img">
+          </div>
+          <h3>USAID & FICCI</h3>
+          <p><strong>June 2013</strong> — Received the Millennium Alliance Award for "Low-cost innovation in e-Learning".</p>
+          <p style="margin-top:0.5rem;"><strong>August 2020</strong> — Received the Millennium Alliance Award a second time for the Early Grade Reading (EGR) Initiative.</p>
+        </div>
+        <div class="award-card">
+          <div class="award-image-wrap">
+            <img src="assets/digital-india-award.jpg" alt="Digital India Award" class="award-img">
+          </div>
+          <h3>Digital India</h3>
+          <p>CLT India was honored with the Digital India Award 2017 for its "Digital innovation in e-Education" learning solutions by the Times Network.</p>
+        </div>
+        <div class="award-card">
+          <div class="award-image-wrap">
+            <img src="assets/manthan-award.jpg" alt="Manthan Awards" class="award-img">
+          </div>
+          <h3>Manthan Awards</h3>
+          <p>CLT India’s innovative contribution was recognized in the "Field of Science and Technology" with the Manthan Award South West India 2014.</p>
+        </div>
+        <div class="award-card">
+          <div class="award-image-wrap">
+            <img src="assets/social-innovation.jpg" alt="Social Innovation Award" class="award-img">
+          </div>
+          <h3>Social Innovation</h3>
+          <p>Recognized as one of the 50 most impactful social innovators globally on World CSR Day 2017.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="team-container">
+      
+      <!-- Board of Trustees -->
+      <div class="team-title-wrap">
+        <span class="section-label" style="color:var(--primary-teal);">Governance</span>
+        <h2>Our <span>Board</span></h2>
+        <p class="section-subtitle">Guiding CLT India towards scale, compliance, and lasting impact</p>
+      </div>
+      <div class="team-grid">
+        <div class="member-card" data-member="bhagya">
+          <div class="member-avatar-wrap">
+            <div class="member-avatar">BR</div>
+          </div>
+          <div class="member-name">Bhagya Rangachar</div>
+          <div class="member-role">Founder & Managing Trustee</div>
+          <button class="read-bio-btn">Read Bio</button>
+        </div>
+        <div class="member-card" data-member="gayathri">
+          <div class="member-avatar-wrap">
+            <div class="member-avatar">GK</div>
+          </div>
+          <div class="member-name">Gayathri Krishna</div>
+          <div class="member-role">Trustee</div>
+          <button class="read-bio-btn">Read Bio</button>
+        </div>
+        <div class="member-card" data-member="ashish">
+          <div class="member-avatar-wrap">
+            <div class="member-avatar">AK</div>
+          </div>
+          <div class="member-name">Ashish Kasi</div>
+          <div class="member-role">Trustee</div>
+          <button class="read-bio-btn">Read Bio</button>
+        </div>
+      </div>
+
+      <!-- Advisory Committee -->
+      <div class="team-title-wrap">
+        <span class="section-label" style="color:var(--primary-teal);">Advisory</span>
+        <h2>Advisory <span>Committee</span></h2>
+        <p class="section-subtitle">Academic and technological experts steering our pedagogy models</p>
+      </div>
+      <div class="team-grid">
+        <div class="member-card" data-member="kentaro">
+          <div class="member-avatar-wrap">
+            <div class="member-avatar">KT</div>
+          </div>
+          <div class="member-name">Kentaro Toyama</div>
+          <div class="member-role">Advisory Board Member</div>
+          <button class="read-bio-btn">Read Bio</button>
+        </div>
+        <div class="member-card" data-member="rohit">
+          <div class="member-avatar-wrap">
+            <div class="member-avatar">RS</div>
+          </div>
+          <div class="member-name">Rohit Setty</div>
+          <div class="member-role">Advisory Board Member</div>
+          <button class="read-bio-btn">Read Bio</button>
+        </div>
+        <div class="member-card" data-member="marina">
+          <div class="member-avatar-wrap">
+            <div class="member-avatar">MK</div>
+          </div>
+          <div class="member-name">Marina Kundu</div>
+          <div class="member-role">Advisory Board Member</div>
+          <button class="read-bio-btn">Read Bio</button>
+        </div>
+        <div class="member-card" data-member="francis">
+          <div class="member-avatar-wrap">
+            <div class="member-avatar">FV</div>
+          </div>
+          <div class="member-name">Francis Vérillaud</div>
+          <div class="member-role">Advisory Board Member</div>
+          <button class="read-bio-btn">Read Bio</button>
+        </div>
+        <div class="member-card" data-member="farookh">
+          <div class="member-avatar-wrap">
+            <div class="member-avatar">FS</div>
+          </div>
+          <div class="member-name">Farookh Syed</div>
+          <div class="member-role">Advisory Board Member</div>
+          <button class="read-bio-btn">Read Bio</button>
+        </div>
+        <div class="member-card" data-member="ian">
+          <div class="member-avatar-wrap">
+            <div class="member-avatar">IC</div>
+          </div>
+          <div class="member-name">Ian Correa</div>
+          <div class="member-role">Advisory Board Member</div>
+          <button class="read-bio-btn">Read Bio</button>
+        </div>
+      </div>
+
+      <!-- Executive Leadership -->
+      <div class="team-title-wrap">
+        <span class="section-label" style="color:var(--primary-teal);">Leadership</span>
+        <h2>Executive <span>Leadership</span></h2>
+        <p class="section-subtitle">Directing operations, IT systems, and partnership deployments</p>
+      </div>
+      <div class="team-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 420px)); justify-content: center;">
+        <div class="member-card" data-member="sunil">
+          <div class="member-avatar-wrap">
+            <div class="member-avatar">SR</div>
+          </div>
+          <div class="member-name">Sunil Rangreji</div>
+          <div class="member-role">Chief Executive Officer (CEO)</div>
+          <button class="read-bio-btn">Read Bio</button>
+        </div>
+      </div>
+
+      <!-- Core Operations Team -->
+      <div class="team-title-wrap">
+        <span class="section-label" style="color:var(--primary-teal);">Operations</span>
+        <h2>Our <span>Core Team</span></h2>
+        <p class="section-subtitle">The dedicated builders executing e-Patashale and digital programs daily</p>
+      </div>
+      <div class="core-team-grid">
+        <div class="core-card">
+          <div class="core-avatar">S</div>
+          <div class="member-name" style="font-size:1.15rem;">Sachin</div>
+          <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Head – IT & Field Operations</div>
+        </div>
+        <div class="core-card">
+          <div class="core-avatar">SP</div>
+          <div class="member-name" style="font-size:1.15rem;">Shruthi Pujari</div>
+          <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Project Manager (STEM)</div>
+        </div>
+        <div class="core-card">
+          <div class="core-avatar">Y</div>
+          <div class="member-name" style="font-size:1.15rem;">Yamuna</div>
+          <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Head (Accounts & HR)</div>
+        </div>
+        <div class="core-card">
+          <div class="core-avatar">AC</div>
+          <div class="member-name" style="font-size:1.15rem;">Aravinda C</div>
+          <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Head - Partner & Fundraising</div>
+        </div>
+        <div class="core-card">
+          <div class="core-avatar">SC</div>
+          <div class="member-name" style="font-size:1.15rem;">Shivacharan H R</div>
+          <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Associate (Operations)</div>
+        </div>
+        <div class="core-card">
+          <div class="core-avatar">SK</div>
+          <div class="member-name" style="font-size:1.15rem;">Shivam Kumar V</div>
+          <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Associate (IT & Web)</div>
+        </div>
+        <div class="core-card">
+          <div class="core-avatar">R</div>
+          <div class="member-name" style="font-size:1.15rem;">Rajashekar O</div>
+          <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Education Coordinator</div>
+        </div>
+        <div class="core-card">
+          <div class="core-avatar">SN</div>
+          <div class="member-name" style="font-size:1.15rem;">Suraj Nilajkar</div>
+          <div class="member-role" style="font-size:0.85rem; margin-bottom:0; font-weight:500;">Graphic Designer</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Bio Modal Overlay -->
+  <div class="bio-modal" id="bioModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <h3 class="modal-name" id="modalName">Member Name</h3>
+      <div class="modal-role" id="modalRole">Member Role</div>
+      <div class="modal-body-text" id="modalBody">
+        <!-- Bio text loaded dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="resources">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="footer-logo">
+            <a href="index.html#home" class="logo-wrap" style="gap: 12px; display: inline-flex;">
+              <img src="assets/Clt-Logo.png" alt="CLT India Logo" class="logo-img footer-logo-img" style="height: 44px; filter: brightness(0) invert(1);">
             </a>
-            
-            <nav class="nav">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link active">About Us</a>
-                <a href="programs.html" class="nav-link">Our Work</a>
-                <a href="donate.html" class="nav-link">Get Involved</a>
-                <a href="about.html#partners" class="nav-link">Partners</a>
-            </nav>
-            
-            <div class="nav-actions">
-                <div class="lang-selector">
-                    <button class="lang-btn">English ▼</button>
-                    <ul class="lang-dropdown">
-                        <li><a href="#">ಕನ್ನಡ (Kannada)</a></li>
-                        <li><a href="#">हिन्दी (Hindi)</a></li>
-                        <li><a href="#">English</a></li>
-                    </ul>
-                </div>
-                <button class="theme-switch" aria-label="Toggle Dark/Light Mode">
-                    <svg class="moon-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.7 3.3-8.8 8-9.7.5-.1 1 .2 1.2.6.2.5 0 1.1-.4 1.4-2.8 2-3.7 5.7-2.1 8.7 1.6 3 5 4.6 8.3 3.8.5-.1 1 .1 1.2.6.2.5 0 1.1-.4 1.4-1.9 1.4-4.1 2.2-6.2 2.2z"/></svg>
-                    <svg class="sun-icon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm-12.37 1.06l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0zm13.43-13.43l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"/></svg>
-                </button>
-                <div class="btn-magnetic">
-                    <a href="donate.html" class="btn btn-primary" style="padding: 0.75rem 1.75rem;">Donate</a>
-                </div>
-                <button class="mobile-toggle" aria-label="Open Menu">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-                </button>
-            </div>
+          </div>
+          <p class="footer-tagline">Access To Quality Education For All</p>
+          <p class="footer-desc">Children's LoveCastle Trust India has been transforming children's learning experiences since 1997, based in Jakkur, Bangalore.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+            </a>
+          </div>
         </div>
-    </header>
 
-    <!-- Inner Hero -->
-    <section class="section-padding" style="background-color: var(--dark-color); color: #FFFFFF; padding-top: 12rem;">
-        <div class="container">
-            <div class="reveal-up" style="max-width: 800px;">
-                <span style="font-weight: 700; color: var(--secondary-color); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.9rem;">Our Legacy</span>
-                <h1 style="font-size: 3.5rem; margin-top: 1rem; line-height: 1.15; margin-bottom: 2rem;">Pioneering Tech-Led Rural Classrooms since 1997</h1>
-                <p style="font-size: 1.2rem; color: rgba(255,255,255,0.85); line-height: 1.7;">From our initial volunteer-led efforts to scale digital-first solutions across 11 states, CLT India has consistently driven educational transparency and accessibility.</p>
-            </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#impact">Our Impact</a></li>
+            <li><a href="index.html#involved">Get Involved</a></li>
+            <li><a href="index.html#resources">Resource Centre</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
+          </ul>
         </div>
-    </section>
 
-    <!-- Vision/Mission/Values Section -->
-    <section class="section-padding" style="background-color: #f1ae44;">
-        <div class="container">
-            <div class="grid-3">
-                <div class="glass-card reveal-up">
-                    <h3 style="color: var(--primary-color); margin-bottom: 1rem; font-size: 1.5rem;">Vision Statement</h3>
-                    <p style="color: var(--text-muted); font-size: 1.05rem;">Access to quality education for all children, ensuring that constraints of resources do not restrict their capabilities and future careers.</p>
-                </div>
-                <div class="glass-card reveal-up delay-1">
-                    <h3 style="color: var(--secondary-color); margin-bottom: 1rem; font-size: 1.5rem;">Mission Statement</h3>
-                    <p style="color: var(--text-muted); font-size: 1.05rem;">We connect students and practitioners to endless opportunities and transformative learning experiences, building tools that support local teachers.</p>
-                </div>
-                <div class="glass-card reveal-up delay-2">
-                    <h3 style="color: var(--accent-color); margin-bottom: 1rem; font-size: 1.5rem;">Core Values</h3>
-                    <p style="color: var(--text-muted); font-size: 1.05rem;">Operating with total transparency, placing pedagogy first in designs, relying on digital innovations to optimize cost, and maintaining public trust.</p>
-                </div>
-            </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Our Programs</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#epatashale">e-Patashale</a></li>
+            <li><a href="index.html#egr">Early Grade Reading (EGR)</a></li>
+            <li><a href="index.html#digital">Digital Literacy</a></li>
+            <li><a href="index.html#teacher">Teacher Connect Program</a></li>
+            <li><a href="index.html#community">Community Outreach</a></li>
+          </ul>
         </div>
-    </section>
 
-    <!-- Timeline of Impact -->
-    <section class="section-padding" style="background-color: var(--light-grey);">
-        <div class="container">
-            <div class="reveal-up" style="text-align: center; margin-bottom: 5rem;">
-                <h2 style="font-size: 2.75rem;">Our Milestone Journey</h2>
-                <p style="color: var(--text-muted); margin-top: 1rem;">Tracking three decades of scalable STEM educational interventions.</p>
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact Us</h4>
+          <div class="footer-contact">
+            <div class="contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Jakkur, Bangalore, Karnataka, India</span>
             </div>
-            
-            <div class="timeline">
-                <div class="timeline-item reveal-up">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content-card">
-                        <div class="timeline-year">1997</div>
-                        <h3>The Inception</h3>
-                        <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.95rem;">Bhagya Rangachar founds Children's LoveCastles Trust (CLT India) in Bengaluru with the mission to support government schools with pedagogy assets.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item reveal-up">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content-card">
-                        <div class="timeline-year">2012</div>
-                        <h3>Manthan Award Selection</h3>
-                        <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.95rem;">CLT receives the prestigious Manthan Award for its innovations in STEM digital pedagogy delivery across Karnataka schools.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item reveal-up">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content-card">
-                        <div class="timeline-year">2013 - 2017</div>
-                        <h3>Millennium Alliance & Digital Awards</h3>
-                        <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.95rem;">Receives Millennium Alliance Award (FICCI and USAID) for low-cost e-learning innovations. Later honored with the Digital India Award in 2017 for e-Education scaling.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item reveal-up">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content-card">
-                        <div class="timeline-year">2021</div>
-                        <h3>BRICS Solutions Recognition</h3>
-                        <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.95rem;">Selected as a premier SDG alignment program at the BRICS conference for promoting quality digital education targets in remote villages.</p>
-                    </div>
-                </div>
+            <div class="contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>info@cltindia.org</span>
             </div>
+            <div class="contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.58 2.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+91 9606184748</span>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Leadership & Team Grid -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="reveal-up" style="max-width: 800px; margin-bottom: 5rem;">
-                <h2 style="font-size: 2.75rem;">Our Leadership Team</h2>
-                <p style="color: var(--text-muted); margin-top: 1rem;">Meet the visionaries, educators, and technology experts leading the CLT mission.</p>
-            </div>
-            
-            <div class="grid-3">
-                <!-- Member 1 -->
-                <div class="team-member-card reveal-up">
-                    <div class="team-member-img-wrapper">
-                        <img src="https://cltindia.org/wp-content/uploads/2024/09/IMG_20220823_125820d-1024x576.jpg" alt="Bhagya Rangachar" class="team-member-img">
-                    </div>
-                    <h3 class="team-member-name">Bhagya Rangachar</h3>
-                    <div class="team-member-role">Founder</div>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Initiated CLT India in 1997, conceptualizing the tech platform models to address teacher shortages in government schools.</p>
-                </div>
-                
-                <!-- Member 2 -->
-                <div class="team-member-card reveal-up delay-1">
-                    <div class="team-member-img-wrapper">
-                        <img src="https://cltindia.org/wp-content/uploads/2024/09/Untitled-design-8.png" alt="Advisory Leadership" class="team-member-img">
-                    </div>
-                    <h3 class="team-member-name">Nixon Joseph</h3>
-                    <div class="team-member-role">Advisory Leadership</div>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Pioneered CSR partnerships, supporting the scaling of e-Patashale across schools in North East India.</p>
-                </div>
-                
-                <!-- Member 3 -->
-                <div class="team-member-card reveal-up delay-2">
-                    <div class="team-member-img-wrapper">
-                        <img src="https://cltindia.org/wp-content/uploads/2024/09/Untitled-design-1-1.png" alt="Board Advisor" class="team-member-img">
-                    </div>
-                    <h3 class="team-member-name">Radha Murthy</h3>
-                    <div class="team-member-role">Pedagogical Advisor</div>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Guides the development of STEM curriculum models and local translation tools for digital apps.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Children's LoveCastle Trust India. All Rights Reserved.</p>
+        <p>Registered NGO | Empowering Children Since 2000</p>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Partners section -->
-    <section class="section-padding" id="partners" style="background-color: var(--light-grey);">
-        <div class="container">
-            <div class="reveal-up" style="max-width: 800px; margin-bottom: 5rem;">
-                <h2 style="font-size: 2.75rem;">Our Partner Ecosystem</h2>
-                <p style="color: var(--text-muted); margin-top: 1rem;">We collaborate with top-tier foundations, academic institutions, and corporate CSR programs to scale classrooms implementation.</p>
-            </div>
-            
-            <div class="grid-4" style="gap: 1.5rem;">
-                <div class="glass-card" style="padding: 1.5rem; text-align: center; display: flex; align-items: center; justify-content: center;">
-                    <span style="font-weight: 700; font-size: 1.1rem; color: var(--primary-color);">SBI Foundation</span>
-                </div>
-                <div class="glass-card" style="padding: 1.5rem; text-align: center; display: flex; align-items: center; justify-content: center;">
-                    <span style="font-weight: 700; font-size: 1.1rem; color: var(--primary-color);">Menda Foundation</span>
-                </div>
-                <div class="glass-card" style="padding: 1.5rem; text-align: center; display: flex; align-items: center; justify-content: center;">
-                    <span style="font-weight: 700; font-size: 1.1rem; color: var(--primary-color);">Selco Foundation</span>
-                </div>
-                <div class="glass-card" style="padding: 1.5rem; text-align: center; display: flex; align-items: center; justify-content: center;">
-                    <span style="font-weight: 700; font-size: 1.1rem; color: var(--primary-color);">Embassy Group</span>
-                </div>
-                <div class="glass-card" style="padding: 1.5rem; text-align: center; display: flex; align-items: center; justify-content: center;">
-                    <span style="font-weight: 700; font-size: 1.1rem; color: var(--primary-color);">Aseem Infra Finance</span>
-                </div>
-                <div class="glass-card" style="padding: 1.5rem; text-align: center; display: flex; align-items: center; justify-content: center;">
-                    <span style="font-weight: 700; font-size: 1.1rem; color: var(--primary-color);">USAID</span>
-                </div>
-                <div class="glass-card" style="padding: 1.5rem; text-align: center; display: flex; align-items: center; justify-content: center;">
-                    <span style="font-weight: 700; font-size: 1.1rem; color: var(--primary-color);">FICCI</span>
-                </div>
-                <div class="glass-card" style="padding: 1.5rem; text-align: center; display: flex; align-items: center; justify-content: center;">
-                    <span style="font-weight: 700; font-size: 1.1rem; color: var(--primary-color);">Rotary Lakeside Trust</span>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Scroll to Top -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-logo-block">
-                    <span class="footer-logo-text">CLT India</span>
-                    <p>Children's LoveCastles Trust is a registered non-profit organization established in 1997, dedicated to improving rural educational outcomes through pedagogy and technology.</p>
-                </div>
-                
-                <div>
-                    <h4 class="footer-title">Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="programs.html">e-Patashale</a></li>
-                        <li><a href="donate.html">Donate</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="footer-title">Resources</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Annual Reports</a></li>
-                        <li><a href="#">Audit Statements</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-newsletter">
-                    <h4 class="footer-title">Stay Updated</h4>
-                    <p>Subscribe to our newsletter to receive the latest updates.</p>
-                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
-                        <input type="email" placeholder="Your email address" class="newsletter-input" required>
-                        <button type="submit" class="newsletter-submit">Sign Up</button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <span>&copy; 2026 CLT India. All Rights Reserved.</span>
-                <span style="display: flex; gap: 1.5rem;">
-                    <a href="#" style="color: inherit;">Privacy Policy</a>
-                    <a href="#" style="color: inherit;">Terms of Use</a>
-                </span>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="main.js"></script>
+  <script src="script.js"></script>
+  <script src="about.js"></script>
 </body>
 </html>
