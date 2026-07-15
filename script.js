@@ -39,6 +39,27 @@ if (slides.length > 0) {
   startAutoPlay();
 }
 
+/* === TOUCH SWIPE FOR HERO SLIDER === */
+const heroSlider = document.getElementById('heroSlider');
+let touchStartX = 0;
+let touchEndX = 0;
+
+if (heroSlider) {
+  heroSlider.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  heroSlider.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) goToSlide(current + 1);
+      else goToSlide(current - 1);
+      resetAutoPlay();
+    }
+  }, { passive: true });
+}
+
 /* === GALLERY SLIDER === */
 const galleryTrack = document.getElementById('galleryTrack');
 const gallerySlides = document.querySelectorAll('.gallery-slide');

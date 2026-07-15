@@ -1518,6 +1518,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
   .hero-section { height: 80vh; min-height: 500px; }
   .slide { align-items: flex-start; padding: 130px 0; }
   .slide-content { padding: 0 42px; }
+  .slider-btn { display: none; }
   .slide-title { font-size: clamp(2rem, 8vw, 2.6rem); margin-bottom: 12px; }
   .slide-desc { font-size: 0.82rem; margin-bottom: 20px; }
   .slide-badge { font-size: 0.65rem; padding: 4px 12px; margin-bottom: 14px; }
