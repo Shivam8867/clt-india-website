@@ -1717,8 +1717,9 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 
 .challenge-item {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  flex-direction: row;
+  gap: 16px;
+  align-items: flex-start;
   padding: 24px 20px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -1997,6 +1998,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 }
 
 @media (max-width: 600px) {
+  .challenge-item { flex-direction: column; gap: 12px; }
   .solution-features-grid {
     grid-template-columns: 1fr;
     gap: 16px;
