@@ -229,6 +229,14 @@
   <section class="featured-section">
     <div class="featured-grid">
       <div class="featured-card">
+        <div class="card-img"><img src="assets/social-innovation.jpg" alt="Social Innovation Award"></div>
+        <div class="card-body">
+          <span class="card-tag">World CSR Day</span>
+          <h3>Social Innovation</h3>
+          <p>Recognized as one of the 50 most impactful social innovators globally on World CSR Day 2017.</p>
+        </div>
+      </div>
+      <div class="featured-card">
         <div class="card-img"><img src="assets/ficci-award.jpg" alt="USAID & FICCI Award"></div>
         <div class="card-body">
           <span class="card-tag">Millennium Alliance</span>
@@ -251,14 +259,6 @@
           <span class="card-tag">Manthan Award</span>
           <h3>Manthan Award 2014</h3>
           <p>Recognized in the "Field of Science and Technology" — Manthan Award South West India 2014.</p>
-        </div>
-      </div>
-      <div class="featured-card">
-        <div class="card-img"><img src="assets/social-innovation.jpg" alt="Social Innovation Award"></div>
-        <div class="card-body">
-          <span class="card-tag">World CSR Day</span>
-          <h3>Social Innovation</h3>
-          <p>Recognized as one of the 50 most impactful social innovators globally on World CSR Day 2017.</p>
         </div>
       </div>
     </div>
@@ -287,11 +287,17 @@
   <script>
     // Load all award images into gallery
     const gallery = document.getElementById('awardGallery');
-    for (let i = 1; i <= 22; i++) {
+    const order = [];
+    for (let i = 1; i <= 23; i++) {
+      if (i !== 18 && i !== 22 && i !== 14) order.push(i);
+    }
+    order.push(18, 22);
+    const ext = { 18: 'png', 22: 'png' };
+    order.forEach(i => {
       const div = document.createElement('div');
       div.className = 'gallery-item';
       const img = document.createElement('img');
-      img.src = 'assets/awards_optimized/' + i + '.jpg';
+      img.src = 'assets/awards_optimized/' + i + '.' + (ext[i] || 'jpg');
       img.alt = 'Award ' + i;
       img.loading = 'lazy';
       img.addEventListener('click', () => {
@@ -300,7 +306,7 @@
       });
       div.appendChild(img);
       gallery.appendChild(div);
-    }
+    });
 
     // Lightbox
     document.getElementById('lbClose').addEventListener('click', () => {

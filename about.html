@@ -697,6 +697,111 @@
     .modal-body-text p {
       margin-bottom: 1.5rem;
     }
+    .founder-section {
+      padding: 2rem 0;
+      background: linear-gradient(135deg, #f8fcfc 0%, #edf5f5 100%);
+    }
+    @media (min-width: 1101px) {
+      .founder-img-wrap { margin-left: 2rem; }
+    }
+    .founder-card {
+      display: flex;
+      width: 100%;
+      max-width: 1800px;
+      margin: 0 auto;
+      background: #fff;
+      box-shadow: 0 12px 50px rgba(8,143,143,0.08);
+    }
+    .founder-img-wrap {
+      flex: 0 0 auto;
+      width: 380px;
+      display: flex;
+      align-items: center;
+      background: #fff;
+      overflow: hidden;
+    }
+    .founder-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .founder-content {
+      flex: 1;
+      padding: 3rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .founder-content .section-label {
+      display: inline-block;
+      background: rgba(8,143,143,0.1);
+      padding: 0.35rem 1.1rem;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      align-self: flex-start;
+    }
+    .founder-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin: 0 0 1.25rem;
+      line-height: 1.2;
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+    .founder-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: #088f8f;
+      border-radius: 2px;
+    }
+    .founder-bio {
+      color: #444;
+      font-size: 0.95rem;
+      line-height: 1.85;
+    }
+    .founder-bio p {
+      margin-bottom: 1rem;
+    }
+    .founder-bio p:last-child {
+      margin-bottom: 0;
+    }
+    @media (max-width: 1100px) {
+      .founder-card { flex-direction: column; }
+      .founder-img-wrap { width: 100%; }
+      .founder-content { padding: 2.5rem; text-align: center; }
+      .founder-content h2::after { left: 50%; transform: translateX(-50%); }
+      .founder-content .section-label { align-self: center; }
+    }
+    @media (max-width: 600px) {
+      .founder-img-wrap { width: 100%; }
+      .founder-content { padding: 1.5rem; }
+      .founder-content h2 { font-size: 1.4rem; }
+      .founder-bio { font-size: 0.88rem; line-height: 1.7; }
+    }
+    @media (max-width: 1100px) {
+      .awards-section { padding: 5rem 1.5rem; }
+      .award-cta-card { grid-column: span 1; min-height: auto; }
+      .awards-grid { gap: 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .awards-section { padding: 3rem 1rem; }
+      .awards-grid { grid-template-columns: 1fr; gap: 1.25rem; margin-top: 2rem; }
+      .award-card { padding: 1.25rem; }
+      .award-image-wrap { height: 140px; }
+      .award-card h3 { font-size: 1.05rem; }
+      .award-card p { font-size: 0.88rem; }
+      .award-cta-card { min-height: auto; padding: 1.5rem; }
+      .award-cta-inner h3 { font-size: 1.2rem; }
+    }
   </style>
 </head>
 <body>
@@ -916,10 +1021,28 @@
   </section>
 
 
+  <!-- Founder Section -->
+  <div class="founder-section">
+    <div class="founder-card">
+      <div class="founder-img-wrap">
+        <img src="assets/board/bhagya.png" alt="Bhagya Rangachar">
+      </div>
+      <div class="founder-content">
+        <span class="section-label" style="color:var(--primary-teal);">Founder &amp; CEO</span>
+        <h2>Bhagya Rangachar</h2>
+        <div class="founder-bio">
+          <p>Ms. Bhagya Rangachar is the Founder of CLT India and President of the CLT International Foundation Inc., U.S.A. She served as CEO from 1997-2021 August. Bhagya lived in the U.S. and worked as a Software Professional for more than 15 years. Her academic and professional background has been in Science, Mathematics and Technology. She has completed Social Impact Leadership Program – a Dasra and Harvard Cohort. She has also been part of many technology and leadership cohorts in Boston at the Computer Clubhouse Network.</p>
+          <p>She has overseen the development of CLT for over 20 years, from being a Trust that was first to implement mid-day meals in government schools in Karnataka State to an organization that has developed large repository of NCERT-based digital STEM content in regional languages with low-cost technology delivery models and data analytics. Her body of work has been to bridge the gap of missed learning opportunities in STEM in rural schools due to teacher shortage and lack of learning resources in regional languages; and leveraging technology for distribution and scale. The recent launch of 2 mobile APPs in Google Play Store, Jigi and Jigi Jigi is to further amplify the efforts to give access to quality education in under-served communities. Bhagya was listed as one of 100 women in the Coffee Table Book, 'Phenomenal She' by Indian National Bar Association and has been recognized as one of the 50 Globally Listed Social Innovators on World CSR Day 2017.</p>
+          <p>Under her leadership, CLT has won many awards, including – 2 Millennium Alliance Awards by FICCI and USAID for low-cost innovation in e-learning, Digital India award by the Times Group. CNBC 18 recently showcased CLT as one of the leading changemakers in the country.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Team Section -->
   <section class="team-section">
     <div class="team-container">
-      
+
       <!-- Board of Trustees -->
       <div class="team-title-wrap">
         <span class="section-label" style="color:var(--primary-teal);">Governance</span>
@@ -927,13 +1050,6 @@
         <p class="section-subtitle">Guiding CLT India towards scale, compliance, and lasting impact</p>
       </div>
       <div class="team-grid">
-        <div class="member-card" data-member="bhagya">
-          <div class="member-avatar-wrap">
-            <img src="assets/board/bhagya.png" alt="Bhagya Rangachar" class="member-avatar-img">
-          </div>
-          <div class="member-name">Bhagya Rangachar</div>
-          <div class="member-role">Founder & Managing Trustee</div>
-        </div>
         <div class="member-card" data-member="gayathri">
           <div class="member-avatar-wrap">
             <img src="assets/board/gayathri.png" alt="Gayathri Krishna" class="member-avatar-img">
