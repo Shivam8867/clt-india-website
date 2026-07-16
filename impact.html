@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impact | CLT India</title>
+  <meta name="description" content="CLT India's Reach & Impact — transforming education across 11 states, 4,937+ schools, 82,000+ teachers, and 2.8M+ students.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .im-hero {
+      margin-top: var(--header-h);
+      padding: 140px 24px 100px;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .im-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(8,143,143,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(241,174,68,0.1) 0%, transparent 50%);
+    }
+    .im-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .im-hero .section-label {
+      color: var(--gold);
+      background: rgba(241,174,68,0.15);
+      margin-bottom: 20px;
+    }
+    .im-hero h1 {
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .im-hero h1 span { color: var(--gold); }
+    .im-hero p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .im-stats {
+      padding: 80px 0;
+      background: #fff;
+    }
+    .im-stats .im-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .im-stats .im-stat-card {
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+      border-radius: 20px;
+      padding: 36px 20px;
+      text-align: center;
+      border: 1px solid #eef2f6;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .im-stats .im-stat-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .im-stats .im-stat-card:hover::after { transform: scaleX(1); }
+    .im-stats .im-stat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(8,143,143,0.08);
+    }
+    .im-stats .im-stat-card .im-stat-num {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .im-stats .im-stat-card .im-stat-label {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .im-stats .im-stat-tagline {
+      text-align: center;
+      margin-top: 36px;
+      font-size: 1rem;
+      color: var(--text-light);
+    }
+    .im-stats .im-stat-tagline strong {
+      color: var(--teal);
+    }
+
+    .im-research {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    }
+    .im-research .im-research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .im-research .im-res-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 36px 28px;
+      border: 1px solid #eef2f6;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .im-research .im-res-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(8,143,143,0.08);
+      border-color: rgba(8,143,143,0.12);
+    }
+    .im-research .im-res-card .im-res-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: rgba(8,143,143,0.08);
+      padding: 5px 14px;
+      border-radius: 30px;
+      margin-bottom: 16px;
+      align-self: flex-start;
+    }
+    .im-research .im-res-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .im-research .im-res-card .im-res-org {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .im-research .im-res-card p {
+      color: var(--text-light);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      flex: 1;
+    }
+    .im-research .im-res-card .im-res-link {
+      color: var(--teal);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.3s;
+    }
+    .im-research .im-res-card .im-res-link:hover { gap: 12px; }
+
+    .im-testimonials {
+      padding: 100px 0;
+      background: #fff;
+    }
+    .im-testimonials .im-test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .im-testimonials .im-test-card {
+      background: linear-gradient(135deg, #f7fafc 0%, #fff 100%);
+      border-radius: 20px;
+      padding: 40px 28px;
+      border: 1px solid #eef2f6;
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+    .im-testimonials .im-test-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(8,143,143,0.06);
+    }
+    .im-testimonials .im-test-card .im-test-quote {
+      font-size: 2.5rem;
+      color: var(--teal);
+      opacity: 0.3;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .im-testimonials .im-test-card p {
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .im-testimonials .im-test-card .im-test-author {
+      font-weight: 700;
+      color: var(--dark);
+      font-size: 0.95rem;
+    }
+    .im-testimonials .im-test-card .im-test-role {
+      color: var(--text-light);
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 1024px) {
+      .im-stats .im-stats-grid { grid-template-columns: repeat(3, 1fr); }
+      .im-research .im-research-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .im-testimonials .im-test-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .im-stats .im-stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .im-hero { padding: 100px 20px 60px; }
+      .im-research .im-research-grid { grid-template-columns: 1fr; }
+      .im-testimonials .im-test-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="im-hero">
+    <div class="im-hero-inner">
+      <span class="section-label">Our Impact</span>
+      <h1>Reach &amp; <span>Impact</span></h1>
+      <p>For over two decades, CLT India has been transforming the learning experience of children across India through interactive STEM pedagogy, delivered on a purpose-built low-cost digital platform.</p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="im-stats">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">By the Numbers</span>
+        <h2 class="section-title">CLT's e-Patashale Program</h2>
+        <p class="section-subtitle">Delivering quality STEM education at scale across India</p>
+      </div>
+      <div class="im-stats-grid">
+        <div class="im-stat-card">
+          <div class="im-stat-num">4,937</div>
+          <div class="im-stat-label">Schools Transformed</div>
+        </div>
+        <div class="im-stat-card">
+          <div class="im-stat-num">14,400+</div>
+          <div class="im-stat-label">Classrooms Reached</div>
+        </div>
+        <div class="im-stat-card">
+          <div class="im-stat-num">82,000+</div>
+          <div class="im-stat-label">Teachers Benefited</div>
+        </div>
+        <div class="im-stat-card">
+          <div class="im-stat-num">2.8M</div>
+          <div class="im-stat-label">Students Impacted</div>
+        </div>
+        <div class="im-stat-card">
+          <div class="im-stat-num">11</div>
+          <div class="im-stat-label">States of India</div>
+        </div>
+      </div>
+      <p class="im-stat-tagline">Collaboration with State and District level governments, corporates, NGOs and local communities have made the model sustainable. <strong>Together, we are making a difference.</strong></p>
+    </div>
+  </section>
+
+  <!-- Research & Studies -->
+  <section class="im-research">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Research &amp; Validation</span>
+        <h2 class="section-title">Measuring Our Impact</h2>
+        <p class="section-subtitle">Independent studies validate the effectiveness of CLT's approach to digital STEM education</p>
+      </div>
+      <div class="im-research-grid">
+        <div class="im-res-card">
+          <span class="im-res-badge">Microsoft Research India</span>
+          <h3>Measuring the Learning Benefits of Electronic Teaching Aids in Low-Resource Classrooms</h3>
+          <p>In this exploratory study, usage of electronic content over a period of 3 weeks was found to significantly improve students' learning of English in a low-income government school in peri-urban India.</p>
+          <a href="#" class="im-res-link">Read the study &rarr;</a>
+        </div>
+        <div class="im-res-card">
+          <span class="im-res-badge">Christ University</span>
+          <h3>e-SHALA Impact Assessment Reports</h3>
+          <p>83.7% of the schools reported that enrollment in schools has increased due to this project. The study confirms the transformative effect of digital learning tools in government school settings.</p>
+          <a href="#" class="im-res-link">Read the report &rarr;</a>
+        </div>
+        <div class="im-res-card">
+          <span class="im-res-badge">Dasra &amp; USAID</span>
+          <h3>Recognized as a Change Maker</h3>
+          <p>CLT was chosen as a Dasra Fellow for their Research Publication (in partnership with USAID) as one of 7 Change Makers that is making a 'Difference' in the way girls are impacted in secondary schools.</p>
+          <a href="#" class="im-res-link">Learn more &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials / Endorsements -->
+  <section class="im-testimonials">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Endorsements</span>
+        <h2 class="section-title">What People Say</h2>
+        <p class="section-subtitle">Recognized by leaders and institutions committed to educational equity</p>
+      </div>
+      <div class="im-test-grid">
+        <div class="im-test-card">
+          <div class="im-test-quote">&ldquo;</div>
+          <p>CLT's work in reimagining education for underserved communities demonstrates what's possible when innovation meets purpose. Their digital STEM platform is a model for scalable impact.</p>
+          <div class="im-test-author">Reimagine Education</div>
+          <div class="im-test-role">Education Innovation Award</div>
+        </div>
+        <div class="im-test-card">
+          <div class="im-test-quote">&ldquo;</div>
+          <p>CLT India's commitment to bridging the educational divide through low-cost technology and teacher empowerment is truly inspiring. Their results speak for themselves.</p>
+          <div class="im-test-author">Carolyn Johnson</div>
+          <div class="im-test-role">Educationist, Rotary International</div>
+        </div>
+        <div class="im-test-card">
+          <div class="im-test-quote">&ldquo;</div>
+          <p>The Read to Rise initiative by CLT is a powerful example of how focused interventions can create lasting change in foundational literacy and numeracy outcomes for children.</p>
+          <div class="im-test-author">Read to Rise</div>
+          <div class="im-test-role">Literacy Program Partner</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="newsletter-section" id="involved" style="padding:80px 0;">
+    <div class="container">
+      <div class="newsletter-grid" style="grid-template-columns: 1fr;">
+        <div class="newsletter-content" style="text-align:center;max-width:600px;margin:0 auto;">
+          <span class="section-label">Be Part of the Change</span>
+          <h2 class="section-title">Help Us Reach Every Child</h2>
+          <p style="color:#1a1a2e;">Your support enables us to bring quality STEM education to more classrooms across India. Join us in transforming lives through education.</p>
+          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+            <a href="donate.html" class="btn-primary">Donate Now</a>
+            <a href="volunteer.html" class="btn-primary" style="background:#f1ae44;box-shadow:0 4px 15px rgba(241,174,68,0.3);">Volunteer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
+
+  <script src="script.js"></script>
+  <script src="include.js"></script>
+</body>
+</html>
