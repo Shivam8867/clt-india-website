@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>e-Patashale | CLT India</title>
+  <meta name="description" content="CLT e-Patashale - A purpose-built low-cost digital STEM platform for rural classrooms.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .ep-hero {
+      margin-top: var(--header-h);
+      padding: 160px 24px 140px;
+      background: #f1ae44;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .ep-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.06) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 60%, rgba(255,255,255,0.04) 0%, transparent 50%);
+    }
+    .ep-hero .ep-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .ep-hero .ep-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,0,0,0.08);
+      padding: 8px 22px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #000;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .ep-hero .ep-badge span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #000;
+      display: inline-block;
+    }
+    .ep-hero h1 {
+      font-size: clamp(2.8rem, 7vw, 4.5rem);
+      font-weight: 800;
+      color: #000;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+    .ep-hero h1 span {
+      color: #088f8f;
+    }
+    .ep-hero p {
+      color: rgba(0,0,0,0.75);
+      font-size: 1.15rem;
+      line-height: 1.8;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .ep-content {
+      padding: 100px 0;
+      background: #fff;
+    }
+    .ep-content .ep-content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .ep-content .ep-content-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .ep-content .ep-content-text .section-label {
+      margin-bottom: 20px;
+    }
+    .ep-content .ep-content-text h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 32px;
+      line-height: 1.3;
+    }
+    .ep-content .ep-content-text .ep-features {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .ep-content .ep-content-text .ep-features .ep-feat {
+      display: flex;
+      gap: 12px;
+      background: #f7fafc;
+      border-radius: 16px;
+      padding: 16px 20px;
+      border: 1px solid #eef2f6;
+      transition: all 0.3s ease;
+    }
+    .ep-content .ep-content-text .ep-features .ep-feat:hover {
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(8,143,143,0.06);
+      border-color: rgba(8,143,143,0.12);
+    }
+    .ep-content .ep-content-text .ep-features .ep-feat p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .ep-content .ep-content-text .ep-features .ep-feat p strong {
+      color: #088f8f;
+    }
+
+    .ep-stats {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    }
+    .ep-stats .ep-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .ep-stats .ep-stat-card {
+      background: #088f8f;
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .ep-stats .ep-stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(8,143,143,0.2);
+    }
+    .ep-stats .ep-stat-card .ep-stat-num {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .ep-stats .ep-stat-card .ep-stat-label {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+    }
+    .ep-stats .ep-stat-heading {
+      text-align: center;
+      font-size: 1rem;
+      color: #888;
+      font-weight: 500;
+      margin-bottom: 28px;
+      letter-spacing: 0.5px;
+    }
+
+
+
+    .ep-approach {
+      padding: 100px 0;
+      background: #fff;
+    }
+    .ep-approach .ep-approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 56px;
+    }
+    .ep-approach .ep-ap-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 32px;
+      border: 1px solid #eef2f6;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+    .ep-approach .ep-ap-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(8,143,143,0.1);
+      border-color: rgba(8,143,143,0.12);
+    }
+    .ep-approach .ep-ap-card .ep-ap-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 1.6rem;
+    }
+    .ep-approach .ep-ap-card:nth-child(1) { background: #f1ae44; }
+    .ep-approach .ep-ap-card:nth-child(1) .ep-ap-icon { background: rgba(0,0,0,0.1); color: #1a1a2e; }
+    .ep-approach .ep-ap-card:nth-child(1) h3 { color: #1a1a2e; }
+    .ep-approach .ep-ap-card:nth-child(1) p { color: #1a1a2e; }
+    .ep-approach .ep-ap-card:nth-child(1) .ep-ap-link { color: #1a1a2e; }
+    .ep-approach .ep-ap-card:nth-child(2) { background: #088f8f; }
+    .ep-approach .ep-ap-card:nth-child(2) .ep-ap-icon { background: rgba(255,255,255,0.2); color: #fff; }
+    .ep-approach .ep-ap-card:nth-child(2) h3 { color: #fff; }
+    .ep-approach .ep-ap-card:nth-child(2) p { color: rgba(255,255,255,0.85); }
+    .ep-approach .ep-ap-card:nth-child(2) .ep-ap-link { color: #fff; }
+    .ep-approach .ep-ap-card:nth-child(3) { background: #f1ae44; }
+    .ep-approach .ep-ap-card:nth-child(3) .ep-ap-icon { background: rgba(0,0,0,0.1); color: #1a1a2e; }
+    .ep-approach .ep-ap-card:nth-child(3) h3 { color: #1a1a2e; }
+    .ep-approach .ep-ap-card:nth-child(3) p { color: #1a1a2e; }
+    .ep-approach .ep-ap-card:nth-child(3) .ep-ap-link { color: #1a1a2e; }
+    .ep-approach .ep-ap-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 14px;
+    }
+    .ep-approach .ep-ap-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .ep-approach .ep-ap-card .ep-ap-link {
+      color: #088f8f;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.3s;
+    }
+    .ep-approach .ep-ap-card .ep-ap-link:hover { gap: 12px; }
+
+    .ep-apps {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    }
+    .ep-apps .ep-apps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .ep-apps .ep-app-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 36px 32px;
+      border: 1px solid #eef2f6;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: all 0.35s ease;
+    }
+    .ep-apps .ep-app-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(8,143,143,0.08);
+    }
+    .ep-apps .ep-app-card .ep-app-icon {
+      width: 100px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    .ep-apps .ep-app-card .ep-app-icon img {
+      width: 100px;
+      height: auto;
+    }
+    .ep-apps .ep-app-card:nth-child(2) .ep-app-icon img {
+      width: 170px;
+    }
+    .ep-apps .ep-app-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+    .ep-apps .ep-app-card p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+    .ep-apps .ep-app-card .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1a1a2e;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .ep-apps .ep-app-card .store-btn:hover {
+      background: #088f8f;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 1024px) {
+      .ep-hero { padding: 100px 24px 80px; }
+      .ep-content { padding: 60px 0; }
+      .ep-approach { padding: 60px 0; }
+      .ep-content .ep-content-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 900px) {
+      .ep-approach .ep-approach-grid { grid-template-columns: 1fr; }
+      .ep-apps .ep-apps-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .ep-hero { padding: 80px 20px 60px; }
+      .ep-hero h1 { font-size: 2.2rem; }
+      .ep-stats .ep-stats-grid { grid-template-columns: 1fr; max-width: 400px; }
+      .ep-content { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="ep-hero">
+    <div class="ep-hero-inner">
+      <img src="assets/clt patashale.png" alt="e-Patashale" style="max-width:420px;width:100%;height:auto;margin:0 auto 10px;display:block;">
+      <p>Bridging the teacher gap in rural India with low-cost digital STEM tools — giving every child access to quality education, regardless of geography or circumstance.</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="ep-content">
+    <div class="container">
+      <div class="ep-content-grid">
+        <div class="ep-content-img">
+          <img src="assets/CLT India Ecosystem.png" alt="CLT India Ecosystem">
+        </div>
+        <div class="ep-content-text">
+          <span class="section-label">What is e-Patashale?</span>
+          <h2>Digital STEM Education for Rural Classrooms</h2>
+          <div class="ep-features">
+            <div class="ep-feat">
+              <p>While education technology is making its way to high-end private schools, CLT is deeply immersed in bringing education technology to government schools. <strong>CLT e-Patashale</strong> was conceptualized to bring about a transformation in rural classrooms.</p>
+            </div>
+            <div class="ep-feat">
+              <p>The strategy is to build a replicable and scalable model where master-teachers design innovative <strong>STEM pedagogy</strong> for local practitioners and develop <strong>low-cost technology</strong> delivery models. Technology is leveraged for replication across regional languages and scale.</p>
+            </div>
+            <div class="ep-feat">
+              <p>The entire program architecture is built around giving access to quality education in remote areas by <strong>upskilling teachers</strong>. Content can be accessed without internet, and solar panels are provided where electricity is a challenge.</p>
+            </div>
+            <div class="ep-feat">
+              <p>The digital STEM content is for <strong>5th&ndash;10th grades</strong>, based on NCERT syllabus. It has concept-based videos, real-time experiments, activity-based learning and assessments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="ep-stats">
+    <div class="container">
+      <p class="ep-stat-heading">— The repository consists of —</p>
+      <div class="ep-stats-grid">
+        <div class="ep-stat-card">
+          <div class="ep-stat-num">15,000+</div>
+          <div class="ep-stat-label">STEM Videos in 4 Regional Languages</div>
+        </div>
+        <div class="ep-stat-card">
+          <div class="ep-stat-num">2,000+</div>
+          <div class="ep-stat-label">Digital Workbooks for Teachers</div>
+        </div>
+      </div>
+      <p style="color: var(--text-light); font-size: 1rem; line-height: 1.8; text-align: center; max-width: 700px; margin: 2rem auto 0;">Collaboration with State and District level governments, corporates, NGOs and local communities have made the model sustainable.</p>
+    </div>
+  </section>
+
+  <!-- Apps -->
+  <section class="ep-apps">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Our Apps</span>
+        <h2 class="section-title">Delivering Content Anywhere</h2>
+        <p class="section-subtitle">For delivery of content, we have developed one classroom app and two mobile apps</p>
+      </div>
+      <div class="ep-apps-grid">
+        <div class="ep-app-card">
+          <div class="ep-app-icon"><img src="assets/JIGI.png" alt="JIGI App"></div>
+          <div>
+            <h3>JIGI App</h3>
+            <p>A classroom app designed for teachers to deliver interactive STEM lessons, track student progress, and access the full content repository.</p>
+            <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;">
+              <a href="#" class="store-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 0 1 0 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+                Google Play
+              </a>
+              <a href="#" class="store-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.53-.68 1.21-1.19 1.99-1.32.24 1.27-.35 2.53-1.02 3.38-.66.85-1.64 1.38-2.6 1.27-.2-1.06.31-2.28.98-3.12.67-.84 1.5-1.2 2.65-1.21z"/></svg>
+                App Store
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="ep-app-card">
+          <div class="ep-app-icon"><img src="assets/JIGI-JIGI.png" alt="JIGI-JIGI App"></div>
+          <div>
+            <h3>JIGI-JIGI App</h3>
+            <p>A mobile app for students to learn at their own pace with interactive content, quizzes, and progress tracking — designed for offline use.</p>
+            <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;">
+              <a href="#" class="store-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 0 1 0 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+                Google Play
+              </a>
+              <a href="#" class="store-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.53-.68 1.21-1.19 1.99-1.32.24 1.27-.35 2.53-1.02 3.38-.66.85-1.64 1.38-2.6 1.27-.2-1.06.31-2.28.98-3.12.67-.84 1.5-1.2 2.65-1.21z"/></svg>
+                App Store
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section class="ep-approach">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Our Approach</span>
+        <h2 class="section-title">How We Deliver Impact</h2>
+        <p class="section-subtitle">A holistic model built around teachers, technology, and hands-on learning</p>
+      </div>
+      <div class="ep-approach-grid">
+        <div class="ep-ap-card">
+          <div class="ep-ap-icon">📚</div>
+          <h3>Approach to Pedagogy</h3>
+          <p>Master-teachers design innovative STEM pedagogy for local practitioners, delivered through low-cost technology models that work in any classroom.</p>
+          <a href="#" class="ep-ap-link">Experience e-Patashale &rarr;</a>
+        </div>
+        <div class="ep-ap-card">
+          <div class="ep-ap-icon">👩‍🏫</div>
+          <h3>Teachers Training</h3>
+          <p>True to its strategy of keeping teachers at the center, CLT has successfully trained every teacher in every school where e-Patashale is implemented.</p>
+          <a href="#" class="ep-ap-link">View Gallery &rarr;</a>
+        </div>
+        <div class="ep-ap-card">
+          <div class="ep-ap-icon">🔬</div>
+          <h3>STEM Experiential Learning</h3>
+          <p>CLT conducts workshops with volunteers to develop STEM learning kits, distributed to government schools for hands-on experiential learning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="newsletter-section" id="involved" style="padding:80px 0;">
+    <div class="container">
+      <div class="newsletter-grid" style="grid-template-columns: 1fr;">
+        <div class="newsletter-content" style="text-align:center;max-width:600px;margin:0 auto;">
+          <span class="section-label">Get Involved</span>
+          <h2 class="section-title">Support e-Patashale</h2>
+          <p style="color:#1a1a2e;">Help us bring quality digital STEM education to every rural classroom. Your support makes it possible.</p>
+          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+            <a href="donate.html" class="btn-primary">Donate Now</a>
+            <a href="volunteer.html" class="btn-primary" style="background:#f1ae44;box-shadow:0 4px 15px rgba(241,174,68,0.3);">Volunteer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
+
+  <script src="script.js"></script>
+  <script src="include.js"></script>
+</body>
+</html>
