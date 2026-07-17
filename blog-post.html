@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="post-title">Blog Post | CLT India</title>
+  <meta name="description" content="CLT India Blog - Read our latest stories and insights.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .bp-hero {
+      margin-top: var(--header-h);
+      padding: 120px 24px 80px;
+      background: linear-gradient(135deg, #088f8f 0%, #0ab0b0 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .bp-hero::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -30%;
+      width: 160%;
+      height: 160%;
+      background: radial-gradient(ellipse at 30% 40%, rgba(255,255,255,0.07) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 60%, rgba(255,255,255,0.05) 0%, transparent 50%);
+    }
+    .bp-hero .bp-cat {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(255,255,255,0.15);
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+    .bp-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+      line-height: 1.2;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .bp-hero .bp-meta {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      margin-top: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bp-section {
+      padding: 80px 0;
+    }
+    .bp-section .bp-content {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .bp-section .bp-featured-img {
+      width: 100%;
+      border-radius: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+    .bp-section .bp-content p {
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .bp-section .bp-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 40px 0 16px;
+    }
+    .bp-section .bp-content blockquote {
+      border-left: 4px solid var(--teal);
+      padding: 20px 24px;
+      margin: 32px 0;
+      background: #f8fafc;
+      border-radius: 0 16px 16px 0;
+      font-style: italic;
+      color: var(--text-light);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .bp-section .bp-content ul {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+    .bp-section .bp-content ul li {
+      margin-bottom: 10px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .bp-section .bp-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--teal);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 40px;
+      text-decoration: none;
+      transition: gap 0.3s;
+    }
+    .bp-section .bp-back:hover { gap: 14px; }
+
+    @media (max-width: 600px) {
+      .bp-hero { padding: 100px 20px 60px; }
+      .bp-section { padding: 50px 0; }
+      .bp-section .bp-content p { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <section class="bp-hero" id="bpHero">
+    <span class="bp-cat" id="bpCategory">Category</span>
+    <h1 id="bpHeading">Post Title</h1>
+    <div class="bp-meta" id="bpMeta">Date</div>
+  </section>
+
+  <section class="bp-section">
+    <div class="container">
+      <div class="bp-content">
+        <a href="blog.html" class="bp-back">&larr; Back to Blog</a>
+        <img class="bp-featured-img" id="bpImage" src="" alt="">
+        <div id="bpBody"></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
+  <script src="script.js"></script>
+  <script src="include.js"></script>
+  <script>
+    const posts = {
+      "stem-education": {
+        cat: "STEM Education",
+        title: "Transforming Classrooms with Digital STEM",
+        date: "June 15, 2026",
+        img: "assets/Hero slide/1.png",
+        body: `
+          <p>In the heart of rural India, a quiet revolution is taking place. Children who once had only a blackboard and chalk are now engaging with interactive digital content that brings science, technology, engineering, and mathematics to life.</p>
+          <p>CLT India's e-Patashale platform is at the forefront of this transformation, delivering high-quality STEM education to over 5,000 schools across 13 states. The platform is designed specifically for low-resource environments, working offline and on low-cost hardware.</p>
+          <h2>The Challenge</h2>
+          <p>India's government schools face severe infrastructure challenges — from electricity shortages to a lack of trained teachers. Traditional teaching methods often fail to engage students, leading to high dropout rates and poor learning outcomes.</p>
+          <blockquote>"When we first introduced the digital content in our classroom, the children's eyes lit up. For many of them, it was the first time they saw a science experiment come to life on screen." — Teacher, Karnataka</blockquote>
+          <h2>How e-Patashale Works</h2>
+          <p>The platform offers animated lessons, interactive quizzes, virtual experiments, and teacher dashboards that track student progress. Content is aligned with the state curriculum and available in multiple languages.</p>
+          <ul>
+            <li><strong>Interactive Content:</strong> 15,000+ STEM videos and animations</li>
+            <li><strong>Offline Capability:</strong> Works without internet connectivity</li>
+            <li><strong>Teacher Dashboard:</strong> Real-time tracking of student performance</li>
+            <li><strong>Multilingual:</strong> Content available in regional languages</li>
+          </ul>
+          <h2>The Impact</h2>
+          <p>Studies by Microsoft Research India and Christ University have validated the effectiveness of CLT's approach. In a three-week study, students using e-Patashale showed significant improvement in English comprehension and science scores compared to control groups.</p>
+          <p>Today, over 2.8 million students have benefited from the program, with 82,000+ teachers trained to deliver digital lessons. The journey continues as we expand to more schools and develop new content.</p>
+        `
+      },
+      "empowering-girls": {
+        cat: "Community",
+        title: "Empowering Girls Through Education",
+        date: "May 28, 2026",
+        img: "assets/community-scholarship.png",
+        body: `
+          <p>For many girls in underserved communities, the dream of higher education remains just that — a dream. Financial constraints, social pressures, and lack of resources often force them to abandon their aspirations after secondary school.</p>
+          <p>CLT India's Scholarship for Girl Students program is working to change this narrative. By providing financial assistance to meritorious and underprivileged girls, we are opening doors to colleges, universities, and vocational training programs.</p>
+          <h2>Breaking Barriers</h2>
+          <p>Each scholarship covers tuition fees, books, and learning materials. But the program goes beyond financial support — we also provide mentorship, career counseling, and a peer network that helps these young women navigate the challenges of higher education.</p>
+          <blockquote>"My family couldn't afford college fees, but this scholarship gave me a second chance. I am now studying computer science and want to become a software engineer." — Priya, Scholarship Recipient</blockquote>
+          <h2>Our Commitment</h2>
+          <p>CLT believes that educating a girl transforms not just her life, but the lives of everyone around her. Educated women are more likely to ensure their own children attend school, breaking the cycle of poverty for generations to come.</p>
+          <p>We are committed to expanding this program and reaching more girls in the coming years. Together, we can build a future where every girl has the opportunity to learn, grow, and lead.</p>
+        `
+      },
+      "summer-camp": {
+        cat: "Impact",
+        title: "Summer Camp 2026: A Season of Joy & Learning",
+        date: "May 10, 2026",
+        img: "assets/community-summercamp.png",
+        body: `
+          <p>The CLT Summer Camp has become one of the most anticipated events in the communities we serve. Every year, hundreds of children come together for a month of fun, creativity, and discovery — and 2026 was no exception.</p>
+          <p>From pottery workshops to movie screenings, science days to art competitions, the camp offers a rich blend of activities designed to spark curiosity and build confidence.</p>
+          <h2>Highlights from This Year</h2>
+          <p>The camp featured a wide range of activities spread across four weeks. Children rotated through different stations, each focusing on a different skill or subject area.</p>
+          <ul>
+            <li><strong>Pottery & Crafts:</strong> Children learned traditional pottery techniques and created their own works of art</li>
+            <li><strong>STEM Experiments:</strong> Hands-on science experiments that made learning fun and memorable</li>
+            <li><strong>Environmental Awareness:</strong> Tree planting, recycling projects, and nature walks</li>
+            <li><strong>Spoken English:</strong> Interactive sessions to build confidence in speaking English</li>
+            <li><strong>Career Counseling:</strong> Guidance on educational and career pathways</li>
+          </ul>
+          <h2>Building Friendships and Memories</h2>
+          <p>Beyond the activities, the Summer Camp provides something equally important — a sense of belonging. Children from different schools and backgrounds come together, forming friendships that last long after the camp ends.</p>
+          <p>We are grateful to our volunteers and donors who make this program possible. Your support brings joy and learning to children who need it most.</p>
+        `
+      },
+      "teacher-training": {
+        cat: "Teacher Training",
+        title: "Empowering Teachers with Technology",
+        date: "April 22, 2026",
+        img: "assets/Hero slide/2.png",
+        body: `
+          <p>A teacher with the right tools can change a thousand lives. At CLT India, we believe that technology is not a replacement for teachers — it is a powerful tool that amplifies their impact.</p>
+          <p>Through our Teacher Connect Program, we have trained over 82,000 educators across 13 states, equipping them with digital tools, pedagogical techniques, and ongoing support to deliver engaging STEM lessons.</p>
+          <h2>The Training Model</h2>
+          <p>Our training program is hands-on and practical. Teachers learn how to operate digital devices, navigate the e-Patashale platform, create lesson plans that integrate digital content, and assess student progress using data analytics.</p>
+          <blockquote>"I used to struggle to explain science concepts with just a blackboard. Now I can show my students videos and animations that make everything clear. My students are more engaged than ever before." — Science Teacher, Andhra Pradesh</blockquote>
+          <h2>Ongoing Support</h2>
+          <p>Training is just the beginning. Our team provides continuous support through school visits, refresher workshops, and a helpline that teachers can call when they need assistance. We also facilitate peer learning networks where teachers can share best practices.</p>
+          <p>The result? More confident teachers, more engaged students, and better learning outcomes. As we expand our reach, we remain committed to supporting the educators who are shaping India's future.</p>
+        `
+      },
+      "after-school": {
+        cat: "Community",
+        title: "After School Program: Learning Beyond the Bell",
+        date: "March 15, 2026",
+        img: "assets/community-afterschool.png",
+        body: `
+          <p>For many children in underserved communities, the end of the school day does not mean the end of learning — it means the beginning of a safe, stimulating environment where they can explore, create, and grow.</p>
+          <p>CLT India's After School Program provides exactly this: a welcoming space where children can access computer skills training, spoken English practice, STEM experiments, movie screenings, art and craft, and more.</p>
+          <h2>A Holistic Approach</h2>
+          <p>Our after school centers are staffed by dedicated volunteers and CLT team members who work with children on a range of activities designed to complement their formal education.</p>
+          <ul>
+            <li><strong>Computer Skills:</strong> Basic computing, typing, and digital literacy</li>
+            <li><strong>Spoken English:</strong> Conversational practice to build confidence</li>
+            <li><strong>STEM Experiments:</strong> Fun, hands-on science activities</li>
+            <li><strong>Arts & Crafts:</strong> Creative expression through various art forms</li>
+          </ul>
+          <h2>Technology in Action</h2>
+          <p>One of the highlights of the program is the interaction with Amazon Alexa devices. Children ask questions, play educational games, and explore the world through voice-enabled technology. This exposure to AI and voice interfaces sparks curiosity and prepares them for a tech-driven future.</p>
+          <p>The After School Program is more than just an educational initiative — it is a community hub where children feel safe, supported, and inspired to dream big.</p>
+        `
+      },
+      "digital-learning-research": {
+        cat: "Research",
+        title: "The Impact of Digital Learning in Rural India",
+        date: "February 8, 2026",
+        img: "assets/Hero slide/4.png",
+        body: `
+          <p>Is digital learning effective in low-resource settings? This question has guided CLT India's work for years, and independent research now provides compelling answers.</p>
+          <h2>Microsoft Research India Study</h2>
+          <p>In an exploratory study conducted by Microsoft Research India, usage of CLT's electronic content over a period of 3 weeks was found to significantly improve students' learning of English in a low-income government school in peri-urban India. The study highlighted how interactive digital content can engage students and accelerate learning even in challenging environments.</p>
+          <blockquote>"In this exploratory study, usage of electronic content over a period of 3 weeks was found to significantly improve students' learning of English in a low-income government school in peri-urban India." — Microsoft Research India</blockquote>
+          <h2>Christ University Assessment</h2>
+          <p>An impact assessment conducted by Christ University found that 83.7% of schools reported increased enrollment due to the e-Patashale project. The study also documented improved student attendance, greater teacher confidence, and enhanced parent engagement.</p>
+          <h2>Dasra Research Publication</h2>
+          <p>CLT was chosen as a Dasra Fellow for their Research Publication (in partnership with USAID) as one of 7 Change Makers making a difference in the way girls are impacted in secondary schools. This recognition underscores the effectiveness of our approach and the potential for scalable impact.</p>
+          <p>These research findings validate what we have seen firsthand — that when technology is deployed thoughtfully, it can transform education even in the most resource-constrained environments.</p>
+        `
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id') || 'stem-education';
+    const post = posts[id] || posts['stem-education'];
+
+    document.title = post.title + ' | CLT India';
+    document.getElementById('bpCategory').textContent = post.cat;
+    document.getElementById('bpHeading').textContent = post.title;
+    document.getElementById('bpMeta').textContent = post.date;
+    document.getElementById('bpImage').src = post.img;
+    document.getElementById('bpImage').alt = post.title;
+    document.getElementById('bpBody').innerHTML = post.body;
+  </script>
+</body>
+</html>
