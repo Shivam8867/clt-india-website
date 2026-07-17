@@ -21,34 +21,35 @@
     .co-hero::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.06) 0%, transparent 50%),
-                  radial-gradient(circle at 70% 60%, rgba(255,255,255,0.04) 0%, transparent 50%);
+      top: -60%;
+      left: -30%;
+      width: 160%;
+      height: 160%;
+      background: radial-gradient(ellipse at 30% 40%, rgba(255,255,255,0.07) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 60%, rgba(255,255,255,0.05) 0%, transparent 50%);
+    }
+    .co-hero .co-hero-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
     }
     .co-hero h1 {
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
-      font-weight: 700;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 800;
       color: #fff;
       position: relative;
       z-index: 1;
-    }
-    .co-hero .co-hero-sub {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.75);
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 12px;
-      position: relative;
-      z-index: 1;
+      line-height: 1.15;
     }
     .co-hero p {
-      font-size: 1.15rem;
-      color: rgba(255,255,255,0.85);
-      max-width: 600px;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 560px;
       margin: 20px auto 0;
       line-height: 1.7;
       position: relative;
@@ -59,62 +60,114 @@
       padding: 100px 0;
     }
     .co-section:nth-child(even) {
-      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+      background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
     }
-    .co-grid {
+    .co-card {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
       align-items: center;
+      background: #fff;
+      border-radius: 28px;
+      padding: 48px;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.03);
+      border: 1px solid #eef2f6;
+      transition: box-shadow 0.4s;
     }
-    .co-grid.reversed .co-img { order: 2; }
-    .co-grid.reversed .co-text { order: 1; }
-    .co-img img {
-      width: 100%;
+    .co-card:hover {
+      box-shadow: 0 20px 60px rgba(8,143,143,0.08);
+    }
+    .co-card.reversed .co-img { order: 2; }
+    .co-card.reversed .co-text { order: 1; }
+
+    .co-img-wrap {
+      position: relative;
       border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(8,143,143,0.12);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      overflow: hidden;
     }
-    .co-img img:hover {
-      transform: scale(1.02);
-      box-shadow: 0 30px 80px rgba(8,143,143,0.18);
+    .co-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+      pointer-events: none;
     }
+    .co-img-wrap img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .co-card:hover .co-img-wrap img {
+      transform: scale(1.04);
+    }
+
     .co-text .co-label {
       display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 3px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--teal);
-      background: rgba(8,143,143,0.1);
+      background: rgba(8,143,143,0.08);
       padding: 6px 16px;
       border-radius: 30px;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
     .co-text h2 {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-size: clamp(1.5rem, 2.8vw, 2rem);
       font-weight: 700;
       color: var(--dark);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       line-height: 1.3;
     }
     .co-text p {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--text-light);
       line-height: 1.8;
     }
 
+    .co-footer-cta {
+      padding: 100px 0;
+      background: #088f8f;
+      text-align: center;
+    }
+    .co-footer-cta h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .co-footer-cta p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .co-footer-cta .btn-wrap {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1024px) {
+      .co-card { gap: 40px; padding: 36px; }
+    }
     @media (max-width: 900px) {
-      .co-grid { grid-template-columns: 1fr; gap: 40px; }
-      .co-grid.reversed .co-img { order: 0; }
-      .co-grid.reversed .co-text { order: 0; }
+      .co-card { grid-template-columns: 1fr; gap: 36px; padding: 32px; }
+      .co-card.reversed .co-img { order: 0; }
+      .co-card.reversed .co-text { order: 0; }
       .co-section { padding: 60px 0; }
     }
     @media (max-width: 600px) {
       .co-hero { padding: 120px 20px 80px; }
       .co-hero p { font-size: 1rem; }
-      .co-section { padding: 50px 0; }
-      .co-grid { gap: 28px; }
+      .co-section { padding: 40px 0; }
+      .co-card { padding: 24px; gap: 24px; border-radius: 20px; }
+      .co-text h2 { font-size: 1.3rem; }
+      .co-text p { font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -132,12 +185,12 @@
   <!-- Program 1: Scholarship -->
   <section class="co-section">
     <div class="container">
-      <div class="co-grid">
-        <div class="co-img">
+      <div class="co-card">
+        <div class="co-img-wrap">
           <img src="assets/community-scholarship.png" alt="Scholarship for girl students" loading="lazy">
         </div>
         <div class="co-text">
-          <span class="co-label">Program</span>
+          <span class="co-label">Program 01</span>
           <h2>Scholarship for Girl Students</h2>
           <p>At Children's LoveCastles Trust (CLT), we believe that education is the key to transforming lives—especially for young girls in underserved communities. Our scholarship initiative aims to support meritorious and underprivileged girl students by providing them with financial assistance to pursue higher education. By removing economic barriers and enabling access to quality learning, we are nurturing future leaders, innovators, and changemakers. Together, let's build a brighter and more equal tomorrow—one educated girl at a time.</p>
         </div>
@@ -148,12 +201,12 @@
   <!-- Program 2: After School -->
   <section class="co-section">
     <div class="container">
-      <div class="co-grid reversed">
-        <div class="co-img">
+      <div class="co-card reversed">
+        <div class="co-img-wrap">
           <img src="assets/community-afterschool.png" alt="After School Program" loading="lazy">
         </div>
         <div class="co-text">
-          <span class="co-label">Program</span>
+          <span class="co-label">Program 02</span>
           <h2>The After School Program</h2>
           <p>It provides an opportunity for the CLT India team to volunteer and work with children. The program includes fun activities such as movie screenings, computer skills, Spoken English, counselling, art and craft, STEM experiments, etc. The children interact with the Amazon Alexa device and have fun and interesting interaction.</p>
         </div>
@@ -164,12 +217,12 @@
   <!-- Program 3: Summer Camp -->
   <section class="co-section">
     <div class="container">
-      <div class="co-grid">
-        <div class="co-img">
+      <div class="co-card">
+        <div class="co-img-wrap">
           <img src="assets/community-summercamp.png" alt="Summer Camp" loading="lazy">
         </div>
         <div class="co-text">
-          <span class="co-label">Program</span>
+          <span class="co-label">Program 03</span>
           <h2>Summer Camp</h2>
           <p>CLT organizes a vibrant Summer Camp every year for the children in the community, offering a perfect blend of fun, creativity, and learning. The annual program includes a wide range of activities such as pottery, arts &amp; crafts, environmental awareness, movie screenings, science and math days, STEM experiments, computer skills, spoken English, and career counseling. Each year, the camp provides children with a joyful and enriching experience, helping them explore new interests, develop important skills, and build lasting friendships.</p>
         </div>
@@ -180,12 +233,12 @@
   <!-- Program 4: Spoken English -->
   <section class="co-section">
     <div class="container">
-      <div class="co-grid reversed">
-        <div class="co-img">
+      <div class="co-card reversed">
+        <div class="co-img-wrap">
           <img src="assets/community-spokenenglish.png" alt="Spoken English Program" loading="lazy">
         </div>
         <div class="co-text">
-          <span class="co-label">Program</span>
+          <span class="co-label">Program 04</span>
           <h2>Spoken English</h2>
           <p>Children's Lovecastle Trust (CLT) recognizes the importance of English communication skills in today's globalized world. Through its Spoken English Program, CLT empowers students—especially from underserved backgrounds—with the confidence to express themselves fluently in English. The program uses interactive audio-visual content, engaging classroom activities, and structured modules designed to build vocabulary, grammar, and pronunciation. By creating a fun and immersive learning environment, CLT helps children overcome language barriers and prepares them for academic and professional success.</p>
         </div>
@@ -194,18 +247,13 @@
   </section>
 
   <!-- CTA -->
-  <section class="newsletter-section" id="involved" style="padding:80px 0;">
+  <section class="co-footer-cta">
     <div class="container">
-      <div class="newsletter-grid" style="grid-template-columns: 1fr;">
-        <div class="newsletter-content" style="text-align:center;max-width:600px;margin:0 auto;">
-          <span class="section-label">Be Part of the Change</span>
-          <h2 class="section-title">Help Us Reach Every Child</h2>
-          <p style="color:#1a1a2e;">Your support enables us to bring quality STEM education to more classrooms across India. Join us in transforming lives through education.</p>
-          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
-            <a href="donate.html" class="btn-primary">Donate Now</a>
-            <a href="volunteer.html" class="btn-primary" style="background:#f1ae44;box-shadow:0 4px 15px rgba(241,174,68,0.3);">Volunteer</a>
-          </div>
-        </div>
+      <h2>Help Us Reach Every Child</h2>
+      <p>Your support enables us to bring quality education and community programs to more children across India.</p>
+      <div class="btn-wrap">
+        <a href="donate.html" class="btn-primary">Donate Now</a>
+        <a href="volunteer.html" class="btn-primary" style="background:#f1ae44;box-shadow:0 4px 15px rgba(241,174,68,0.3);">Volunteer</a>
       </div>
     </div>
   </section>
