@@ -1144,6 +1144,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
   padding: 100px 0;
   background: #f2f2f2;
   position: relative;
+  overflow: hidden;
 }
 
 .newsletter-grid {
@@ -1504,6 +1505,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 }
 
 @media (max-width: 768px) {
+  .newsletter-grid { grid-template-columns: 1fr; gap: 40px; }
   .form-row { flex-direction: column; }
   .gallery-wrapper { gap: 10px; padding: 0 4px; }
   .gallery-slider { padding: 8px; border-radius: 12px; }
