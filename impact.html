@@ -77,12 +77,7 @@
 
     .im-impact-section {
       padding: 100px 0;
-    }
-    .im-impact-section:nth-child(odd) {
-      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-    }
-    .im-impact-section:nth-child(even) {
-      background: #fff;
+      background: transparent;
     }
     .im-impact-grid {
       display: grid;
@@ -123,8 +118,14 @@
 
     .im-studies {
       padding: 100px 0;
-      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+      background: #088f8f;
     }
+    .im-studies .section-label {
+      color: #fff;
+      background: rgba(255,255,255,0.2);
+    }
+    .im-studies .section-title { color: #fff; }
+    .im-studies .section-subtitle { color: rgba(255,255,255,0.85); }
     .im-studies .im-studies-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -133,60 +134,97 @@
     }
     .im-studies .im-study-card {
       background: #fff;
-      border-radius: 20px;
-      padding: 36px 28px;
+      border-radius: 24px;
+      padding: 40px 32px 32px;
       border: 1px solid #eef2f6;
       box-shadow: 0 4px 20px rgba(0,0,0,0.02);
       transition: all 0.4s ease;
       display: flex;
       flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .im-studies .im-study-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+      border-radius: 24px 24px 0 0;
     }
     .im-studies .im-study-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 20px 50px rgba(8,143,143,0.08);
-      border-color: rgba(8,143,143,0.12);
+      box-shadow: 0 24px 60px rgba(8,143,143,0.1);
+      border-color: rgba(8,143,143,0.15);
     }
     .im-studies .im-study-card .im-study-badge {
       display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 2px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
       color: var(--teal);
       background: rgba(8,143,143,0.08);
-      padding: 5px 14px;
+      padding: 6px 16px;
       border-radius: 30px;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       align-self: flex-start;
     }
     .im-studies .im-study-card h3 {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--dark);
       margin-bottom: 14px;
-      line-height: 1.4;
+      line-height: 1.45;
     }
     .im-studies .im-study-card p {
       color: var(--text-light);
       font-size: 0.92rem;
-      line-height: 1.7;
+      line-height: 1.75;
       flex: 1;
+      font-style: italic;
     }
     .im-studies .im-study-card p .im-quote {
       color: var(--teal);
-      font-weight: 600;
+      font-weight: 700;
+      font-style: normal;
+      font-size: 1.1rem;
+    }
+    .im-studies .im-study-link-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #eef2f6;
     }
     .im-studies .im-study-card .im-study-link {
       color: var(--teal);
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.9rem;
-      margin-top: 20px;
       display: inline-flex;
       align-items: center;
       gap: 6px;
       transition: gap 0.3s;
     }
     .im-studies .im-study-card .im-study-link:hover { gap: 12px; }
+    .im-studies .im-study-card .im-study-arrow {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(8,143,143,0.08);
+      border-radius: 50%;
+      color: var(--teal);
+      font-size: 1rem;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .im-studies .im-study-card:hover .im-study-arrow {
+      background: var(--teal);
+      color: #fff;
+      transform: translateX(4px) rotate(-45deg);
+    }
 
     @media (max-width: 1024px) {
       .im-studies .im-studies-grid { grid-template-columns: 1fr 1fr; }
@@ -195,7 +233,68 @@
       .im-impact-grid { grid-template-columns: 1fr; gap: 40px; }
       .im-impact-grid .im-impact-img { order: -1; }
     }
+    .im-videos {
+      padding: 100px 0;
+      background: linear-gradient(180deg, #f8fafc 0%, #fff 100%);
+    }
+    .im-videos .container {
+      max-width: 100%;
+      padding-left: 120px;
+      padding-right: 120px;
+    }
+    .im-videos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 48px;
+    }
+    .im-video-card {
+      background: #f1ae44;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      border: 1px solid #eef2f6;
+      transition: all 0.4s ease;
+    }
+    .im-video-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px rgba(8,143,143,0.1);
+      border-color: rgba(8,143,143,0.12);
+    }
+    .im-video-card .im-video-body {
+      padding: 24px 24px 28px;
+    }
+    .im-video-card .im-video-body h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #000;
+      margin: 0 0 8px;
+      line-height: 1.4;
+    }
+    .im-video-card .im-video-body p {
+      font-size: 0.88rem;
+      color: #000;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .im-video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #1a1a2e;
+    }
+    .im-video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    @media (max-width: 1024px) {
+      .im-videos-grid { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 600px) {
+      .im-videos-grid { grid-template-columns: 1fr; }
       .im-hero { padding: 100px 20px 60px; }
       .im-hero .im-hero-sub { font-size: 1rem; letter-spacing: 2px; }
       .im-studies .im-studies-grid { grid-template-columns: 1fr; }
@@ -217,76 +316,30 @@
   </section>
 
   <!-- Map + Stats -->
-  <section class="impact-map-section">
+  <section class="impact-map-section light-bg">
     <div class="impact-map-fluid-container">
       <div class="impact-map-grid">
         <div class="impact-map-left">
-          <span class="section-label light">CLT India Impact</span>
           <h2 class="impact-map-title">CLT's e-Patashale Program Has Transformed</h2>
-          <p style="color:rgba(255,255,255,0.8);font-size:1.05rem;line-height:1.8;margin-bottom:30px;max-width:540px;">Across <strong>11 states of India</strong>, CLT India has redefined classroom learning — reaching <strong>4,937 schools</strong>, empowering <strong>14,400+ classrooms</strong>, and benefiting <strong>82,000+ teachers</strong> to impact over <strong>2.8 million students</strong>.</p>
-          <div class="impact-counters-grid">
-            <div class="stat-card">
-              <div class="stat-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              </div>
-              <div class="stat-card-body">
-                <div class="eco-stat-num-wrap">
-                  <span class="stat-num" data-count="4937">0</span>
-                </div>
-                <span class="eco-stat-label">Schools</span>
-              </div>
-              <div class="stat-card-glow"></div>
+          <div class="impact-stats-list">
+            <div class="impact-stat-item">
+              <span class="impact-stat-num">4,937</span> schools
             </div>
-            <div class="stat-card">
-              <div class="stat-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/><path d="M7 8h2m3 0h5M7 12h5"/></svg>
-              </div>
-              <div class="stat-card-body">
-                <div class="eco-stat-num-wrap">
-                  <span class="stat-num" data-count="14400">0</span><span class="stat-suffix">+</span>
-                </div>
-                <span class="eco-stat-label">Classrooms</span>
-              </div>
-              <div class="stat-card-glow"></div>
+            <div class="impact-stat-item">
+              <span class="impact-stat-num">14,400+</span> classrooms
             </div>
-            <div class="stat-card">
-              <div class="stat-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <div class="stat-card-body">
-                <div class="eco-stat-num-wrap">
-                  <span class="stat-num" data-count="82000">0</span><span class="stat-suffix">+</span>
-                </div>
-                <span class="eco-stat-label">Teachers Benefited</span>
-              </div>
-              <div class="stat-card-glow"></div>
+            <div class="impact-stat-item">
+              <span class="impact-stat-num">82,000+</span> teachers benefited
             </div>
-            <div class="stat-card">
-              <div class="stat-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              </div>
-              <div class="stat-card-body">
-                <div class="eco-stat-num-wrap">
-                  <span class="stat-num" data-count="2.8">0</span><span class="stat-suffix">M+</span>
-                </div>
-                <span class="eco-stat-label">Students Impacted</span>
-              </div>
-              <div class="stat-card-glow"></div>
+            <div class="impact-stat-item">
+              <span class="impact-stat-num">2.8 million</span> students impacted
             </div>
-            <div class="stat-card">
-              <div class="stat-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
-              </div>
-              <div class="stat-card-body">
-                <div class="eco-stat-num-wrap">
-                  <span class="stat-num" data-count="11">0</span>
-                </div>
-                <span class="eco-stat-label">States Covered</span>
-              </div>
-              <div class="stat-card-glow"></div>
+            <div class="impact-stat-item">
+              Across <span class="impact-stat-num">13 states</span> of India
             </div>
           </div>
         </div>
+
         <div class="impact-map-right">
           <div class="map-card-frame">
             <svg class="india-svg-map" viewBox="0 0 612 696" xmlns="http://www.w3.org/2000/svg">
@@ -380,19 +433,68 @@
           <span class="im-study-badge">Microsoft Research India</span>
           <h3>Measuring the Learning Benefits of Electronic Teaching Aids</h3>
           <p><span class="im-quote">&ldquo;</span>In this exploratory study, usage of electronic content over a period of 3 weeks was found to significantly improve students&rsquo; learning of English in a low-income government school in peri-urban India.<span class="im-quote">&rdquo;</span></p>
-          <a href="#" class="im-study-link">Learn more &rarr;</a>
+          <div class="im-study-link-wrap">
+            <a href="assets/Impact%20docs/Microsoft%20Research%20India.pdf" class="im-study-link">Learn more</a>
+            <span class="im-study-arrow">&rarr;</span>
+          </div>
         </div>
         <div class="im-study-card">
           <span class="im-study-badge">Christ University</span>
           <h3>e-Shala Impact Assessment</h3>
           <p><span class="im-quote">&ldquo;</span>83.7% of the schools reported that enrollment in schools has increased due to this project.<span class="im-quote">&rdquo;</span></p>
-          <a href="#" class="im-study-link">Learn more &rarr;</a>
+          <div class="im-study-link-wrap">
+            <a href="assets/Impact%20docs/Christ%20University.pdf" class="im-study-link">Learn more</a>
+            <span class="im-study-arrow">&rarr;</span>
+          </div>
         </div>
         <div class="im-study-card">
           <span class="im-study-badge">Dasra &amp; USAID</span>
           <h3>Dasra Research Publication</h3>
           <p>CLT was chosen as a Dasra Fellow for their Research Publication (in partnership with USAID) as one of 7 Change Makers that is making a &lsquo;Difference&rsquo; in the way girls are impacted in secondary schools.</p>
-          <a href="#" class="im-study-link">Learn more &rarr;</a>
+          <div class="im-study-link-wrap">
+            <a href="assets/Impact%20docs/Dasra.pdf" class="im-study-link">Learn more</a>
+            <span class="im-study-arrow">&rarr;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Videos -->
+  <section class="im-videos">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Watch</span>
+        <h2 class="section-title">In Their Own Words</h2>
+        <p class="section-subtitle">Hear from educators and changemakers about the impact of CLT's programs</p>
+      </div>
+      <div class="im-videos-grid">
+        <div class="im-video-card">
+          <div class="im-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/OKMRtIhXeNo?controls=1&rel=0&modestbranding=1&autoplay=1&mute=1" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="im-video-body">
+            <h3>Reimagine Education</h3>
+            <p>Redefining learning experiences through technology and innovation.</p>
+          </div>
+        </div>
+        <div class="im-video-card">
+          <div class="im-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/gCacn1ZVMXE?controls=1&rel=0&modestbranding=1&autoplay=1&mute=1" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="im-video-body">
+            <h3>Carolyn Johnson — Educationist, Rotary International</h3>
+            <p>An education leader shares her perspective on CLT's transformative work.</p>
+          </div>
+        </div>
+        <div class="im-video-card">
+          <div class="im-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/ej2JUJx6clU?controls=1&rel=0&modestbranding=1&autoplay=1&mute=1" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="im-video-body">
+            <h3>Read to Rise</h3>
+            <p>Empowering children through the joy of reading and digital literacy.</p>
+          </div>
         </div>
       </div>
     </div>

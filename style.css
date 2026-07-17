@@ -2030,6 +2030,57 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
   width: 100%;
 }
 
+.impact-map-section.light-bg {
+  background: #f7fafc;
+  color: var(--dark);
+}
+
+.impact-map-section.light-bg .impact-map-title {
+  color: var(--dark);
+}
+
+.impact-map-section.light-bg .stat-card {
+  background: #fff;
+  border-color: #eef2f6;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.impact-map-section.light-bg .stat-card:hover {
+  background: #fff;
+  border-color: rgba(241, 174, 68, 0.35);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+}
+
+.impact-map-section.light-bg .stat-num {
+  color: var(--dark);
+}
+
+.impact-map-section.light-bg .eco-stat-label {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+
+.impact-stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 35px;
+}
+
+.impact-stat-item {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(8, 143, 143, 0.1);
+  font-size: 1.05rem;
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+.impact-stat-num {
+  font-weight: 800;
+  color: var(--teal);
+  font-size: 1.15rem;
+}
+
 .impact-map-fluid-container {
   width: 100%;
   max-width: 1400px;
