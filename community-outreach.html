@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Outreach | CLT India</title>
+  <meta name="description" content="CLT India's Community Outreach programs - Scholarship, After School Program, Summer Camp, Spoken English.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .co-hero {
+      margin-top: var(--header-h);
+      padding: 160px 24px 140px;
+      background: linear-gradient(135deg, #088f8f 0%, #0ab0b0 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .co-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.06) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 60%, rgba(255,255,255,0.04) 0%, transparent 50%);
+    }
+    .co-hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 700;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+    .co-hero .co-hero-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .co-hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 600px;
+      margin: 20px auto 0;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .co-section {
+      padding: 100px 0;
+    }
+    .co-section:nth-child(even) {
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    }
+    .co-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .co-grid.reversed .co-img { order: 2; }
+    .co-grid.reversed .co-text { order: 1; }
+    .co-img img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(8,143,143,0.12);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    .co-img img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 30px 80px rgba(8,143,143,0.18);
+    }
+    .co-text .co-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: rgba(8,143,143,0.1);
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 16px;
+    }
+    .co-text h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .co-text p {
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    @media (max-width: 900px) {
+      .co-grid { grid-template-columns: 1fr; gap: 40px; }
+      .co-grid.reversed .co-img { order: 0; }
+      .co-grid.reversed .co-text { order: 0; }
+      .co-section { padding: 60px 0; }
+    }
+    @media (max-width: 600px) {
+      .co-hero { padding: 120px 20px 80px; }
+      .co-hero p { font-size: 1rem; }
+      .co-section { padding: 50px 0; }
+      .co-grid { gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="co-hero">
+    <div class="co-hero-sub">Our Work</div>
+    <h1>Community Outreach</h1>
+    <p>Extending education beyond the classroom to empower communities and transform lives through meaningful engagement.</p>
+  </section>
+
+  <!-- Program 1: Scholarship -->
+  <section class="co-section">
+    <div class="container">
+      <div class="co-grid">
+        <div class="co-img">
+          <img src="assets/community-scholarship.png" alt="Scholarship for girl students" loading="lazy">
+        </div>
+        <div class="co-text">
+          <span class="co-label">Program</span>
+          <h2>Scholarship for Girl Students</h2>
+          <p>At Children's LoveCastles Trust (CLT), we believe that education is the key to transforming lives—especially for young girls in underserved communities. Our scholarship initiative aims to support meritorious and underprivileged girl students by providing them with financial assistance to pursue higher education. By removing economic barriers and enabling access to quality learning, we are nurturing future leaders, innovators, and changemakers. Together, let's build a brighter and more equal tomorrow—one educated girl at a time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program 2: After School -->
+  <section class="co-section">
+    <div class="container">
+      <div class="co-grid reversed">
+        <div class="co-img">
+          <img src="assets/community-afterschool.png" alt="After School Program" loading="lazy">
+        </div>
+        <div class="co-text">
+          <span class="co-label">Program</span>
+          <h2>The After School Program</h2>
+          <p>It provides an opportunity for the CLT India team to volunteer and work with children. The program includes fun activities such as movie screenings, computer skills, Spoken English, counselling, art and craft, STEM experiments, etc. The children interact with the Amazon Alexa device and have fun and interesting interaction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program 3: Summer Camp -->
+  <section class="co-section">
+    <div class="container">
+      <div class="co-grid">
+        <div class="co-img">
+          <img src="assets/community-summercamp.png" alt="Summer Camp" loading="lazy">
+        </div>
+        <div class="co-text">
+          <span class="co-label">Program</span>
+          <h2>Summer Camp</h2>
+          <p>CLT organizes a vibrant Summer Camp every year for the children in the community, offering a perfect blend of fun, creativity, and learning. The annual program includes a wide range of activities such as pottery, arts &amp; crafts, environmental awareness, movie screenings, science and math days, STEM experiments, computer skills, spoken English, and career counseling. Each year, the camp provides children with a joyful and enriching experience, helping them explore new interests, develop important skills, and build lasting friendships.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program 4: Spoken English -->
+  <section class="co-section">
+    <div class="container">
+      <div class="co-grid reversed">
+        <div class="co-img">
+          <img src="assets/community-spokenenglish.png" alt="Spoken English Program" loading="lazy">
+        </div>
+        <div class="co-text">
+          <span class="co-label">Program</span>
+          <h2>Spoken English</h2>
+          <p>Children's Lovecastle Trust (CLT) recognizes the importance of English communication skills in today's globalized world. Through its Spoken English Program, CLT empowers students—especially from underserved backgrounds—with the confidence to express themselves fluently in English. The program uses interactive audio-visual content, engaging classroom activities, and structured modules designed to build vocabulary, grammar, and pronunciation. By creating a fun and immersive learning environment, CLT helps children overcome language barriers and prepares them for academic and professional success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="newsletter-section" id="involved" style="padding:80px 0;">
+    <div class="container">
+      <div class="newsletter-grid" style="grid-template-columns: 1fr;">
+        <div class="newsletter-content" style="text-align:center;max-width:600px;margin:0 auto;">
+          <span class="section-label">Be Part of the Change</span>
+          <h2 class="section-title">Help Us Reach Every Child</h2>
+          <p style="color:#1a1a2e;">Your support enables us to bring quality STEM education to more classrooms across India. Join us in transforming lives through education.</p>
+          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+            <a href="donate.html" class="btn-primary">Donate Now</a>
+            <a href="volunteer.html" class="btn-primary" style="background:#f1ae44;box-shadow:0 4px 15px rgba(241,174,68,0.3);">Volunteer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
+
+  <script src="script.js"></script>
+  <script src="include.js"></script>
+</body>
+</html>
