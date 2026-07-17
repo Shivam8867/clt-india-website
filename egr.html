@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Early Grade Reading (EGR) | CLT India</title>
+  <meta name="description" content="CLT India's Early Grade Reading program - improving reading outcomes for children in underserved communities through Ed-Tech innovation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .egr-hero {
+      margin-top: var(--header-h);
+      padding: 160px 24px 140px;
+      background: linear-gradient(135deg, #088f8f 0%, #0ab0b0 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .egr-hero::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -30%;
+      width: 160%;
+      height: 160%;
+      background: radial-gradient(ellipse at 30% 40%, rgba(255,255,255,0.07) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 60%, rgba(255,255,255,0.05) 0%, transparent 50%);
+    }
+    .egr-hero .egr-hero-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .egr-hero h1 {
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 800;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+      line-height: 1.15;
+    }
+    .egr-hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 620px;
+      margin: 20px auto 0;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .egr-section {
+      padding: 100px 0;
+    }
+    .egr-section:nth-child(even) {
+      background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+    }
+
+    .egr-content {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .egr-content p {
+      font-size: 1.1rem;
+      color: var(--text);
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+    .egr-content .highlight {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--dark);
+      background: rgba(8,143,143,0.07);
+      padding: 32px 40px;
+      border-radius: 20px;
+      border-left: 6px solid var(--teal);
+      margin: 36px 0;
+      line-height: 1.8;
+    }
+
+    .egr-image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin: 48px 0;
+    }
+    .egr-image-grid img {
+      width: 100%;
+      border-radius: 18px;
+      transition: transform 0.5s, box-shadow 0.5s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .egr-image-grid img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    .egr-video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin: 48px auto;
+      max-width: 1100px;
+    }
+    .egr-video-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 14px 50px rgba(0,0,0,0.12);
+    }
+    .egr-video-wrap iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+    }
+
+    .egr-concepts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 48px 0;
+    }
+    .egr-concept-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 28px 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      border: 1px solid #eef2f6;
+      transition: box-shadow 0.3s, transform 0.3s;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+    .egr-concept-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .egr-concept-card:hover::before {
+      opacity: 1;
+    }
+    .egr-concept-card:hover {
+      box-shadow: 0 8px 32px rgba(8,143,143,0.08);
+      transform: translateY(-4px);
+    }
+    .egr-concept-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+    .egr-concept-card p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.75;
+    }
+
+    .egr-section-heading {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .egr-section-heading h2 {
+      margin-bottom: 12px;
+    }
+    .egr-section-heading p {
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .egr-footer-cta {
+      padding: 100px 0;
+      background: #088f8f;
+      text-align: center;
+    }
+    .egr-footer-cta h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .egr-footer-cta p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .egr-image-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .egr-video-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .egr-section { padding: 70px 0; }
+      .egr-concepts { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    }
+    @media (max-width: 600px) {
+      .egr-hero { padding: 120px 20px 80px; }
+      .egr-hero p { font-size: 1rem; max-width: 100%; }
+      .egr-image-grid { grid-template-columns: 1fr; gap: 16px; }
+      .egr-video-grid { grid-template-columns: 1fr; gap: 16px; }
+      .egr-section { padding: 50px 0; }
+      .egr-content .highlight { padding: 20px 24px; font-size: 1.05rem; }
+      .egr-concept-card { padding: 24px 20px; }
+      .egr-section-heading { margin-bottom: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="egr-hero">
+    <div class="egr-hero-sub">Our Work</div>
+    <h1>Early Grade Reading (EGR)</h1>
+    <p>Improving reading outcomes for children in underserved communities through Ed-Tech innovation in regional languages.</p>
+  </section>
+
+  <!-- Intro -->
+  <section class="egr-section">
+    <div class="container">
+      <div class="egr-content">
+        <p>The second Millennium Alliance award by FICCI and USAID supports CLT to develop Early Grade Reading Resources in regional language using Ed-Tech innovation to improve reading outcomes for children in underserved communities.</p>
+
+        <div class="highlight">
+          1.21 million students in Karnataka are out of school, 45% belonging to early grades, the bulk of students who drop out between grades 4-8 are those who are unable to read and comprehend what is being taught in the class.
+        </div>
+
+        <div class="egr-image-grid">
+          <img src="assets/egr-app.jpg" alt="EGR App Screen" loading="lazy">
+          <img src="assets/egr-classroom.jpg" alt="EGR in Classroom" loading="lazy">
+          <img src="assets/egr-hero.jpg" alt="EGR Program" loading="lazy">
+        </div>
+
+        <p>This product and process will enable children to be continuously and consistently exposed to sounds and sights of words, language through stories, activities that can be practiced both at home and schools.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Concepts -->
+  <section class="egr-section">
+    <div class="container">
+      <div class="egr-section-heading">
+        <span class="section-label">Curriculum</span>
+        <h2>200 Concepts in Kannada Language</h2>
+        <p>Our EGR program covers foundational literacy skills through structured concepts designed for early grade learners.</p>
+      </div>
+      <div class="egr-concepts">
+        <div class="egr-concept-card">
+          <h3>Letter-Sound Knowledge</h3>
+          <p>Building understanding of the relationship between letters and their corresponding sounds to form the foundation of reading.</p>
+        </div>
+        <div class="egr-concept-card">
+          <h3>Word Recognition</h3>
+          <p>Developing the ability to recognize words quickly and accurately, enabling fluent reading and comprehension.</p>
+        </div>
+        <div class="egr-concept-card">
+          <h3>Letter Identification</h3>
+          <p>Teaching children to identify and name letters in the Kannada alphabet, a critical first step in literacy acquisition.</p>
+        </div>
+        <div class="egr-concept-card">
+          <h3>Phonemic Awareness</h3>
+          <p>Training learners to hear, identify, and manipulate individual sounds (phonemes) in spoken words.</p>
+        </div>
+        <div class="egr-concept-card">
+          <h3>Oral Reading Fluency</h3>
+          <p>Practicing reading aloud with speed, accuracy, and proper expression to support comprehension.</p>
+        </div>
+        <div class="egr-concept-card">
+          <h3>Reading Comprehension</h3>
+          <p>Enabling children to understand, interpret, and engage with what they read for deeper learning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video -->
+  <section class="egr-section">
+    <div class="container">
+      <div class="egr-section-heading">
+        <span class="section-label">In Action</span>
+        <h2>See EGR in Action</h2>
+        <p>Watch how Early Grade Reading is transforming learning experiences for children.</p>
+      </div>
+      <div class="egr-video-grid">
+        <div class="egr-video-wrap">
+          <iframe src="https://www.youtube.com/embed/ktDlOAS5Y4I?controls=1" title="EGR Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="egr-video-wrap">
+          <iframe src="https://www.youtube.com/embed/HqIkdHpFfHU?controls=1" title="EGR Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px;">
+        <a href="https://www.youtube.com/playlist?list=PLlLWlLU3KTRysxNH1f___ibmVfywHysM5" target="_blank" rel="noopener" class="btn-get-involved" style="display:inline-block;padding:14px 36px;font-weight:700;">View Full Playlist on YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Making of EGR -->
+  <section class="egr-section">
+    <div class="container">
+      <div class="egr-section-heading">
+        <span class="section-label">The Making</span>
+        <h2>How We Built EGR</h2>
+      </div>
+      <div class="egr-image-grid">
+        <img src="assets/egrc6.jpg" alt="EGR development session" loading="lazy">
+        <img src="assets/egrc2.jpg" alt="EGR content creation" loading="lazy">
+        <img src="assets/egrc3.jpg" alt="EGR team at work" loading="lazy">
+      </div>
+      <p style="font-size:1.1rem;color:var(--text-light);line-height:1.9;max-width:900px;margin:40px auto 0;text-align:center;">
+        From scripting and storyboarding to filming and editing — our team collaborated with language experts, animators, and educators to craft 200 engaging concept videos that make Kannada literacy accessible, fun, and effective for early grade learners.
+      </p>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
+
+  <script src="script.js"></script>
+  <script src="include.js"></script>
+</body>
+</html>
