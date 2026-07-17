@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | CLT India</title>
+  <meta name="description" content="CLT India Blog - Stories, insights, and updates on our journey to transform education through STEM and community outreach.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .blog-hero {
+      margin-top: var(--header-h);
+      padding: 140px 24px 100px;
+      background: linear-gradient(135deg, #088f8f 0%, #0ab0b0 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -30%;
+      width: 160%;
+      height: 160%;
+      background: radial-gradient(ellipse at 30% 40%, rgba(255,255,255,0.07) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 60%, rgba(255,255,255,0.05) 0%, transparent 50%);
+    }
+    .blog-hero .blog-hero-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .blog-hero h1 {
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 800;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+      line-height: 1.15;
+    }
+    .blog-hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 560px;
+      margin: 20px auto 0;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .blog-section {
+      padding: 100px 0;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .blog-card {
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #eef2f6;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(8,143,143,0.1);
+      border-color: rgba(8,143,143,0.12);
+    }
+    .blog-card .blog-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .blog-card:hover .blog-img {
+      transform: scale(1.05);
+    }
+    .blog-card .blog-img-wrap {
+      overflow: hidden;
+      position: relative;
+    }
+    .blog-card .blog-cat {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(8,143,143,0.85);
+      padding: 5px 14px;
+      border-radius: 30px;
+      backdrop-filter: blur(4px);
+    }
+    .blog-card .blog-body {
+      padding: 28px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .blog-card .blog-date {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .blog-card .blog-date svg {
+      width: 14px;
+      height: 14px;
+      opacity: 0.5;
+    }
+    .blog-card .blog-body h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+      line-height: 1.45;
+    }
+    .blog-card .blog-body p {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .blog-card .blog-body .blog-link {
+      color: var(--teal);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.3s;
+      text-decoration: none;
+    }
+    .blog-card .blog-body .blog-link:hover { gap: 12px; }
+
+    .blog-pagination {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 60px;
+    }
+    .blog-pagination a {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      border: 1px solid #eef2f6;
+      color: var(--text-light);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+    .blog-pagination a:hover,
+    .blog-pagination a.active {
+      background: var(--teal);
+      color: #fff;
+      border-color: var(--teal);
+    }
+
+    @media (max-width: 1024px) {
+      .blog-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .blog-hero { padding: 120px 20px 60px; }
+      .blog-hero p { font-size: 1rem; }
+      .blog-section { padding: 50px 0; }
+      .blog-grid { grid-template-columns: 1fr; gap: 24px; }
+      .blog-card .blog-body { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="blog-hero">
+    <div class="blog-hero-sub">Our Journal</div>
+    <h1>Blog</h1>
+    <p>Stories, insights, and updates from our journey to transform education through STEM and community outreach.</p>
+  </section>
+
+  <!-- Blog Grid -->
+  <section class="blog-section">
+    <div class="container">
+      <div class="blog-grid">
+
+        <article class="blog-card">
+          <div class="blog-img-wrap">
+            <span class="blog-cat">STEM Education</span>
+            <img class="blog-img" src="assets/Hero slide/1.png" alt="Transforming Classrooms with Digital STEM" loading="lazy">
+          </div>
+          <div class="blog-body">
+            <div class="blog-date">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              June 15, 2026
+            </div>
+            <h3>Transforming Classrooms with Digital STEM</h3>
+            <p>Discover how CLT's e-Patashale platform is bringing interactive STEM education to over 5,000 schools across India, reaching students in the most remote classrooms.</p>
+            <a href="#" class="blog-link">Read More &rarr;</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-img-wrap">
+            <span class="blog-cat">Community</span>
+            <img class="blog-img" src="assets/community-scholarship.png" alt="Empowering Girls Through Education" loading="lazy">
+          </div>
+          <div class="blog-body">
+            <div class="blog-date">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              May 28, 2026
+            </div>
+            <h3>Empowering Girls Through Education</h3>
+            <p>Our scholarship program is helping meritorious girl students from underserved communities pursue higher education and build brighter futures for themselves.</p>
+            <a href="#" class="blog-link">Read More &rarr;</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-img-wrap">
+            <span class="blog-cat">Impact</span>
+            <img class="blog-img" src="assets/community-summercamp.png" alt="Summer Camp 2026" loading="lazy">
+          </div>
+          <div class="blog-body">
+            <div class="blog-date">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              May 10, 2026
+            </div>
+            <h3>Summer Camp 2026: A Season of Joy &amp; Learning</h3>
+            <p>From pottery to STEM experiments, our annual Summer Camp brought together hundreds of children for a month of creativity, discovery, and friendship.</p>
+            <a href="#" class="blog-link">Read More &rarr;</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-img-wrap">
+            <span class="blog-cat">Teacher Training</span>
+            <img class="blog-img" src="assets/Hero slide/2.png" alt="Empowering Teachers" loading="lazy">
+          </div>
+          <div class="blog-body">
+            <div class="blog-date">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              April 22, 2026
+            </div>
+            <h3>Empowering Teachers with Technology</h3>
+            <p>Our Teacher Connect Program has trained over 82,000 educators across 13 states, equipping them with digital tools to deliver engaging STEM lessons.</p>
+            <a href="#" class="blog-link">Read More &rarr;</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-img-wrap">
+            <span class="blog-cat">Community</span>
+            <img class="blog-img" src="assets/community-afterschool.png" alt="After School Program" loading="lazy">
+          </div>
+          <div class="blog-body">
+            <div class="blog-date">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              March 15, 2026
+            </div>
+            <h3>After School Program: Learning Beyond the Bell</h3>
+            <p>Our after school initiative provides children with a safe space for movie screenings, computer skills, spoken English, and hands-on STEM experiments.</p>
+            <a href="#" class="blog-link">Read More &rarr;</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-img-wrap">
+            <span class="blog-cat">Research</span>
+            <img class="blog-img" src="assets/Hero slide/4.png" alt="Research Impact" loading="lazy">
+          </div>
+          <div class="blog-body">
+            <div class="blog-date">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              February 8, 2026
+            </div>
+            <h3>The Impact of Digital Learning in Rural India</h3>
+            <p>Microsoft Research India and Christ University studies validate that CLT's digital content significantly improves learning outcomes in low-income government schools.</p>
+            <a href="#" class="blog-link">Read More &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="blog-pagination">
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">&rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
+
+  <script src="script.js"></script>
+  <script src="include.js"></script>
+</body>
+</html>
