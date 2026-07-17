@@ -1542,6 +1542,21 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 
   .slide-btns { flex-direction: column; }
 
+  .gi-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 10px;
+  }
+  .gi-card h4 { margin-bottom: 2px; }
+  .gi-card p { flex: none; width: 100%; }
+  .gi-card .btn-sm {
+    width: 100%;
+    text-align: center;
+    margin-top: 4px;
+    padding: 10px 20px;
+  }
+
   h1 { font-size: 1.9rem; }
 
   .about-img { height: 280px; }
