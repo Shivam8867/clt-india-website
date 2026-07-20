@@ -102,11 +102,15 @@
     }
 
     .report-card .card-top {
-      background: linear-gradient(145deg, #0a9c9c 0%, #066b6b 100%);
-      padding: 2.2rem 1.5rem 1.8rem;
+      padding: 1.8rem 1.5rem;
       text-align: center;
       color: #fff;
       position: relative;
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
     .report-card .card-top::after {
       content: '';
@@ -114,22 +118,39 @@
       bottom: -1px;
       left: 0;
       right: 0;
-      height: 30px;
+      height: 24px;
       background: #fff;
-      border-radius: 30px 30px 0 0;
+      border-radius: 24px 24px 0 0;
     }
-    .report-card .card-top .icon {
-      font-size: 2.2rem;
-      margin-bottom: 0.6rem;
-      opacity: 0.9;
-      display: block;
+    .report-card .card-top .label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 0.4rem;
     }
     .report-card .card-top .year {
-      font-size: 1.5rem;
+      font-size: 1.65rem;
       font-weight: 800;
       letter-spacing: 0.5px;
       position: relative;
       z-index: 1;
+      line-height: 1.2;
+    }
+    .report-card .card-top .year small {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 400;
+      opacity: 0.65;
+      margin-top: 0.15rem;
+    }
+    .report-card .card-top .decor {
+      width: 32px;
+      height: 3px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 2px;
+      margin-top: 0.6rem;
     }
 
     .report-card .card-body {
@@ -218,9 +239,10 @@
     <div class="reports-grid">
 
       <div class="report-card">
-        <div class="card-top">
-          <span class="icon">&#128196;</span>
-          <div class="year">2024 - 2025</div>
+        <div class="card-top" style="background: linear-gradient(145deg, #0a9c9c, #066b6b);">
+          <span class="label">Annual Report</span>
+          <div class="year">2024 - 2025 <small>Covering Fiscal Year</small></div>
+          <div class="decor"></div>
         </div>
         <div class="card-body">
           <p>Annual report covering CLT India's programs, impact metrics, financial statements, and community outreach initiatives for the fiscal year 2024-2025.</p>
@@ -234,9 +256,10 @@
       </div>
 
       <div class="report-card">
-        <div class="card-top">
-          <span class="icon">&#128196;</span>
-          <div class="year">2023 - 2024</div>
+        <div class="card-top" style="background: linear-gradient(145deg, #7c3aed, #5b21b6);">
+          <span class="label">Annual Report</span>
+          <div class="year">2023 - 2024 <small>Covering Fiscal Year</small></div>
+          <div class="decor"></div>
         </div>
         <div class="card-body">
           <p>Annual report detailing CLT India's educational initiatives, digital reach, teacher training programs, and financial highlights for 2023-2024.</p>
@@ -250,9 +273,10 @@
       </div>
 
       <div class="report-card">
-        <div class="card-top">
-          <span class="icon">&#128196;</span>
-          <div class="year">2022 - 2023</div>
+        <div class="card-top" style="background: linear-gradient(145deg, #2563eb, #1d4ed8);">
+          <span class="label">Annual Report</span>
+          <div class="year">2022 - 2023 <small>Covering Fiscal Year</small></div>
+          <div class="decor"></div>
         </div>
         <div class="card-body">
           <p>Comprehensive annual report showcasing CLT India's impact across 5,000+ schools, 15,000+ classrooms, and the expansion of e-Patashale program.</p>
@@ -266,9 +290,10 @@
       </div>
 
       <div class="report-card">
-        <div class="card-top">
-          <span class="icon">&#128196;</span>
-          <div class="year">2021 - 2022</div>
+        <div class="card-top" style="background: linear-gradient(145deg, #059669, #047857);">
+          <span class="label">Annual Report</span>
+          <div class="year">2021 - 2022 <small>Covering Fiscal Year</small></div>
+          <div class="decor"></div>
         </div>
         <div class="card-body">
           <p>Annual report highlighting CLT India's response to COVID-19, digital learning initiatives, and continued growth in STEM education delivery.</p>
@@ -282,9 +307,10 @@
       </div>
 
       <div class="report-card">
-        <div class="card-top">
-          <span class="icon">&#128196;</span>
-          <div class="year">2020 - 2021</div>
+        <div class="card-top" style="background: linear-gradient(145deg, #ea580c, #c2410c);">
+          <span class="label">Annual Report</span>
+          <div class="year">2020 - 2021 <small>Covering Fiscal Year</small></div>
+          <div class="decor"></div>
         </div>
         <div class="card-body">
           <p>Annual report covering CLT India's programs, impact metrics, and adaptation during the global pandemic, ensuring continued access to quality education.</p>
@@ -298,9 +324,10 @@
       </div>
 
       <div class="report-card">
-        <div class="card-top">
-          <span class="icon">&#128196;</span>
-          <div class="year">2019 - 2020</div>
+        <div class="card-top" style="background: linear-gradient(145deg, #e11d48, #be123c);">
+          <span class="label">Annual Report</span>
+          <div class="year">2019 - 2020 <small>Covering Fiscal Year</small></div>
+          <div class="decor"></div>
         </div>
         <div class="card-body">
           <p>Annual report detailing pre-pandemic achievements, e-Patashale expansion across states, and the foundation for CLT's digital transformation.</p>
@@ -314,9 +341,10 @@
       </div>
 
       <div class="report-card">
-        <div class="card-top">
-          <span class="icon">&#128196;</span>
-          <div class="year">2018 - 2019</div>
+        <div class="card-top" style="background: linear-gradient(145deg, #4f46e5, #3730a3);">
+          <span class="label">Annual Report</span>
+          <div class="year">2018 - 2019 <small>Covering Fiscal Year</small></div>
+          <div class="decor"></div>
         </div>
         <div class="card-body">
           <p>Annual report covering CLT India's early growth, program development, school partnerships, and the expansion of digital learning modules.</p>
@@ -330,9 +358,10 @@
       </div>
 
       <div class="report-card">
-        <div class="card-top">
-          <span class="icon">&#128196;</span>
-          <div class="year">2017 - 2018</div>
+        <div class="card-top" style="background: linear-gradient(145deg, #0891b2, #0e7490);">
+          <span class="label">Annual Report</span>
+          <div class="year">2017 - 2018 <small>Covering Fiscal Year</small></div>
+          <div class="decor"></div>
         </div>
         <div class="card-body">
           <p>Annual report documenting CLT India's foundational impact, early e-learning deployments, and the establishment of long-term educational partnerships.</p>
