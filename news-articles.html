@@ -11,21 +11,19 @@
 
     .gallery {
       margin-top: var(--header-h);
-      padding: 3rem 1.5rem;
-      max-width: 1400px;
-      margin-left: auto;
-      margin-right: auto;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .gallery a {
       display: block;
-      transition: transform 0.3s ease;
+      line-height: 0;
     }
-    .gallery a:hover {
-      transform: scale(1.01);
+    .gallery a.span-2 {
+      grid-column: span 2;
+    }
+    .gallery a.span-row-2 {
+      grid-row: span 2;
     }
 
     .gallery img {
@@ -35,9 +33,13 @@
 
     @media (max-width: 768px) {
       .gallery {
-        grid-template-columns: 1fr;
-        padding: 1.5rem 1rem;
-        gap: 1.25rem;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery a.span-2 {
+        grid-column: span 2;
+      }
+      .gallery a.span-row-2 {
+        grid-row: span 2;
       }
     }
   </style>
@@ -48,7 +50,7 @@
 
   <div class="gallery">
 
-    <a href="assets/news-articles/scan0001.jpg" target="_blank">
+    <a href="assets/news-articles/scan0001.jpg" target="_blank" class="span-2">
       <img src="assets/news-articles/scan0001.jpg" alt="Press clipping" loading="lazy">
     </a>
 
@@ -72,7 +74,7 @@
       <img src="assets/news-articles/technology-knows-no-boundaries.jpg" alt="Technology knows no boundaries" loading="lazy">
     </a>
 
-    <a href="assets/news-articles/page-4.jpg" target="_blank">
+    <a href="assets/news-articles/page-4.jpg" target="_blank" class="span-2">
       <img src="assets/news-articles/page-4.jpg" alt="Press clipping" loading="lazy">
     </a>
 
