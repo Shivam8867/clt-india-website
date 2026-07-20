@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newsletters | CLT India</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root { --header-h: 80px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    .reports-hero {
+      margin-top: var(--header-h);
+      padding: 6rem 1.5rem 4rem;
+      background: linear-gradient(135deg, #f1ae44 0%, #e0952e 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .reports-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+    .reports-hero .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .reports-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: #fff;
+      position: relative;
+      line-height: 1.2;
+    }
+    .reports-hero h1 span {
+      background: rgba(255,255,255,0.2);
+      padding: 0 0.3rem;
+    }
+    .reports-hero p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 1rem auto 0;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .reports-section {
+      padding: 5rem 1.5rem 6rem;
+      background: #f7fafc;
+    }
+    .reports-section .section-head {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .reports-section .section-head h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+    .reports-section .section-head p {
+      color: #666;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .reports-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .report-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #e8ecef;
+      display: flex;
+      flex-direction: column;
+    }
+    .report-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(241,174,68,0.15);
+    }
+
+    .report-card .card-top {
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #f1ae44, #e0952e);
+    }
+    .report-card .card-top::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 24px;
+      background: #fff;
+      border-radius: 24px 24px 0 0;
+    }
+    .report-card .card-top .label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 0.4rem;
+    }
+    .report-card .card-top .year {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      position: relative;
+      z-index: 1;
+      line-height: 1.2;
+    }
+    .report-card .card-top .decor {
+      width: 32px;
+      height: 3px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 2px;
+      margin-top: 0.6rem;
+    }
+
+    .report-card .card-body {
+      padding: 1.2rem 1.5rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .report-card .card-body p {
+      color: #4a4a5a;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+
+    .report-card .card-body .btn-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+    .report-card .card-body .btn-row a {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.7rem 0.5rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .report-card .card-body .btn-row .btn-view {
+      background: #fff;
+      color: #f1ae44;
+      border: 2px solid #f1ae44;
+    }
+    .report-card .card-body .btn-row .btn-view:hover {
+      background: #fff8ed;
+      box-shadow: 0 4px 12px rgba(241,174,68,0.18);
+    }
+    .report-card .card-body .btn-row a svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .reports-hero { padding: 4rem 1rem 3rem; }
+      .reports-section { padding: 3rem 1rem 4rem; }
+      .reports-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .reports-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <section class="reports-hero">
+    <div class="hero-badge">Stay Connected</div>
+    <h1>Our <span>Newsletters</span></h1>
+    <p>Stay informed about CLT India's latest programs, impact stories, and community updates through our quarterly newsletters.</p>
+  </section>
+
+  <section class="reports-section">
+    <div class="section-head">
+      <h2>Browse Newsletters</h2>
+      <p>Explore our newsletter archive to follow CLT India's journey and milestones.</p>
+    </div>
+    <div class="reports-grid">
+
+      <div class="report-card">
+        <div class="card-top">
+          <span class="label">Newsletter</span>
+          <div class="year">December 2024 &middot; Vol. 16</div>
+          <div class="decor"></div>
+        </div>
+        <div class="card-body">
+          <p>Year-end newsletter highlighting CLT India's achievements, program expansions, and impact milestones from the final quarter of 2024.</p>
+          <div class="btn-row">
+            <a href="https://cltindia.org/wp-content/uploads/2025/01/CLT-India-Newsletter-Volume-16.pdf" class="btn-view" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View &amp; Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <span class="label">Newsletter</span>
+          <div class="year">June 2024 &middot; Vol. 15</div>
+          <div class="decor"></div>
+        </div>
+        <div class="card-body">
+          <p>Mid-year newsletter covering CLT India's educational initiatives, teacher training programs, and community outreach activities from the first half of 2024.</p>
+          <div class="btn-row">
+            <a href="https://cltindia.org/wp-content/uploads/2024/12/Newsletter-Vol-15.pdf" class="btn-view" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View &amp; Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <span class="label">Newsletter</span>
+          <div class="year">March 2024 &middot; Vol. 14</div>
+          <div class="decor"></div>
+        </div>
+        <div class="card-body">
+          <p>Quarterly newsletter featuring CLT India's progress in digital education, new partnerships, and the impact of e-Patashale across schools.</p>
+          <div class="btn-row">
+            <a href="https://cltindia.org/wp-content/uploads/2024/12/Newsletter-Vol-14.pdf" class="btn-view" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View &amp; Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <span class="label">Newsletter</span>
+          <div class="year">November 2023</div>
+          <div class="decor"></div>
+        </div>
+        <div class="card-body">
+          <p>Newsletter showcasing CLT India's end-of-year activities, student success stories, and the ongoing expansion of digital learning programs.</p>
+          <div class="btn-row">
+            <a href="https://cltindia.org/wp-content/uploads/2024/08/Newsletter-November-2023_compressed.pdf" class="btn-view" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View &amp; Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <span class="label">Newsletter</span>
+          <div class="year">May 2023</div>
+          <div class="decor"></div>
+        </div>
+        <div class="card-body">
+          <p>Mid-year newsletter detailing CLT India's teacher training initiatives, classroom technology deployments, and community engagement programs.</p>
+          <div class="btn-row">
+            <a href="https://cltindia.org/wp-content/uploads/2024/08/CLT-India-Newsletter-May-2023.pdf" class="btn-view" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View &amp; Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <span class="label">Newsletter</span>
+          <div class="year">January 2023</div>
+          <div class="decor"></div>
+        </div>
+        <div class="card-body">
+          <p>New year newsletter highlighting CLT India's plans for 2023, recent milestones, and the continued growth of the e-Patashale program.</p>
+          <div class="btn-row">
+            <a href="https://cltindia.org/wp-content/uploads/2024/08/CLT_India_Newsletter_January_2023.pdf" class="btn-view" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View &amp; Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <span class="label">Special Edition</span>
+          <div class="year">Digital Education Drive</div>
+          <div class="decor"></div>
+        </div>
+        <div class="card-body">
+          <p>Special report on CLT India's digital education initiatives, bridging the technology gap in underserved schools across India.</p>
+          <div class="btn-row">
+            <a href="https://cltindia.org/wp-content/uploads/2024/08/Digital_Education_Divide.pdf" class="btn-view" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View &amp; Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <span class="label">Newsletter</span>
+          <div class="year">August 2022</div>
+          <div class="decor"></div>
+        </div>
+        <div class="card-body">
+          <p>Quarterly newsletter covering CLT India's activities, program updates, and the impact of technology-enabled learning in partner schools.</p>
+          <div class="btn-row">
+            <a href="https://cltindia.org/wp-content/uploads/2024/08/Newsletter_August_2022-1.pdf" class="btn-view" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View &amp; Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <span class="label">Newsletter</span>
+          <div class="year">February 2022</div>
+          <div class="decor"></div>
+        </div>
+        <div class="card-body">
+          <p>Early 2022 newsletter highlighting CLT India's continued efforts in digital education, teacher support, and community development programs.</p>
+          <div class="btn-row">
+            <a href="https://cltindia.org/wp-content/uploads/2024/08/Newsletter_February_2022.pdf" class="btn-view" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View &amp; Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <span class="label">Newsletter</span>
+          <div class="year">October 2021</div>
+          <div class="decor"></div>
+        </div>
+        <div class="card-body">
+          <p>Newsletter showcasing CLT India's post-pandemic recovery programs, digital learning adoption, and the expansion of STEM education in rural areas.</p>
+          <div class="btn-row">
+            <a href="https://cltindia.org/wp-content/uploads/2024/08/Newsletter_October_2019.pdf" class="btn-view" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View &amp; Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <span class="label">Newsletter</span>
+          <div class="year">December 2020</div>
+          <div class="decor"></div>
+        </div>
+        <div class="card-body">
+          <p>Year-end newsletter from 2020 covering CLT India's response to the pandemic, adaptation to remote learning, and continued community support.</p>
+          <div class="btn-row">
+            <a href="https://cltindia.org/wp-content/uploads/2024/08/Newsletter_December_2020.pdf" class="btn-view" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View &amp; Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <span class="label">Newsletter</span>
+          <div class="year">July 2020</div>
+          <div class="decor"></div>
+        </div>
+        <div class="card-body">
+          <p>Mid-2020 newsletter highlighting CLT India's innovative approaches to distance learning and digital education during the COVID-19 pandemic.</p>
+          <div class="btn-row">
+            <a href="https://cltindia.org/wp-content/uploads/2024/08/Newsletter_July_2020.pdf" class="btn-view" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View &amp; Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <span class="label">Newsletter</span>
+          <div class="year">October 2019</div>
+          <div class="decor"></div>
+        </div>
+        <div class="card-body">
+          <p>Pre-pandemic newsletter showcasing CLT India's foundational work, early e-Patashale deployments, and the impact of digital classrooms.</p>
+          <div class="btn-row">
+            <a href="https://cltindia.org/wp-content/uploads/2024/08/Newsletter_October_2019.pdf" class="btn-view" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View &amp; Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
+
+  <script src="script.js"></script>
+  <script src="include.js"></script>
+</body>
+</html>
