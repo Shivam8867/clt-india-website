@@ -4,104 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>News &amp; Articles | CLT India</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
     :root { --header-h: 80px; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .reports-hero {
+    .gallery {
       margin-top: var(--header-h);
-      padding: 6rem 1.5rem 4rem;
-      background: linear-gradient(135deg, #088f8f 0%, #066b6b 100%);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .reports-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      opacity: 0.5;
-    }
-    .reports-hero .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(8px);
-      padding: 0.4rem 1.2rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
-    .reports-hero h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      color: #fff;
-      position: relative;
-      line-height: 1.2;
-    }
-    .reports-hero h1 span {
-      background: rgba(255,255,255,0.2);
-      padding: 0 0.3rem;
-    }
-    .reports-hero p {
-      color: rgba(255,255,255,0.85);
-      font-size: 1.1rem;
-      max-width: 650px;
-      margin: 1rem auto 0;
-      position: relative;
-      line-height: 1.7;
-    }
-
-    .gallery-section {
-      padding: 5rem 1.5rem 6rem;
-      background: #f7fafc;
-    }
-
-    .gallery-grid {
-      max-width: 1200px;
-      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
     }
 
-    .gallery-grid a {
+    .gallery a {
       display: block;
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
       border: 1px solid #e8ecef;
     }
-    .gallery-grid a:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 32px rgba(241,174,68,0.15);
+    .gallery a:hover {
+      transform: scale(1.01);
     }
 
-    .gallery-grid img {
+    .gallery img {
       width: 100%;
       display: block;
-      transition: transform 0.4s ease;
-    }
-    .gallery-grid a:hover img {
-      transform: scale(1.05);
     }
 
     @media (max-width: 768px) {
-      .reports-hero { padding: 4rem 1rem 3rem; }
-      .gallery-section { padding: 3rem 1rem 4rem; }
-      .gallery-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .gallery-grid img { height: 200px; }
-    }
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery {
+        grid-template-columns: 1fr;
+        padding: 1.5rem 1rem;
+        gap: 1.25rem;
+      }
     }
   </style>
 </head>
@@ -109,57 +50,49 @@
 
   <div id="header-placeholder"></div>
 
-  <section class="reports-hero">
-    <div class="hero-badge">Press &amp; Media</div>
-    <h1>News &amp; <span>Articles</span></h1>
-    <p>Scanned clippings of CLT India's coverage in newspapers and magazines over the years.</p>
-  </section>
+  <div class="gallery">
 
-  <section class="gallery-section">
-    <div class="gallery-grid">
+    <a href="assets/news-articles/scan0001.jpg" target="_blank">
+      <img src="assets/news-articles/scan0001.jpg" alt="Press clipping" loading="lazy">
+    </a>
 
-      <a href="assets/news-articles/scan0001.jpg" target="_blank">
-        <img src="assets/news-articles/scan0001.jpg" alt="Press clipping" loading="lazy">
-      </a>
+    <a href="assets/news-articles/scan0005.jpg" target="_blank">
+      <img src="assets/news-articles/scan0005.jpg" alt="Press clipping" loading="lazy">
+    </a>
 
-      <a href="assets/news-articles/scan0005.jpg" target="_blank">
-        <img src="assets/news-articles/scan0005.jpg" alt="Press clipping" loading="lazy">
-      </a>
+    <a href="assets/news-articles/scan0006.jpg" target="_blank">
+      <img src="assets/news-articles/scan0006.jpg" alt="Press clipping" loading="lazy">
+    </a>
 
-      <a href="assets/news-articles/scan0006.jpg" target="_blank">
-        <img src="assets/news-articles/scan0006.jpg" alt="Press clipping" loading="lazy">
-      </a>
+    <a href="assets/news-articles/scan0007.jpg" target="_blank">
+      <img src="assets/news-articles/scan0007.jpg" alt="Press clipping" loading="lazy">
+    </a>
 
-      <a href="assets/news-articles/scan0007.jpg" target="_blank">
-        <img src="assets/news-articles/scan0007.jpg" alt="Press clipping" loading="lazy">
-      </a>
+    <a href="assets/news-articles/year-2000.jpg" target="_blank">
+      <img src="assets/news-articles/year-2000.jpg" alt="Year 2000 article" loading="lazy">
+    </a>
 
-      <a href="assets/news-articles/year-2000.jpg" target="_blank">
-        <img src="assets/news-articles/year-2000.jpg" alt="Year 2000 article" loading="lazy">
-      </a>
+    <a href="assets/news-articles/technology-knows-no-boundaries.jpg" target="_blank">
+      <img src="assets/news-articles/technology-knows-no-boundaries.jpg" alt="Technology knows no boundaries" loading="lazy">
+    </a>
 
-      <a href="assets/news-articles/technology-knows-no-boundaries.jpg" target="_blank">
-        <img src="assets/news-articles/technology-knows-no-boundaries.jpg" alt="Technology knows no boundaries" loading="lazy">
-      </a>
+    <a href="assets/news-articles/page-4.jpg" target="_blank">
+      <img src="assets/news-articles/page-4.jpg" alt="Press clipping" loading="lazy">
+    </a>
 
-      <a href="assets/news-articles/page-4.jpg" target="_blank">
-        <img src="assets/news-articles/page-4.jpg" alt="Press clipping" loading="lazy">
-      </a>
+    <a href="assets/news-articles/news-35.jpg" target="_blank">
+      <img src="assets/news-articles/news-35.jpg" alt="Press clipping" loading="lazy">
+    </a>
 
-      <a href="assets/news-articles/news-35.jpg" target="_blank">
-        <img src="assets/news-articles/news-35.jpg" alt="Press clipping" loading="lazy">
-      </a>
+    <a href="assets/news-articles/intel-toi.jpg" target="_blank">
+      <img src="assets/news-articles/intel-toi.jpg" alt="Intel - Times of India" loading="lazy">
+    </a>
 
-      <a href="assets/news-articles/intel-toi.jpg" target="_blank">
-        <img src="assets/news-articles/intel-toi.jpg" alt="Intel - Times of India" loading="lazy">
-      </a>
+    <a href="assets/news-articles/blitz-india.jpg" target="_blank">
+      <img src="assets/news-articles/blitz-india.jpg" alt="Blitz India" loading="lazy">
+    </a>
 
-      <a href="assets/news-articles/blitz-india.jpg" target="_blank">
-        <img src="assets/news-articles/blitz-india.jpg" alt="Blitz India" loading="lazy">
-      </a>
-
-    </div>
-  </section>
+  </div>
 
   <div id="footer-placeholder"></div>
 
