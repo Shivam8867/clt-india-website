@@ -4,80 +4,267 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>News &amp; Articles | CLT India</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
     :root { --header-h: 80px; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .gallery {
+    .news-hero {
       margin-top: var(--header-h);
+      padding: 6rem 1.5rem 4rem;
+      background: #088f8f;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .news-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+    .news-hero .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .news-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: #fff;
+      position: relative;
+      line-height: 1.2;
+    }
+    .news-hero h1 span {
+      background: rgba(255,255,255,0.2);
+      padding: 0 0.3rem;
+    }
+    .news-hero p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 1rem auto 0;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .featured-section {
+      padding: 5rem 1.5rem;
+      background: #f7fafc;
+    }
+    .featured-grid {
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
     }
-
-    .gallery a {
-      display: block;
-      line-height: 0;
+    .featured-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-
-    .gallery img {
+    .featured-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 35px rgba(8,143,143,0.1);
+    }
+    .featured-card .card-img {
+      height: 200px;
+      overflow: hidden;
+    }
+    .featured-card .card-img img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .featured-card:hover .card-img img {
+      transform: scale(1.06);
+    }
+    .featured-card .card-body {
+      padding: 1.5rem;
+    }
+    .featured-card .card-body h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 0.5rem;
+    }
+    .featured-card .card-body p {
+      color: #555;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+    .featured-card .card-tag {
+      display: inline-block;
+      background: rgba(8,143,143,0.08);
+      color: #088f8f;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.7rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+
+    .gallery-section {
+      padding: 5rem 1.5rem 6rem;
+      background: #fff;
+    }
+    .gallery-section .section-head {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .gallery-section .section-head h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+    .gallery-section .section-head p {
+      color: #666;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+    .gallery-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      columns: 4;
+      column-gap: 1.25rem;
+    }
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 1.25rem;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid #eee;
+    }
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
       display: block;
     }
 
+    @media (max-width: 1100px) { .gallery-grid { columns: 3; } }
     @media (max-width: 768px) {
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .news-hero { padding: 4rem 1rem 3rem; }
+      .featured-section { padding: 3rem 1rem; }
+      .gallery-section { padding: 3rem 1rem 4rem; }
+      .gallery-grid { columns: 2; }
     }
+    @media (max-width: 480px) { .gallery-grid { columns: 1; } }
+
+    .lb-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .lb-overlay.active {
+      display: flex;
+    }
+    .lb-overlay img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    .lb-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 2.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .lb-close:hover { opacity: 1; }
   </style>
 </head>
 <body>
 
   <div id="header-placeholder"></div>
 
-  <div class="gallery">
+  <section class="news-hero">
+    <div class="hero-badge">Press &amp; Media</div>
+    <h1>News &amp; <span>Articles</span></h1>
+    <p>Scanned clippings of CLT India's coverage in newspapers and magazines over the years.</p>
+  </section>
 
-    <a href="assets/news-articles/scan0001.jpg" target="_blank" style="grid-column:span 2;grid-row:span 2">
-      <img src="assets/news-articles/scan0001.jpg" alt="" loading="lazy">
-    </a>
+  <section class="featured-section">
+    <div class="featured-grid">
+      <div class="featured-card">
+        <div class="card-img"><img src="assets/news-articles/year-2000.jpg" alt="Year 2000"></div>
+        <div class="card-body">
+          <span class="card-tag">Year 2000</span>
+          <h3>CLT India's Early Coverage</h3>
+          <p>One of the earliest press mentions of CLT India's work in education from the year 2000.</p>
+        </div>
+      </div>
+      <div class="featured-card">
+        <div class="card-img"><img src="assets/news-articles/technology-knows-no-boundaries.jpg" alt="Technology knows no boundaries"></div>
+        <div class="card-body">
+          <span class="card-tag">Feature</span>
+          <h3>Technology Knows No Boundaries</h3>
+          <p>Highlighting CLT India's digital education reach and how technology is bridging the learning gap in rural classrooms.</p>
+        </div>
+      </div>
+      <div class="featured-card">
+        <div class="card-img"><img src="assets/news-articles/intel-toi.jpg" alt="Times of India"></div>
+        <div class="card-body">
+          <span class="card-tag">Times of India</span>
+          <h3>Intel Computer Clubhouse</h3>
+          <p>CLT India featured in The Times of India (April 2003) for hosting the Intel Computer Clubhouse program.</p>
+        </div>
+      </div>
+      <div class="featured-card">
+        <div class="card-img"><img src="assets/news-articles/blitz-india.jpg" alt="Blitz India"></div>
+        <div class="card-body">
+          <span class="card-tag">Blitz India</span>
+          <h3>Blitz India Coverage</h3>
+          <p>Blitz India covers CLT India's educational initiatives and its mission to provide quality education for all.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <a href="assets/news-articles/scan0005.jpg" target="_blank">
-      <img src="assets/news-articles/scan0005.jpg" alt="" loading="lazy">
-    </a>
+  <section class="gallery-section">
+    <div class="section-head">
+      <h2>All Press Clippings</h2>
+      <p>Browse through CLT India's complete collection of media mentions and news articles.</p>
+    </div>
+    <div class="gallery-grid" id="newsGallery"></div>
+  </section>
 
-    <a href="assets/news-articles/scan0006.jpg" target="_blank">
-      <img src="assets/news-articles/scan0006.jpg" alt="" loading="lazy">
-    </a>
-
-    <a href="assets/news-articles/year-2000.jpg" target="_blank" style="grid-column:span 2">
-      <img src="assets/news-articles/year-2000.jpg" alt="" loading="lazy">
-    </a>
-
-    <a href="assets/news-articles/scan0007.jpg" target="_blank">
-      <img src="assets/news-articles/scan0007.jpg" alt="" loading="lazy">
-    </a>
-
-    <a href="assets/news-articles/technology-knows-no-boundaries.jpg" target="_blank">
-      <img src="assets/news-articles/technology-knows-no-boundaries.jpg" alt="" loading="lazy">
-    </a>
-
-    <a href="assets/news-articles/page-4.jpg" target="_blank" style="grid-row:span 2">
-      <img src="assets/news-articles/page-4.jpg" alt="" loading="lazy">
-    </a>
-
-    <a href="assets/news-articles/news-35.jpg" target="_blank">
-      <img src="assets/news-articles/news-35.jpg" alt="" loading="lazy">
-    </a>
-
-    <a href="assets/news-articles/intel-toi.jpg" target="_blank" style="grid-column:span 2">
-      <img src="assets/news-articles/intel-toi.jpg" alt="" loading="lazy">
-    </a>
-
-    <a href="assets/news-articles/blitz-india.jpg" target="_blank">
-      <img src="assets/news-articles/blitz-india.jpg" alt="" loading="lazy">
-    </a>
-
+  <div class="lb-overlay" id="lbOverlay">
+    <button class="lb-close" id="lbClose">&times;</button>
+    <img id="lbImg" src="" alt="Article">
   </div>
 
   <div id="footer-placeholder"></div>
@@ -85,6 +272,48 @@
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
 
   <script src="script.js"></script>
+  <script>
+    const images = [
+      'scan0001.jpg',
+      'scan0005.jpg',
+      'scan0006.jpg',
+      'scan0007.jpg',
+      'year-2000.jpg',
+      'technology-knows-no-boundaries.jpg',
+      'page-4.jpg',
+      'news-35.jpg',
+      'intel-toi.jpg',
+      'blitz-india.jpg'
+    ];
+
+    const gallery = document.getElementById('newsGallery');
+    images.forEach(file => {
+      const div = document.createElement('div');
+      div.className = 'gallery-item';
+      const img = document.createElement('img');
+      img.src = 'assets/news-articles/' + file;
+      img.alt = 'Press clipping';
+      img.loading = 'lazy';
+      img.addEventListener('click', () => {
+        document.getElementById('lbImg').src = img.src;
+        document.getElementById('lbOverlay').classList.add('active');
+      });
+      div.appendChild(img);
+      gallery.appendChild(div);
+    });
+
+    document.getElementById('lbClose').addEventListener('click', () => {
+      document.getElementById('lbOverlay').classList.remove('active');
+    });
+    document.getElementById('lbOverlay').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) {
+        document.getElementById('lbOverlay').classList.remove('active');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') document.getElementById('lbOverlay').classList.remove('active');
+    });
+  </script>
   <script src="include.js"></script>
 </body>
 </html>
