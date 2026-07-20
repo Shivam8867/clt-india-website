@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annual Reports | CLT India</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root { --header-h: 80px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    .reports-hero {
+      margin-top: var(--header-h);
+      padding: 6rem 1.5rem 4rem;
+      background: linear-gradient(135deg, #088f8f 0%, #066b6b 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .reports-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+    .reports-hero .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .reports-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: #fff;
+      position: relative;
+      line-height: 1.2;
+    }
+    .reports-hero h1 span {
+      background: rgba(255,255,255,0.2);
+      padding: 0 0.3rem;
+    }
+    .reports-hero p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 1rem auto 0;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .reports-section {
+      padding: 5rem 1.5rem 6rem;
+      background: #f7fafc;
+    }
+    .reports-section .section-head {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .reports-section .section-head h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+    .reports-section .section-head p {
+      color: #666;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+    .reports-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.75rem;
+    }
+    .report-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid #eee;
+      display: flex;
+      flex-direction: column;
+    }
+    .report-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 35px rgba(8,143,143,0.1);
+    }
+    .report-card .card-top {
+      background: linear-gradient(135deg, #088f8f 0%, #066b6b 100%);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: #fff;
+    }
+    .report-card .card-top .year {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .report-card .card-top .icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.8;
+    }
+    .report-card .card-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .report-card .card-body p {
+      color: #555;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+    .report-card .card-body .btn-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      background: #088f8f;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    .report-card .card-body .btn-download:hover {
+      background: #066b6b;
+    }
+    .report-card .card-body .btn-download svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .reports-hero { padding: 4rem 1rem 3rem; }
+      .reports-section { padding: 3rem 1rem 4rem; }
+      .reports-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <section class="reports-hero">
+    <div class="hero-badge">Transparency &amp; Accountability</div>
+    <h1>Annual <span>Reports</span></h1>
+    <p>Our annual reports provide a comprehensive overview of our programs, financial performance, and the impact we've made together with our partners and communities.</p>
+  </section>
+
+  <section class="reports-section">
+    <div class="section-head">
+      <h2>Download Our Reports</h2>
+      <p>Browse through our annual reports from recent years to stay informed about our journey and achievements.</p>
+    </div>
+    <div class="reports-grid">
+
+      <div class="report-card">
+        <div class="card-top">
+          <div class="icon">&#128196;</div>
+          <div class="year">2024 - 2025</div>
+        </div>
+        <div class="card-body">
+          <p>Annual report covering CLT India's programs, impact metrics, financial statements, and community outreach initiatives for the fiscal year 2024-2025.</p>
+          <a href="https://cltindia.org/wp-content/uploads/2025/11/CLT-Annual-report-2025.pdf" class="btn-download" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <div class="icon">&#128196;</div>
+          <div class="year">2023 - 2024</div>
+        </div>
+        <div class="card-body">
+          <p>Annual report detailing CLT India's educational initiatives, digital reach, teacher training programs, and financial highlights for 2023-2024.</p>
+          <a href="https://cltindia.org/wp-content/uploads/2024/08/CLT-Annual-Report-2023-2024.pdf" class="btn-download" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <div class="icon">&#128196;</div>
+          <div class="year">2022 - 2023</div>
+        </div>
+        <div class="card-body">
+          <p>Comprehensive annual report showcasing CLT India's impact across 5,000+ schools, 15,000+ classrooms, and the expansion of e-Patashale program.</p>
+          <a href="https://cltindia.org/wp-content/uploads/2024/08/CLT-Annual-Report-2022-2023_compressed.pdf" class="btn-download" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <div class="icon">&#128196;</div>
+          <div class="year">2021 - 2022</div>
+        </div>
+        <div class="card-body">
+          <p>Annual report highlighting CLT India's response to COVID-19, digital learning initiatives, and continued growth in STEM education delivery.</p>
+          <a href="https://cltindia.org/wp-content/uploads/2024/08/CLT-Annual-Report-2021-2022.pdf" class="btn-download" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <div class="icon">&#128196;</div>
+          <div class="year">2020 - 2021</div>
+        </div>
+        <div class="card-body">
+          <p>Annual report covering CLT India's programs, impact metrics, and adaptation during the global pandemic, ensuring continued access to quality education.</p>
+          <a href="https://cltindia.org/wp-content/uploads/2024/08/CLT-Annual-Report-2020-2021.pdf" class="btn-download" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <div class="icon">&#128196;</div>
+          <div class="year">2019 - 2020</div>
+        </div>
+        <div class="card-body">
+          <p>Annual report detailing pre-pandemic achievements, e-Patashale expansion across states, and the foundation for CLT's digital transformation.</p>
+          <a href="https://cltindia.org/wp-content/uploads/2024/08/CLT-Annual-Report-2019-2020.pdf" class="btn-download" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <div class="icon">&#128196;</div>
+          <div class="year">2018 - 2019</div>
+        </div>
+        <div class="card-body">
+          <p>Annual report covering CLT India's early growth, program development, school partnerships, and the expansion of digital learning modules.</p>
+          <a href="https://cltindia.org/wp-content/uploads/2024/08/CLT-Annual-Report-2018-2019.pdf" class="btn-download" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="card-top">
+          <div class="icon">&#128196;</div>
+          <div class="year">2017 - 2018</div>
+        </div>
+        <div class="card-body">
+          <p>Annual report documenting CLT India's foundational impact, early e-learning deployments, and the establishment of long-term educational partnerships.</p>
+          <a href="https://cltindia.org/wp-content/uploads/2024/08/CLT-Annual-Report-2017-2018.pdf" class="btn-download" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
+
+  <script src="script.js"></script>
+  <script src="include.js"></script>
+</body>
+</html>
