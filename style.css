@@ -1617,11 +1617,20 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 }
 
 .vm-icon {
-  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+.vm-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
 }
 
 .vm-card h4 {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #0c101a;
   margin: 0;
