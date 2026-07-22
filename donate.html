@@ -138,13 +138,18 @@
     .qr-wrap .upi-id-box { display: inline-block; padding: 8px 16px; background: rgba(8,143,143,0.06); border-radius: 8px; border: 1px dashed var(--teal); font-size: 0.88rem; font-weight: 600; color: var(--teal); cursor: pointer; }
     .qr-wrap .upi-id-box:hover { background: rgba(8,143,143,0.12); }
 
-    .bank-details { padding: 12px 0; }
-    .bank-details .row { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: 0.88rem; }
-    .bank-details .row:last-child { border-bottom: none; }
-    .bank-details .row .label { color: var(--text-light); font-weight: 500; }
-    .bank-details .row .value { color: var(--text); font-weight: 700; text-align: right; font-size: 0.85rem; }
-    .btn-copy { background: none; border: 1px solid var(--border); border-radius: 6px; padding: 2px 10px; cursor: pointer; font-size: 0.7rem; color: var(--teal); margin-left: 6px; transition: var(--transition); }
-    .btn-copy:hover { background: rgba(8,143,143,0.06); border-color: var(--teal); }
+    .bank-select-wrap { padding: 12px 0; }
+    .bank-select-wrap label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+    .bank-select-wrap select {
+      width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: 10px;
+      font-size: 0.95rem; font-family: inherit; background: var(--white);
+      appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 16px center; cursor: pointer;
+      transition: var(--transition);
+    }
+    .bank-select-wrap select:focus { border-color: var(--teal); outline: none; }
+    .bank-select-wrap .donate-btn { margin-top: 20px; width: 100%; }
 
     .paypal-wrap { text-align: center; padding: 24px 0; }
     .paypal-wrap p { color: var(--text-light); font-size: 0.88rem; margin-bottom: 16px; line-height: 1.6; }
@@ -226,13 +231,38 @@
         </div>
 
         <div class="pay-panel" id="panel-netbanking">
-          <div class="bank-details">
-            <div class="row"><span class="label">Account Name</span><span class="value">Children's LoveCastles Trust</span></div>
-            <div class="row"><span class="label">Account Number</span><span class="value">1234567890123456 <button class="btn-copy" onclick="navigator.clipboard.writeText('1234567890123456');this.textContent='Copied!'">Copy</button></span></div>
-            <div class="row"><span class="label">Bank</span><span class="value">State Bank of India</span></div>
-            <div class="row"><span class="label">Branch</span><span class="value">Jakkur, Bengaluru</span></div>
-            <div class="row"><span class="label">IFSC Code</span><span class="value">SBIN0001234 <button class="btn-copy" onclick="navigator.clipboard.writeText('SBIN0001234');this.textContent='Copied!'">Copy</button></span></div>
-            <div class="row"><span class="label">Account Type</span><span class="value">Savings</span></div>
+          <div class="bank-select-wrap">
+            <label for="bankSelect">Select your bank:</label>
+            <select id="bankSelect">
+              <option value="">— Choose Bank —</option>
+              <option value="SBIN">State Bank of India</option>
+              <option value="HDFC">HDFC Bank</option>
+              <option value="ICICI">ICICI Bank</option>
+              <option value="AXIS">Axis Bank</option>
+              <option value="KOTAK">Kotak Mahindra Bank</option>
+              <option value="YESB">Yes Bank</option>
+              <option value="IDBI">IDBI Bank</option>
+              <option value="PNB">Punjab National Bank</option>
+              <option value="BOB">Bank of Baroda</option>
+              <option value="CANARA">Canara Bank</option>
+              <option value="UNION">Union Bank of India</option>
+              <option value="INDUS">IndusInd Bank</option>
+              <option value="FED">Federal Bank</option>
+              <option value="SBH">State Bank of Hyderabad</option>
+              <option value="SBM">State Bank of Mysore</option>
+              <option value="SBTR">State Bank of Travancore</option>
+              <option value="BBI">Bank of India</option>
+              <option value="CBI">Central Bank of India</option>
+              <option value="IBKL">IDFC First Bank</option>
+              <option value="RBL">RBL Bank</option>
+              <option value="DCB">DCB Bank</option>
+              <option value="JAKA">Jammu &amp; Kashmir Bank</option>
+              <option value="KARB">Karnataka Bank</option>
+              <option value="SVCB">South Indian Bank</option>
+              <option value="CRSB">CSB Bank</option>
+              <option value="DLXB">Dhanlaxmi Bank</option>
+            </select>
+            <button class="donate-btn" id="netBankingBtn">Pay via Net Banking</button>
           </div>
         </div>
 
@@ -343,6 +373,51 @@
       });
       donateBtn.disabled = true;
       donateBtn.textContent = 'Opening...';
+      rzp.open();
+    });
+
+    document.getElementById('netBankingBtn').addEventListener('click', function() {
+      const bank = document.getElementById('bankSelect').value;
+      if (!bank) { alert('Please select your bank.'); return; }
+      if (!validateForm()) return;
+      if (typeof Razorpay === 'undefined') {
+        alert('Razorpay SDK failed to load. Please check your internet connection.');
+        return;
+      }
+      const options = {
+        key: RAZORPAY_KEY,
+        amount: selectedAmount * 100,
+        currency: 'INR',
+        name: 'CLT India',
+        description: 'Donation to CLT India',
+        image: 'assets/Clt-Logo.png',
+        prefill: {
+          name: donorName.value.trim(),
+          email: donorEmail.value.trim(),
+          contact: donorPhone.value.trim()
+        },
+        notes: { address: 'CLT India, Bengaluru' },
+        theme: { color: '#088F8F' },
+        method: 'netbanking',
+        bank: bank,
+        handler: function(response) {
+          alert('Payment successful!\nPayment ID: ' + response.razorpay_payment_id + '\nThank you for your generous donation!');
+        },
+        modal: {
+          ondismiss: function() {
+            document.getElementById('netBankingBtn').disabled = false;
+            document.getElementById('netBankingBtn').textContent = 'Pay via Net Banking';
+          }
+        }
+      };
+      const rzp = new Razorpay(options);
+      rzp.on('payment.failed', function(response) {
+        alert('Payment failed: ' + response.error.description);
+        document.getElementById('netBankingBtn').disabled = false;
+        document.getElementById('netBankingBtn').textContent = 'Pay via Net Banking';
+      });
+      document.getElementById('netBankingBtn').disabled = true;
+      document.getElementById('netBankingBtn').textContent = 'Opening...';
       rzp.open();
     });
   </script>
