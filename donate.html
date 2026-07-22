@@ -285,11 +285,8 @@
 
     function updateAmount(val) {
       selectedAmount = val;
-      const fmt = val.toLocaleString('en-IN');
-      payAmount.textContent = fmt;
-      payAmountBtn.textContent = fmt;
-      donateBtn.innerHTML = 'Pay &#8377;' + fmt;
       updateQR(val);
+      updatePayBtn();
     }
 
     function updatePayBtn() {
@@ -315,7 +312,7 @@
     customAmount.addEventListener('input', () => {
       amountBtns.forEach(b => b.classList.remove('active'));
       const val = parseInt(customAmount.value);
-      if (val && val > 0) updateAmount(val);
+      if (!isNaN(val) && val > 0) updateAmount(val);
     });
 
     document.querySelectorAll('.pay-method').forEach(method => {
