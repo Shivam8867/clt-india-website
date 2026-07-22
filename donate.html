@@ -194,7 +194,10 @@
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
 
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
+    emailjs.init('YOUR_EMAILJS_PUBLIC_KEY');
+
     const RAZORPAY_KEY = 'rzp_test_5MImRAQigytMRT';
 
     const amountBtns = document.querySelectorAll('.amount-btn');
@@ -261,6 +264,13 @@
         theme: { color: '#088F8F' },
         handler: function(response) {
           alert('Payment successful!\nPayment ID: ' + response.razorpay_payment_id + '\nThank you for your generous donation!');
+          emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+            name: donorName.value.trim(),
+            email: donorEmail.value.trim(),
+            phone: donorPhone.value.trim(),
+            amount: selectedAmount.toLocaleString('en-IN'),
+            payment_id: response.razorpay_payment_id
+          });
         },
         modal: {
           ondismiss: function() {
