@@ -43,7 +43,7 @@
     .impact-strip .stat .label { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
 
     .donate-section { padding: 60px 24px 80px; background: #f7fafc; }
-    .donate-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .donate-grid { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
 
     .donate-info h2 { font-size: 1.6rem; font-weight: 800; color: var(--dark); margin-bottom: 16px; }
     .donate-info p { color: var(--text-light); line-height: 1.8; margin-bottom: 20px; font-size: 0.95rem; }
@@ -53,8 +53,6 @@
       padding: 36px;
       border: 1px solid var(--border);
       box-shadow: 0 4px 24px rgba(0,0,0,0.05);
-      position: sticky;
-      top: calc(var(--header-h) + 20px);
     }
 
     .amount-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
@@ -156,10 +154,8 @@
       .amount-options { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 768px) {
-      .donate-grid { grid-template-columns: 1fr; }
       .impact-strip { gap: 24px; padding: 20px 16px; }
       .impact-strip .stat .num { font-size: 1.2rem; }
-      .donate-card { position: static; }
     }
   </style>
 </head>
