@@ -142,8 +142,6 @@
     }
     .donate-btn:hover { background: #046f6f; }
     .donate-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-    .donate-btn-outline { background: transparent; color: var(--teal); border: 1px solid var(--teal); }
-    .donate-btn-outline:hover { background: #f0fafb; }
 
     .secure-note { text-align: center; font-size: 0.72rem; color: #999; padding: 14px 20px; border-top: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: center; gap: 6px; }
 
@@ -153,20 +151,6 @@
     .qr-wrap .qr-apps { display: flex; justify-content: center; gap: 12px; margin-bottom: 8px; }
     .qr-wrap .qr-apps span { font-size: 0.75rem; padding: 4px 10px; background: #f5f5f5; border-radius: 2px; color: #555; font-weight: 500; }
     .qr-wrap .upi-id-box { display: inline-block; padding: 6px 14px; background: #f0fafb; border: 1px dashed var(--teal); font-size: 0.85rem; font-weight: 600; color: var(--teal); cursor: pointer; border-radius: 2px; }
-
-    .bank-select-wrap { padding: 4px 0; }
-    .bank-select-wrap select {
-      width: 100%; padding: 11px 12px; border: 1px solid #e0e0e0; border-radius: 2px;
-      font-size: 0.88rem; font-family: inherit;
-      appearance: none; -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 12px center;
-      transition: border-color 0.12s; box-sizing: border-box; background-color: #fafafa;
-    }
-    .bank-select-wrap select:focus { border-color: var(--teal); outline: none; background-color: #fff; }
-
-    .paypal-wrap { text-align: center; padding: 12px 0; }
-    .paypal-wrap p { color: #666; font-size: 0.82rem; margin-bottom: 14px; line-height: 1.5; }
 
     @media (max-width: 768px) {
       .donate-grid { grid-template-columns: 1fr; }
@@ -229,18 +213,6 @@
               <span class="pm-label">UPI QR Code</span>
               <span class="pm-arrow">&#8250;</span>
             </div>
-            <div class="pay-method" data-panel="netbanking">
-              <div class="radio-dot"></div>
-              <span class="pm-icon">&#127974;</span>
-              <span class="pm-label">Net Banking</span>
-              <span class="pm-arrow">&#8250;</span>
-            </div>
-            <div class="pay-method" data-panel="paypal">
-              <div class="radio-dot"></div>
-              <span class="pm-icon">&#128176;</span>
-              <span class="pm-label">PayPal</span>
-              <span class="pm-arrow">&#8250;</span>
-            </div>
           </div>
 
           <div class="pay-panel active" id="panel-razorpay">
@@ -269,36 +241,6 @@
                 <span>BHIM</span>
               </div>
               <div class="upi-id-box" onclick="navigator.clipboard.writeText('cltindia@razorpay');alert('UPI ID copied!')">cltindia@razorpay &#128203;</div>
-            </div>
-          </div>
-
-          <div class="pay-panel" id="panel-netbanking">
-            <div class="bank-select-wrap">
-              <select id="bankSelect">
-                <option value="">— Choose your bank —</option>
-                <option value="SBIN">State Bank of India</option>
-                <option value="HDFC">HDFC Bank</option>
-                <option value="ICICI">ICICI Bank</option>
-                <option value="AXIS">Axis Bank</option>
-                <option value="KOTAK">Kotak Mahindra Bank</option>
-                <option value="YESB">Yes Bank</option>
-                <option value="PNB">Punjab National Bank</option>
-                <option value="BOB">Bank of Baroda</option>
-                <option value="CANARA">Canara Bank</option>
-                <option value="IDBI">IDBI Bank</option>
-                <option value="UNION">Union Bank of India</option>
-                <option value="BBI">Bank of India</option>
-                <option value="CBI">Central Bank of India</option>
-                <option value="IBKL">IDFC First Bank</option>
-                <option value="RBL">RBL Bank</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="pay-panel" id="panel-paypal">
-            <div class="paypal-wrap">
-              <p>Donate securely via PayPal using your credit card, debit card, or PayPal balance. International donors preferred.</p>
-              <a href="https://www.paypal.com/donate/?hosted_button_id=CLTINDIA" target="_blank" class="donate-btn donate-btn-outline">Donate with PayPal</a>
             </div>
           </div>
 
@@ -381,11 +323,6 @@
     donateBtn.addEventListener('click', function() {
       const method = getActiveMethod();
 
-      if (method === 'paypal') {
-        window.open('https://www.paypal.com/donate/?hosted_button_id=CLTINDIA', '_blank');
-        return;
-      }
-
       if (method === 'upi') {
         const upiId = 'cltindia@razorpay';
         const upiUrl = 'upi://pay?pa=' + upiId + '&am=' + selectedAmount + '&cu=INR&tn=Donation to CLT India';
@@ -398,10 +335,6 @@
         alert('Razorpay SDK failed to load. Please check your internet connection.');
         return;
       }
-
-      const isNetbanking = method === 'netbanking';
-      const bank = isNetbanking ? document.getElementById('bankSelect').value : null;
-      if (isNetbanking && !bank) { alert('Please select your bank.'); return; }
 
       const options = {
         key: RAZORPAY_KEY,
@@ -423,18 +356,21 @@
         modal: {
           ondismiss: function() {
             donateBtn.disabled = false;
-            donateBtn.innerHTML = 'Pay &#8377;' + selectedAmount.toLocaleString('en-IN');
+            donateBtn.innerHTML = 'Pay \u20B9' + selectedAmount.toLocaleString('en-IN');
           }
         }
       };
-      if (isNetbanking) { options.method = 'netbanking'; options.bank = bank; }
 
       const rzp = new Razorpay(options);
       rzp.on('payment.failed', function(response) {
         alert('Payment failed: ' + response.error.description);
         donateBtn.disabled = false;
-        donateBtn.innerHTML = 'Pay &#8377;' + selectedAmount.toLocaleString('en-IN');
+        donateBtn.innerHTML = 'Pay \u20B9' + selectedAmount.toLocaleString('en-IN');
       });
+      donateBtn.disabled = true;
+      donateBtn.innerHTML = 'Opening...';
+      rzp.open();
+    });
       donateBtn.disabled = true;
       donateBtn.innerHTML = 'Opening...';
       rzp.open();
