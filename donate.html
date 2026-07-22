@@ -42,125 +42,142 @@
     .impact-strip .stat .num { font-size: 1.5rem; font-weight: 800; color: var(--teal); }
     .impact-strip .stat .label { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
 
-    .donate-section { padding: 60px 24px 80px; background: #f7fafc; }
-    .donate-grid { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
+    .donate-section { padding: 60px 24px 80px; background: #f1f3f6; }
+    .donate-grid { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 24px; align-items: start; }
 
-    .donate-info h2 { font-size: 1.6rem; font-weight: 800; color: var(--dark); margin-bottom: 16px; }
-    .donate-info p { color: var(--text-light); line-height: 1.8; margin-bottom: 20px; font-size: 0.95rem; }
+    .donate-info h2 { font-size: 1.4rem; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+    .donate-info p { color: #666; line-height: 1.7; margin-bottom: 16px; font-size: 0.92rem; }
+
     .donate-card {
       background: var(--white);
-      border-radius: 16px;
-      padding: 36px;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+      border-radius: 4px;
+      border: none;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      overflow: hidden;
     }
 
-    .amount-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+    .card-header { padding: 16px 20px; border-bottom: 1px solid #f0f0f0; }
+    .card-header h3 { font-size: 1rem; font-weight: 600; color: #222; }
+
+    .card-body { padding: 20px; }
+
+    .amount-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
     .amount-btn {
-      padding: 14px 8px;
-      border: 2px solid var(--border);
-      border-radius: 10px;
+      padding: 12px 4px;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 2px;
       background: var(--white);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #222;
       cursor: pointer;
-      transition: var(--transition);
+      transition: all 0.15s;
       font-family: inherit;
-      line-height: 1.3;
     }
-    .amount-btn:hover, .amount-btn.active { border-color: var(--teal); background: rgba(8,143,143,0.06); color: var(--teal); }
+    .amount-btn:hover { border-color: var(--teal); color: var(--teal); }
+    .amount-btn.active { border-color: var(--teal); background: #f0fafb; color: var(--teal); font-weight: 600; }
+
     .amount-custom {
       width: 100%;
-      padding: 14px 18px;
-      border: 2px solid var(--border);
-      border-radius: 10px;
-      font-size: 1rem;
+      padding: 12px 14px;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 2px;
+      font-size: 0.92rem;
       text-align: center;
       outline: none;
-      transition: var(--transition);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       font-family: inherit;
       box-sizing: border-box;
+      transition: border-color 0.15s;
     }
-    .amount-custom:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(8,143,143,0.1); }
+    .amount-custom:focus { border-color: var(--teal); }
 
-    .pay-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 20px; }
-    .pay-tab {
-      padding: 10px 4px;
-      border: 2px solid var(--border);
-      border-radius: 10px;
-      background: var(--white);
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--text-light);
-      cursor: pointer;
-      transition: var(--transition);
-      text-align: center;
-      font-family: inherit;
+    .pay-methods { border: 1px solid #f0f0f0; border-radius: 4px; margin-bottom: 16px; }
+    .pay-method {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 16px; cursor: pointer;
+      border-bottom: 1px solid #f0f0f0;
+      transition: background 0.15s;
     }
-    .pay-tab:hover { border-color: var(--teal); color: var(--teal); }
-    .pay-tab.active { border-color: var(--teal); background: rgba(8,143,143,0.06); color: var(--teal); }
-    .pay-tab .tab-icon { display: block; font-size: 1.2rem; margin-bottom: 2px; }
+    .pay-method:last-child { border-bottom: none; }
+    .pay-method:hover { background: #fafafa; }
+    .pay-method.active { background: #f0fafb; }
+    .pay-method .radio-dot {
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 2px solid #ccc;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: all 0.15s;
+    }
+    .pay-method.active .radio-dot { border-color: var(--teal); }
+    .pay-method.active .radio-dot::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--teal); }
+    .pay-method .pm-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .pay-method .pm-label { font-size: 0.88rem; font-weight: 500; color: #222; flex: 1; }
+    .pay-method .pm-arrow { color: #ccc; font-size: 0.8rem; }
 
-    .pay-panel { display: none; }
+    .pay-panel { display: none; padding-top: 12px; }
     .pay-panel.active { display: block; }
 
-    .pay-panel .form-group { margin-bottom: 14px; }
-    .pay-panel .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--text); margin-bottom: 5px; }
-    .pay-panel .form-group input { width: 100%; padding: 12px 14px; border: 2px solid var(--border); border-radius: 10px; font-size: 0.92rem; outline: none; transition: var(--transition); font-family: inherit; box-sizing: border-box; background: var(--white); }
-    .pay-panel .form-group input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(8,143,143,0.1); }
+    .pay-panel .form-group { margin-bottom: 12px; }
+    .pay-panel .form-group label { display: block; font-size: 0.8rem; font-weight: 500; color: #444; margin-bottom: 4px; }
+    .pay-panel .form-group input { width: 100%; padding: 10px 12px; border: 1.5px solid #e0e0e0; border-radius: 2px; font-size: 0.88rem; outline: none; font-family: inherit; box-sizing: border-box; transition: border-color 0.15s; }
+    .pay-panel .form-group input:focus { border-color: var(--teal); }
+
+    .summary-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; font-size: 0.88rem; color: #444; border-top: 1px solid #f0f0f0; margin-top: 8px; }
+    .summary-row .label { font-weight: 400; }
+    .summary-row .value { font-weight: 600; color: #222; }
+    .summary-row.total { border-top: 2px solid #e0e0e0; margin-top: 4px; padding-top: 12px; font-size: 1rem; }
+    .summary-row.total .label { font-weight: 600; }
+    .summary-row.total .value { font-size: 1.15rem; color: var(--teal); }
 
     .donate-btn {
       width: 100%;
-      padding: 16px;
+      padding: 14px;
       background: var(--teal);
       color: var(--white);
       border: none;
-      border-radius: 12px;
-      font-size: 1.05rem;
-      font-weight: 700;
+      border-radius: 2px;
+      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: var(--transition);
+      transition: all 0.15s;
       font-family: inherit;
-      margin-top: 6px;
+      margin-top: 10px;
+      letter-spacing: 0.3px;
     }
-    .donate-btn:hover { background: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(8,143,143,0.3); }
-    .donate-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
-    .donate-btn-outline { background: transparent; color: var(--teal); border: 2px solid var(--teal); }
-    .donate-btn-outline:hover { background: rgba(8,143,143,0.06); box-shadow: 0 4px 12px rgba(8,143,143,0.15); }
+    .donate-btn:hover { background: #046f6f; }
+    .donate-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .donate-btn-outline { background: transparent; color: var(--teal); border: 1.5px solid var(--teal); }
+    .donate-btn-outline:hover { background: #f0fafb; }
 
-    .secure-note { text-align: center; font-size: 0.8rem; color: var(--text-light); margin-top: 16px; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+    .secure-note { text-align: center; font-size: 0.75rem; color: #888; padding: 12px 20px; border-top: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: center; gap: 6px; }
 
-    .qr-wrap { text-align: center; padding: 16px 0; }
-    .qr-wrap img { max-width: 200px; border-radius: 12px; border: 2px solid var(--border); padding: 6px; background: #fff; }
-    .qr-wrap p { font-size: 0.85rem; color: var(--text-light); margin-top: 8px; margin-bottom: 8px; }
-    .qr-wrap .upi-id-box { display: inline-block; padding: 8px 16px; background: rgba(8,143,143,0.06); border-radius: 8px; border: 1px dashed var(--teal); font-size: 0.88rem; font-weight: 600; color: var(--teal); cursor: pointer; }
-    .qr-wrap .upi-id-box:hover { background: rgba(8,143,143,0.12); }
+    .qr-wrap { text-align: center; padding: 8px 0; }
+    .qr-wrap img { max-width: 180px; border-radius: 4px; border: 1px solid #eee; padding: 4px; }
+    .qr-wrap p { font-size: 0.82rem; color: #666; margin-top: 6px; margin-bottom: 6px; }
+    .qr-wrap .upi-id-box { display: inline-block; padding: 6px 14px; background: #f0fafb; border-radius: 4px; border: 1px dashed var(--teal); font-size: 0.85rem; font-weight: 600; color: var(--teal); cursor: pointer; }
 
-    .bank-select-wrap { padding: 12px 0; }
-    .bank-select-wrap label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+    .bank-select-wrap { padding: 4px 0; }
     .bank-select-wrap select {
-      width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: 10px;
-      font-size: 0.95rem; font-family: inherit; background: var(--white);
+      width: 100%; padding: 10px 12px; border: 1.5px solid #e0e0e0; border-radius: 2px;
+      font-size: 0.88rem; font-family: inherit;
       appearance: none; -webkit-appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 16px center; cursor: pointer;
-      transition: var(--transition);
+      background-repeat: no-repeat; background-position: right 12px center;
+      transition: border-color 0.15s; box-sizing: border-box;
     }
     .bank-select-wrap select:focus { border-color: var(--teal); outline: none; }
-    .bank-select-wrap .donate-btn { margin-top: 20px; width: 100%; }
 
-    .paypal-wrap { text-align: center; padding: 24px 0; }
-    .paypal-wrap p { color: var(--text-light); font-size: 0.88rem; margin-bottom: 16px; line-height: 1.6; }
+    .paypal-wrap { text-align: center; padding: 12px 0; }
+    .paypal-wrap p { color: #666; font-size: 0.82rem; margin-bottom: 12px; line-height: 1.5; }
 
-    @media (max-width: 600px) {
-      .pay-tabs { grid-template-columns: repeat(2, 1fr); }
-      .amount-options { grid-template-columns: repeat(3, 1fr); }
-    }
     @media (max-width: 768px) {
+      .donate-grid { grid-template-columns: 1fr; }
       .impact-strip { gap: 24px; padding: 20px 16px; }
       .impact-strip .stat .num { font-size: 1.2rem; }
+      .donate-section { padding: 40px 16px 60px; }
+    }
+    @media (max-width: 400px) {
+      .amount-options { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -189,91 +206,107 @@
         <p>Join us in our mission to transform lives through education.</p>
       </div>
       <div class="donate-card">
-        <div class="amount-options">
-          <button class="amount-btn active" data-amount="500">&#8377;500</button>
-          <button class="amount-btn" data-amount="1000">&#8377;1,000</button>
-          <button class="amount-btn" data-amount="2000">&#8377;2,000</button>
-          <button class="amount-btn" data-amount="5000">&#8377;5,000</button>
-          <button class="amount-btn" data-amount="10000">&#8377;10,000</button>
-          <button class="amount-btn" data-amount="25000">&#8377;25,000</button>
-        </div>
-        <input type="number" class="amount-custom" id="customAmount" placeholder="Custom Amount (&#8377;)" min="1">
-
-        <div class="pay-tabs">
-          <button class="pay-tab active" data-panel="razorpay"><span class="tab-icon">&#128179;</span>Card / UPI</button>
-          <button class="pay-tab" data-panel="upi"><span class="tab-icon">&#128241;</span>Scan QR</button>
-          <button class="pay-tab" data-panel="netbanking"><span class="tab-icon">&#127974;</span>Net Banking</button>
-          <button class="pay-tab" data-panel="paypal"><span class="tab-icon">&#128176;</span>PayPal</button>
-        </div>
-
-        <div class="pay-panel active" id="panel-razorpay">
-          <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" id="donorName" placeholder="Your name" autocomplete="name">
+        <div class="card-header"><h3>Choose your donation</h3></div>
+        <div class="card-body">
+          <div class="amount-options">
+            <button class="amount-btn active" data-amount="500">&#8377;500</button>
+            <button class="amount-btn" data-amount="1000">&#8377;1,000</button>
+            <button class="amount-btn" data-amount="2000">&#8377;2,000</button>
+            <button class="amount-btn" data-amount="5000">&#8377;5,000</button>
+            <button class="amount-btn" data-amount="10000">&#8377;10,000</button>
+            <button class="amount-btn" data-amount="25000">&#8377;25,000</button>
           </div>
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" id="donorEmail" placeholder="your@email.com" autocomplete="email">
+          <input type="number" class="amount-custom" id="customAmount" placeholder="Enter custom amount" min="1">
+
+          <div class="pay-methods">
+            <div class="pay-method active" data-panel="razorpay">
+              <div class="radio-dot"></div>
+              <span class="pm-icon">&#128179;</span>
+              <span class="pm-label">Credit / Debit Card &amp; UPI</span>
+              <span class="pm-arrow">&#8250;</span>
+            </div>
+            <div class="pay-method" data-panel="upi">
+              <div class="radio-dot"></div>
+              <span class="pm-icon">&#128241;</span>
+              <span class="pm-label">UPI QR Code</span>
+              <span class="pm-arrow">&#8250;</span>
+            </div>
+            <div class="pay-method" data-panel="netbanking">
+              <div class="radio-dot"></div>
+              <span class="pm-icon">&#127974;</span>
+              <span class="pm-label">Net Banking</span>
+              <span class="pm-arrow">&#8250;</span>
+            </div>
+            <div class="pay-method" data-panel="paypal">
+              <div class="radio-dot"></div>
+              <span class="pm-icon">&#128176;</span>
+              <span class="pm-label">PayPal</span>
+              <span class="pm-arrow">&#8250;</span>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" id="donorPhone" placeholder="10-digit mobile number" autocomplete="tel">
+
+          <div class="pay-panel active" id="panel-razorpay">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="donorName" placeholder="Your name" autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" id="donorEmail" placeholder="your@email.com" autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" id="donorPhone" placeholder="10-digit mobile number" autocomplete="tel">
+            </div>
           </div>
-          <button class="donate-btn" id="donateBtn">Donate &#8377;<span id="payAmount">500</span></button>
+
+          <div class="pay-panel" id="panel-upi">
+            <div class="qr-wrap">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://rzp.io/l/DonateCltindia" alt="UPI QR Code">
+              <p>Scan with any UPI app</p>
+              <div class="upi-id-box" onclick="navigator.clipboard.writeText('cltindia@razorpay');alert('UPI ID copied!')">cltindia@razorpay &#128203;</div>
+            </div>
+          </div>
+
+          <div class="pay-panel" id="panel-netbanking">
+            <div class="bank-select-wrap">
+              <select id="bankSelect">
+                <option value="">— Choose your bank —</option>
+                <option value="SBIN">State Bank of India</option>
+                <option value="HDFC">HDFC Bank</option>
+                <option value="ICICI">ICICI Bank</option>
+                <option value="AXIS">Axis Bank</option>
+                <option value="KOTAK">Kotak Mahindra Bank</option>
+                <option value="YESB">Yes Bank</option>
+                <option value="PNB">Punjab National Bank</option>
+                <option value="BOB">Bank of Baroda</option>
+                <option value="CANARA">Canara Bank</option>
+                <option value="IDBI">IDBI Bank</option>
+                <option value="UNION">Union Bank of India</option>
+                <option value="BBI">Bank of India</option>
+                <option value="CBI">Central Bank of India</option>
+                <option value="IBKL">IDFC First Bank</option>
+                <option value="RBL">RBL Bank</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="pay-panel" id="panel-paypal">
+            <div class="paypal-wrap">
+              <p>Donate securely via PayPal using your credit card, debit card, or PayPal balance. International donors preferred.</p>
+              <a href="https://www.paypal.com/donate/?hosted_button_id=CLTINDIA" target="_blank" class="donate-btn donate-btn-outline">Donate with PayPal</a>
+            </div>
+          </div>
+
+          <div class="summary-row">
+            <span class="label">Donation Amount</span>
+            <span class="value">&#8377;<span id="payAmount">500</span></span>
+          </div>
         </div>
 
-        <div class="pay-panel" id="panel-upi">
-          <div class="qr-wrap">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://rzp.io/l/DonateCltindia" alt="UPI QR Code">
-            <p>Scan with any UPI app</p>
-            <div class="upi-id-box" onclick="navigator.clipboard.writeText('cltindia@razorpay');alert('UPI ID copied!')">cltindia@razorpay &#128203;</div>
-          </div>
-        </div>
+        <button class="donate-btn" id="donateBtn">Pay &#8377;<span id="payAmountBtn">500</span></button>
 
-        <div class="pay-panel" id="panel-netbanking">
-          <div class="bank-select-wrap">
-            <label for="bankSelect">Select your bank:</label>
-            <select id="bankSelect">
-              <option value="">— Choose Bank —</option>
-              <option value="SBIN">State Bank of India</option>
-              <option value="HDFC">HDFC Bank</option>
-              <option value="ICICI">ICICI Bank</option>
-              <option value="AXIS">Axis Bank</option>
-              <option value="KOTAK">Kotak Mahindra Bank</option>
-              <option value="YESB">Yes Bank</option>
-              <option value="IDBI">IDBI Bank</option>
-              <option value="PNB">Punjab National Bank</option>
-              <option value="BOB">Bank of Baroda</option>
-              <option value="CANARA">Canara Bank</option>
-              <option value="UNION">Union Bank of India</option>
-              <option value="INDUS">IndusInd Bank</option>
-              <option value="FED">Federal Bank</option>
-              <option value="SBH">State Bank of Hyderabad</option>
-              <option value="SBM">State Bank of Mysore</option>
-              <option value="SBTR">State Bank of Travancore</option>
-              <option value="BBI">Bank of India</option>
-              <option value="CBI">Central Bank of India</option>
-              <option value="IBKL">IDFC First Bank</option>
-              <option value="RBL">RBL Bank</option>
-              <option value="DCB">DCB Bank</option>
-              <option value="JAKA">Jammu &amp; Kashmir Bank</option>
-              <option value="KARB">Karnataka Bank</option>
-              <option value="SVCB">South Indian Bank</option>
-              <option value="CRSB">CSB Bank</option>
-              <option value="DLXB">Dhanlaxmi Bank</option>
-            </select>
-            <button class="donate-btn" id="netBankingBtn">Pay via Net Banking</button>
-          </div>
-        </div>
-
-        <div class="pay-panel" id="panel-paypal">
-          <div class="paypal-wrap">
-            <p>Donate securely via PayPal using your credit card, debit card, or PayPal balance. International donors preferred.</p>
-            <a href="https://www.paypal.com/donate/?hosted_button_id=CLTINDIA" target="_blank" class="donate-btn donate-btn-outline">Donate with PayPal</a>
-          </div>
-        </div>
-
-        <p class="secure-note">&#128274; Secure &bull; 80G Tax Exempt &bull; Instant Receipt</p>
+        <div class="secure-note">&#128274; Secure &bull; 80G Tax Exempt &bull; Powered by Razorpay</div>
       </div>
     </div>
   </section>
@@ -290,6 +323,7 @@
     const customAmount = document.getElementById('customAmount');
     const donateBtn = document.getElementById('donateBtn');
     const payAmount = document.getElementById('payAmount');
+    const payAmountBtn = document.getElementById('payAmountBtn');
     const donorName = document.getElementById('donorName');
     const donorEmail = document.getElementById('donorEmail');
     const donorPhone = document.getElementById('donorPhone');
@@ -298,7 +332,10 @@
 
     function updateAmount(val) {
       selectedAmount = val;
-      payAmount.textContent = val.toLocaleString('en-IN');
+      const fmt = val.toLocaleString('en-IN');
+      payAmount.textContent = fmt;
+      payAmountBtn.textContent = fmt;
+      donateBtn.innerHTML = 'Pay &#8377;' + fmt;
     }
 
     amountBtns.forEach(btn => {
@@ -316,12 +353,12 @@
       if (val && val > 0) updateAmount(val);
     });
 
-    document.querySelectorAll('.pay-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
+    document.querySelectorAll('.pay-method').forEach(method => {
+      method.addEventListener('click', () => {
+        document.querySelectorAll('.pay-method').forEach(m => m.classList.remove('active'));
+        method.classList.add('active');
         document.querySelectorAll('.pay-panel').forEach(p => p.classList.remove('active'));
-        document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+        document.getElementById('panel-' + method.dataset.panel).classList.add('active');
       });
     });
 
@@ -333,12 +370,34 @@
       return true;
     }
 
+    function getActiveMethod() {
+      return document.querySelector('.pay-method.active')?.dataset.panel || 'razorpay';
+    }
+
     donateBtn.addEventListener('click', function() {
+      const method = getActiveMethod();
+
+      if (method === 'paypal') {
+        window.open('https://www.paypal.com/donate/?hosted_button_id=CLTINDIA', '_blank');
+        return;
+      }
+
+      if (method === 'upi') {
+        const upiId = 'cltindia@razorpay';
+        const upiUrl = 'upi://pay?pa=' + upiId + '&am=' + selectedAmount + '&cu=INR&tn=Donation to CLT India';
+        window.open(upiUrl, '_blank');
+        return;
+      }
+
       if (!validateForm()) return;
       if (typeof Razorpay === 'undefined') {
         alert('Razorpay SDK failed to load. Please check your internet connection.');
         return;
       }
+
+      const isNetbanking = method === 'netbanking';
+      const bank = isNetbanking ? document.getElementById('bankSelect').value : null;
+      if (isNetbanking && !bank) { alert('Please select your bank.'); return; }
 
       const options = {
         key: RAZORPAY_KEY,
@@ -360,64 +419,20 @@
         modal: {
           ondismiss: function() {
             donateBtn.disabled = false;
-            donateBtn.textContent = 'Donate \u20B9' + selectedAmount.toLocaleString('en-IN');
+            donateBtn.innerHTML = 'Pay &#8377;' + selectedAmount.toLocaleString('en-IN');
           }
         }
       };
+      if (isNetbanking) { options.method = 'netbanking'; options.bank = bank; }
 
       const rzp = new Razorpay(options);
       rzp.on('payment.failed', function(response) {
         alert('Payment failed: ' + response.error.description);
         donateBtn.disabled = false;
-        donateBtn.textContent = 'Donate \u20B9' + selectedAmount.toLocaleString('en-IN');
+        donateBtn.innerHTML = 'Pay &#8377;' + selectedAmount.toLocaleString('en-IN');
       });
       donateBtn.disabled = true;
-      donateBtn.textContent = 'Opening...';
-      rzp.open();
-    });
-
-    document.getElementById('netBankingBtn').addEventListener('click', function() {
-      const bank = document.getElementById('bankSelect').value;
-      if (!bank) { alert('Please select your bank.'); return; }
-      if (!validateForm()) return;
-      if (typeof Razorpay === 'undefined') {
-        alert('Razorpay SDK failed to load. Please check your internet connection.');
-        return;
-      }
-      const options = {
-        key: RAZORPAY_KEY,
-        amount: selectedAmount * 100,
-        currency: 'INR',
-        name: 'CLT India',
-        description: 'Donation to CLT India',
-        image: 'assets/Clt-Logo.png',
-        prefill: {
-          name: donorName.value.trim(),
-          email: donorEmail.value.trim(),
-          contact: donorPhone.value.trim()
-        },
-        notes: { address: 'CLT India, Bengaluru' },
-        theme: { color: '#088F8F' },
-        method: 'netbanking',
-        bank: bank,
-        handler: function(response) {
-          alert('Payment successful!\nPayment ID: ' + response.razorpay_payment_id + '\nThank you for your generous donation!');
-        },
-        modal: {
-          ondismiss: function() {
-            document.getElementById('netBankingBtn').disabled = false;
-            document.getElementById('netBankingBtn').textContent = 'Pay via Net Banking';
-          }
-        }
-      };
-      const rzp = new Razorpay(options);
-      rzp.on('payment.failed', function(response) {
-        alert('Payment failed: ' + response.error.description);
-        document.getElementById('netBankingBtn').disabled = false;
-        document.getElementById('netBankingBtn').textContent = 'Pay via Net Banking';
-      });
-      document.getElementById('netBankingBtn').disabled = true;
-      document.getElementById('netBankingBtn').textContent = 'Opening...';
+      donateBtn.innerHTML = 'Opening...';
       rzp.open();
     });
   </script>
