@@ -50,7 +50,7 @@
 
     .donate-card {
       background: var(--white);
-      border-radius: 4px;
+      border-radius: 2px;
       border: none;
       box-shadow: 0 1px 4px rgba(0,0,0,0.08);
       overflow: hidden;
@@ -58,29 +58,30 @@
 
     .card-header { padding: 16px 20px; border-bottom: 1px solid #f0f0f0; }
     .card-header h3 { font-size: 1rem; font-weight: 600; color: #222; }
+    .card-header .header-secure { float: right; font-size: 0.7rem; color: #999; font-weight: 400; display: flex; align-items: center; gap: 4px; }
 
     .card-body { padding: 20px; }
 
-    .amount-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+    .amount-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
     .amount-btn {
-      padding: 12px 4px;
-      border: 1.5px solid #e0e0e0;
+      padding: 14px 4px;
+      border: 1px solid #e0e0e0;
       border-radius: 2px;
       background: var(--white);
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 500;
-      color: #222;
+      color: #333;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: all 0.12s;
       font-family: inherit;
     }
-    .amount-btn:hover { border-color: var(--teal); color: var(--teal); }
+    .amount-btn:hover { border-color: var(--teal); }
     .amount-btn.active { border-color: var(--teal); background: #f0fafb; color: var(--teal); font-weight: 600; }
 
     .amount-custom {
       width: 100%;
       padding: 12px 14px;
-      border: 1.5px solid #e0e0e0;
+      border: 1px solid #e0e0e0;
       border-radius: 2px;
       font-size: 0.92rem;
       text-align: center;
@@ -88,87 +89,84 @@
       margin-bottom: 16px;
       font-family: inherit;
       box-sizing: border-box;
-      transition: border-color 0.15s;
+      transition: border-color 0.12s;
     }
     .amount-custom:focus { border-color: var(--teal); }
 
-    .pay-methods { border: 1px solid #f0f0f0; border-radius: 4px; margin-bottom: 16px; }
+    .pay-methods { border: 1px solid #f0f0f0; margin-bottom: 16px; }
     .pay-method {
       display: flex; align-items: center; gap: 12px;
-      padding: 14px 16px; cursor: pointer;
+      padding: 16px 16px; cursor: pointer;
       border-bottom: 1px solid #f0f0f0;
-      transition: background 0.15s;
+      transition: background 0.12s;
     }
     .pay-method:last-child { border-bottom: none; }
     .pay-method:hover { background: #fafafa; }
     .pay-method.active { background: #f0fafb; }
     .pay-method .radio-dot {
-      width: 18px; height: 18px; border-radius: 50%;
+      width: 20px; height: 20px; border-radius: 50%;
       border: 2px solid #ccc;
       display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; transition: all 0.15s;
+      flex-shrink: 0; transition: all 0.12s;
     }
     .pay-method.active .radio-dot { border-color: var(--teal); }
     .pay-method.active .radio-dot::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--teal); }
-    .pay-method .pm-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .pay-method .pm-icon { font-size: 1.2rem; width: 24px; text-align: center; flex-shrink: 0; }
     .pay-method .pm-label { font-size: 0.88rem; font-weight: 500; color: #222; flex: 1; }
-    .pay-method .pm-arrow { color: #ccc; font-size: 0.8rem; }
+    .pay-method .pm-arrow { color: #ccc; font-size: 1rem; }
 
-    .pay-panel { display: none; padding-top: 12px; }
+    .pay-panel { display: none; padding: 12px 0 4px; }
     .pay-panel.active { display: block; }
 
-    .pay-panel .form-group { margin-bottom: 12px; }
-    .pay-panel .form-group label { display: block; font-size: 0.8rem; font-weight: 500; color: #444; margin-bottom: 4px; }
-    .pay-panel .form-group input { width: 100%; padding: 10px 12px; border: 1.5px solid #e0e0e0; border-radius: 2px; font-size: 0.88rem; outline: none; font-family: inherit; box-sizing: border-box; transition: border-color 0.15s; }
-    .pay-panel .form-group input:focus { border-color: var(--teal); }
+    .pay-panel .form-group { margin-bottom: 14px; }
+    .pay-panel .form-group label { display: block; font-size: 0.8rem; font-weight: 500; color: #555; margin-bottom: 5px; }
+    .pay-panel .form-group input { width: 100%; padding: 10px 12px; border: 1px solid #e0e0e0; border-radius: 2px; font-size: 0.88rem; outline: none; font-family: inherit; box-sizing: border-box; transition: border-color 0.12s; background: #fafafa; }
+    .pay-panel .form-group input:focus { background: #fff; border-color: var(--teal); }
 
-    .summary-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; font-size: 0.88rem; color: #444; border-top: 1px solid #f0f0f0; margin-top: 8px; }
-    .summary-row .label { font-weight: 400; }
-    .summary-row .value { font-weight: 600; color: #222; }
-    .summary-row.total { border-top: 2px solid #e0e0e0; margin-top: 4px; padding-top: 12px; font-size: 1rem; }
-    .summary-row.total .label { font-weight: 600; }
-    .summary-row.total .value { font-size: 1.15rem; color: var(--teal); }
+    .summary-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0 4px; font-size: 0.88rem; color: #444; border-top: 1px solid #f0f0f0; margin-top: 4px; }
+    .summary-row .value { font-weight: 600; color: #222; font-size: 1rem; }
 
-    .donate-btn {
-      width: 100%;
-      padding: 14px;
+    .donate-btn, .pay-btn {
+      display: block; width: 100%;
+      padding: 15px;
       background: var(--teal);
       color: var(--white);
       border: none;
       border-radius: 2px;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: all 0.12s;
       font-family: inherit;
-      margin-top: 10px;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.5px;
     }
     .donate-btn:hover { background: #046f6f; }
     .donate-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-    .donate-btn-outline { background: transparent; color: var(--teal); border: 1.5px solid var(--teal); }
+    .donate-btn-outline { background: transparent; color: var(--teal); border: 1px solid var(--teal); }
     .donate-btn-outline:hover { background: #f0fafb; }
 
-    .secure-note { text-align: center; font-size: 0.75rem; color: #888; padding: 12px 20px; border-top: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .secure-note { text-align: center; font-size: 0.72rem; color: #999; padding: 14px 20px; border-top: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: center; gap: 6px; }
 
     .qr-wrap { text-align: center; padding: 8px 0; }
-    .qr-wrap img { max-width: 180px; border-radius: 4px; border: 1px solid #eee; padding: 4px; }
-    .qr-wrap p { font-size: 0.82rem; color: #666; margin-top: 6px; margin-bottom: 6px; }
-    .qr-wrap .upi-id-box { display: inline-block; padding: 6px 14px; background: #f0fafb; border-radius: 4px; border: 1px dashed var(--teal); font-size: 0.85rem; font-weight: 600; color: var(--teal); cursor: pointer; }
+    .qr-wrap img { max-width: 180px; border: 1px solid #eee; padding: 4px; }
+    .qr-wrap p { font-size: 0.82rem; color: #666; margin-top: 8px; margin-bottom: 8px; }
+    .qr-wrap .qr-apps { display: flex; justify-content: center; gap: 12px; margin-bottom: 8px; }
+    .qr-wrap .qr-apps span { font-size: 0.75rem; padding: 4px 10px; background: #f5f5f5; border-radius: 2px; color: #555; font-weight: 500; }
+    .qr-wrap .upi-id-box { display: inline-block; padding: 6px 14px; background: #f0fafb; border: 1px dashed var(--teal); font-size: 0.85rem; font-weight: 600; color: var(--teal); cursor: pointer; border-radius: 2px; }
 
     .bank-select-wrap { padding: 4px 0; }
     .bank-select-wrap select {
-      width: 100%; padding: 10px 12px; border: 1.5px solid #e0e0e0; border-radius: 2px;
+      width: 100%; padding: 11px 12px; border: 1px solid #e0e0e0; border-radius: 2px;
       font-size: 0.88rem; font-family: inherit;
       appearance: none; -webkit-appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 12px center;
-      transition: border-color 0.15s; box-sizing: border-box;
+      transition: border-color 0.12s; box-sizing: border-box; background-color: #fafafa;
     }
-    .bank-select-wrap select:focus { border-color: var(--teal); outline: none; }
+    .bank-select-wrap select:focus { border-color: var(--teal); outline: none; background-color: #fff; }
 
     .paypal-wrap { text-align: center; padding: 12px 0; }
-    .paypal-wrap p { color: #666; font-size: 0.82rem; margin-bottom: 12px; line-height: 1.5; }
+    .paypal-wrap p { color: #666; font-size: 0.82rem; margin-bottom: 14px; line-height: 1.5; }
 
     @media (max-width: 768px) {
       .donate-grid { grid-template-columns: 1fr; }
@@ -206,7 +204,7 @@
         <p>Join us in our mission to transform lives through education.</p>
       </div>
       <div class="donate-card">
-        <div class="card-header"><h3>Choose your donation</h3></div>
+        <div class="card-header"><h3>Choose your donation <span class="header-secure">&#128274; 100% Secure</span></h3></div>
         <div class="card-body">
           <div class="amount-options">
             <button class="amount-btn active" data-amount="500">&#8377;500</button>
@@ -264,6 +262,12 @@
             <div class="qr-wrap">
               <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://rzp.io/l/DonateCltindia" alt="UPI QR Code">
               <p>Scan with any UPI app</p>
+              <div class="qr-apps">
+                <span>Google Pay</span>
+                <span>PhonePe</span>
+                <span>Paytm</span>
+                <span>BHIM</span>
+              </div>
               <div class="upi-id-box" onclick="navigator.clipboard.writeText('cltindia@razorpay');alert('UPI ID copied!')">cltindia@razorpay &#128203;</div>
             </div>
           </div>
@@ -302,9 +306,9 @@
             <span class="label">Donation Amount</span>
             <span class="value">&#8377;<span id="payAmount">500</span></span>
           </div>
-        </div>
 
-        <button class="donate-btn" id="donateBtn">Pay &#8377;<span id="payAmountBtn">500</span></button>
+          <button class="donate-btn" id="donateBtn">Pay &#8377;<span id="payAmountBtn">500</span></button>
+        </div>
 
         <div class="secure-note">&#128274; Secure &bull; 80G Tax Exempt &bull; Powered by Razorpay</div>
       </div>
