@@ -285,6 +285,9 @@
 
     function updateAmount(val) {
       selectedAmount = val;
+      const fmt = val.toLocaleString('en-IN');
+      payAmount.textContent = fmt;
+      payAmountBtn.textContent = fmt;
       updateQR(val);
       updatePayBtn();
     }
