@@ -232,8 +232,8 @@
 
           <div class="pay-panel" id="panel-upi">
             <div class="qr-wrap">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://rzp.io/l/DonateCltindia" alt="UPI QR Code">
-              <p>Scan with any UPI app</p>
+              <img id="qrCode" src="" alt="UPI QR Code">
+              <p>Scan with any UPI app to pay</p>
               <div class="qr-apps">
                 <span>Google Pay</span>
                 <span>PhonePe</span>
@@ -273,8 +273,15 @@
     const donorName = document.getElementById('donorName');
     const donorEmail = document.getElementById('donorEmail');
     const donorPhone = document.getElementById('donorPhone');
+    const qrImg = document.getElementById('qrCode');
+    const UPI_ID = 'cltindia@razorpay';
 
     let selectedAmount = 500;
+
+    function updateQR(amount) {
+      const upiUrl = 'upi://pay?pa=' + UPI_ID + '&am=' + amount + '&cu=INR&tn=Donation%20to%20CLT%20India';
+      qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=' + encodeURIComponent(upiUrl);
+    }
 
     function updateAmount(val) {
       selectedAmount = val;
@@ -282,6 +289,18 @@
       payAmount.textContent = fmt;
       payAmountBtn.textContent = fmt;
       donateBtn.innerHTML = 'Pay &#8377;' + fmt;
+      updateQR(val);
+    }
+
+    function updatePayBtn() {
+      const method = getActiveMethod();
+      if (method === 'upi') {
+        donateBtn.disabled = false;
+        donateBtn.innerHTML = 'Scan QR to pay &#8377;' + selectedAmount.toLocaleString('en-IN');
+      } else {
+        donateBtn.disabled = false;
+        donateBtn.innerHTML = 'Pay &#8377;' + selectedAmount.toLocaleString('en-IN');
+      }
     }
 
     amountBtns.forEach(btn => {
@@ -305,6 +324,7 @@
         method.classList.add('active');
         document.querySelectorAll('.pay-panel').forEach(p => p.classList.remove('active'));
         document.getElementById('panel-' + method.dataset.panel).classList.add('active');
+        updatePayBtn();
       });
     });
 
@@ -323,12 +343,7 @@
     donateBtn.addEventListener('click', function() {
       const method = getActiveMethod();
 
-      if (method === 'upi') {
-        const upiId = 'cltindia@razorpay';
-        const upiUrl = 'upi://pay?pa=' + upiId + '&am=' + selectedAmount + '&cu=INR&tn=Donation to CLT India';
-        window.open(upiUrl, '_blank');
-        return;
-      }
+      if (method === 'upi') return;
 
       if (!validateForm()) return;
       if (typeof Razorpay === 'undefined') {
@@ -371,6 +386,9 @@
       donateBtn.innerHTML = 'Opening...';
       rzp.open();
     });
+
+    updateQR(selectedAmount);
+    updatePayBtn();
       donateBtn.disabled = true;
       donateBtn.innerHTML = 'Opening...';
       rzp.open();
