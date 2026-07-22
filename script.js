@@ -266,34 +266,4 @@ const sectionObserver = new IntersectionObserver((entries) => {
 sections.forEach(section => sectionObserver.observe(section));
 }
 
-/* === HEADER / MOBILE MENU === */
-const hamburger = document.getElementById('hamburger');
-const mainNav = document.getElementById('main-nav');
-if (hamburger && mainNav) {
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    mainNav.classList.toggle('open');
-  });
-}
-document.querySelectorAll('.has-dropdown > a').forEach(link => {
-  link.addEventListener('click', function(e) {
-    if (window.innerWidth <= 900) {
-      e.preventDefault();
-      this.parentElement.classList.toggle('open');
-    }
-  });
-});
-document.querySelectorAll('.nav-list a:not(.has-dropdown > a)').forEach(link => {
-  link.addEventListener('click', () => {
-    if (mainNav) mainNav.classList.remove('open');
-    if (hamburger) hamburger.classList.remove('active');
-  });
-});
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    if (mainNav) mainNav.classList.remove('open');
-    if (hamburger) hamburger.classList.remove('active');
-  }
-});
-
 
