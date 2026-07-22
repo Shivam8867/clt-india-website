@@ -20,50 +20,26 @@
     .donate-section { padding: 80px 24px; background: #f7fafc; }
     .donate-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
     .donate-info h2 { font-size: 1.6rem; font-weight: 800; color: var(--dark); margin-bottom: 16px; }
-    .donate-info p { color: var(--text-light); line-height: 1.7; margin-bottom: 24px; }
-    .donate-info .features { display: flex; flex-direction: column; gap: 16px; }
-    .donate-info .feature { display: flex; align-items: flex-start; gap: 12px; }
-    .donate-info .feature .icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(8,143,143,0.1); color: var(--teal); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
-    .donate-info .feature h4 { font-size: 0.95rem; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
-    .donate-info .feature p { font-size: 0.85rem; color: var(--text-light); margin: 0; }
+    .donate-info p { color: var(--text-light); line-height: 1.7; margin-bottom: 20px; }
     .donate-card { background: var(--white); border-radius: var(--radius); padding: 40px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
     .donate-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--dark); margin-bottom: 24px; text-align: center; }
     .amount-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
-    .amount-btn { padding: 14px; border: 2px solid var(--border); border-radius: var(--radius); background: var(--white); font-size: 1.1rem; font-weight: 700; color: var(--text); cursor: pointer; transition: var(--transition); }
+    .amount-btn { padding: 14px; border: 2px solid var(--border); border-radius: var(--radius); background: var(--white); font-size: 1.1rem; font-weight: 700; color: var(--text); cursor: pointer; transition: var(--transition); font-family: inherit; }
     .amount-btn:hover, .amount-btn.active { border-color: var(--teal); background: rgba(8,143,143,0.06); color: var(--teal); }
     .amount-custom { width: 100%; padding: 14px 18px; border: 2px solid var(--border); border-radius: var(--radius); font-size: 1rem; text-align: center; outline: none; transition: var(--transition); margin-bottom: 24px; font-family: inherit; box-sizing: border-box; }
     .amount-custom:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(8,143,143,0.1); }
-    .pay-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 20px; }
-    .pay-tab { padding: 10px 6px; border: 2px solid var(--border); border-radius: 8px; background: var(--white); font-size: 0.78rem; font-weight: 600; color: var(--text-light); cursor: pointer; transition: var(--transition); text-align: center; font-family: inherit; }
-    .pay-tab:hover { border-color: var(--teal); color: var(--teal); }
-    .pay-tab.active { border-color: var(--teal); background: rgba(8,143,143,0.06); color: var(--teal); }
-    .pay-tab .tab-icon { display: block; font-size: 1.2rem; margin-bottom: 2px; }
-    .pay-section { display: none; }
-    .pay-section.active { display: flex; flex-direction: column; gap: 16px; }
-    .pay-section .form-group { display: flex; flex-direction: column; gap: 6px; }
-    .pay-section .form-group label { font-size: 0.85rem; font-weight: 600; color: var(--text); }
-    .pay-section .form-group input,
-    .pay-section .form-group select { padding: 12px 14px; border: 2px solid var(--border); border-radius: 8px; font-size: 0.95rem; outline: none; transition: var(--transition); font-family: inherit; background: var(--white); }
-    .pay-section .form-group input:focus,
-    .pay-section .form-group select:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(8,143,143,0.1); }
-    .card-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .card-icons { display: flex; gap: 8px; justify-content: center; margin-bottom: 8px; flex-wrap: wrap; }
-    .card-icons span { font-size: 0.75rem; padding: 4px 10px; border: 1px solid var(--border); border-radius: 4px; color: var(--text-light); font-weight: 600; }
-    .upi-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .upi-option { padding: 14px 8px; border: 2px solid var(--border); border-radius: 8px; background: var(--white); text-align: center; cursor: pointer; transition: var(--transition); font-family: inherit; }
-    .upi-option:hover { border-color: var(--teal); }
-    .upi-option.active { border-color: var(--teal); background: rgba(8,143,143,0.06); }
-    .upi-option .upi-name { font-size: 0.82rem; font-weight: 700; color: var(--text); }
-    .upi-option .upi-desc { font-size: 0.7rem; color: var(--text-light); }
-    .netbanking-list { max-height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 4px; border: 1px solid var(--border); border-radius: 8px; padding: 4px; }
-    .netbanking-list label { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 6px; cursor: pointer; transition: var(--transition); font-size: 0.88rem; font-weight: 500; color: var(--text); }
-    .netbanking-list label:hover { background: rgba(8,143,143,0.04); }
-    .netbanking-list input[type="radio"] { accent-color: var(--teal); }
-    .donate-btn { width: 100%; padding: 16px; background: var(--teal); color: var(--white); border: none; border-radius: var(--radius); font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: var(--transition); font-family: inherit; margin-top: 8px; }
+
+    .qr-wrap { text-align: center; margin-bottom: 20px; }
+    .qr-wrap img { max-width: 220px; border-radius: 12px; border: 2px solid var(--border); padding: 8px; background: #fff; }
+    .qr-wrap p { font-size: 0.85rem; color: var(--text-light); margin-top: 8px; }
+    .upi-id { text-align: center; margin-bottom: 20px; padding: 12px; background: rgba(8,143,143,0.04); border-radius: 8px; border: 1px dashed var(--teal); }
+    .upi-id span { font-size: 1rem; font-weight: 700; color: var(--teal); letter-spacing: 0.5px; }
+
+    .donate-btn { width: 100%; padding: 16px; background: var(--teal); color: var(--white); border: none; border-radius: var(--radius); font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: var(--transition); font-family: inherit; }
     .donate-btn:hover { background: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(8,143,143,0.3); }
     .secure-note { text-align: center; font-size: 0.82rem; color: var(--text-light); margin-top: 16px; display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; }
-    .payment-error { color: #e53e3e; font-size: 0.85rem; text-align: center; margin-top: 8px; display: none; }
-    @media (max-width: 600px) { .pay-tabs { grid-template-columns: repeat(2, 1fr); } .upi-options { grid-template-columns: 1fr 1fr; } }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 20px 0; color: var(--text-light); font-size: 0.85rem; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     @media (max-width: 768px) { .donate-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -83,12 +59,12 @@
         <p>At CLT India, we are dedicated to transforming education for underserved children across India. We believe that every child deserves access to quality education, regardless of their socio-economic background.</p>
         <p>Our innovative programs are designed to foster creativity, critical thinking, and a love for learning among young minds. With your support, we can continue to develop and distribute interactive e-learning content. By donating to CLT India, you are investing in the future of our children!</p>
         <p>Join us in our mission to transform lives through education.</p>
-
       </div>
       <div class="donate-card">
         <h3>Complete Your Donation</h3>
+
         <div class="amount-options">
-          <button class="amount-btn" data-amount="500">&#8377;500</button>
+          <button class="amount-btn active" data-amount="500">&#8377;500</button>
           <button class="amount-btn" data-amount="1000">&#8377;1,000</button>
           <button class="amount-btn" data-amount="2000">&#8377;2,000</button>
           <button class="amount-btn" data-amount="5000">&#8377;5,000</button>
@@ -97,87 +73,19 @@
         </div>
         <input type="number" class="amount-custom" id="customAmount" placeholder="Custom Amount (&#8377;)" min="1">
 
-        <div class="pay-tabs">
-          <button class="pay-tab active" data-tab="card"><span class="tab-icon">&#128179;</span>Card</button>
-          <button class="pay-tab" data-tab="upi"><span class="tab-icon">&#128241;</span>UPI</button>
-          <button class="pay-tab" data-tab="netbanking"><span class="tab-icon">&#127974;</span>Net Banking</button>
-          <button class="pay-tab" data-tab="wallet"><span class="tab-icon">&#128176;</span>Wallet</button>
+        <div class="qr-wrap">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://rzp.io/l/DonateCltindia" alt="UPI QR Code">
+          <p>Scan with any UPI app to donate</p>
         </div>
 
-        <div class="card-icons">
-          <span>VISA</span><span>MasterCard</span><span>RuPay</span><span>Amex</span><span>UPI</span><span>PayPal</span>
+        <div class="upi-id">
+          <span>&#128241; CLT India &mdash; rzp.io/l/DonateCltindia</span>
         </div>
 
-        <!-- Card -->
-        <div class="pay-section active" id="tab-card">
-          <div class="form-group">
-            <label>Cardholder Name</label>
-            <input type="text" id="cardName" placeholder="Name on card" autocomplete="cc-name">
-          </div>
-          <div class="form-group">
-            <label>Card Number</label>
-            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" autocomplete="cc-number">
-          </div>
-          <div class="card-row">
-            <div class="form-group">
-              <label>Expiry</label>
-              <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" autocomplete="cc-exp">
-            </div>
-            <div class="form-group">
-              <label>CVV</label>
-              <input type="text" id="cardCvv" placeholder="123" maxlength="4" autocomplete="cc-csc">
-            </div>
-          </div>
-        </div>
+        <div class="divider">or</div>
 
-        <!-- UPI -->
-        <div class="pay-section" id="tab-upi">
-          <div class="form-group">
-            <label>UPI ID</label>
-            <input type="text" id="upiId" placeholder="example@upi">
-          </div>
-          <p style="font-size:0.82rem;color:var(--text-light);margin:0;text-align:center;">Or scan any UPI app</p>
-          <div class="upi-options">
-            <button class="upi-option active" data-upi="googlepay"><div class="upi-name">Google Pay</div><div class="upi-desc">tez@upi</div></button>
-            <button class="upi-option" data-upi="phonepe"><div class="upi-name">PhonePe</div><div class="upi-desc">phonepe@upi</div></button>
-            <button class="upi-option" data-upi="paytm"><div class="upi-name">Paytm</div><div class="upi-desc">paytm@upi</div></button>
-            <button class="upi-option" data-upi="amazonpay"><div class="upi-name">Amazon Pay</div><div class="upi-desc">apay@upi</div></button>
-            <button class="upi-option" data-upi="bhim"><div class="upi-name">BHIM</div><div class="upi-desc">bhim@upi</div></button>
-            <button class="upi-option" data-upi="cred"><div class="upi-name">CRED</div><div class="upi-desc">cred@upi</div></button>
-          </div>
-        </div>
+        <a href="https://rzp.io/l/DonateCltindia" target="_blank" class="donate-btn" id="donateBtn">Donate &#8377;<span id="payAmount">500</span> via Razorpay</a>
 
-        <!-- Net Banking -->
-        <div class="pay-section" id="tab-netbanking">
-          <div class="netbanking-list">
-            <label><input type="radio" name="bank" value="sbi"> State Bank of India</label>
-            <label><input type="radio" name="bank" value="hdfc"> HDFC Bank</label>
-            <label><input type="radio" name="bank" value="icici"> ICICI Bank</label>
-            <label><input type="radio" name="bank" value="axis"> Axis Bank</label>
-            <label><input type="radio" name="bank" value="kotak"> Kotak Mahindra</label>
-            <label><input type="radio" name="bank" value="yes"> Yes Bank</label>
-            <label><input type="radio" name="bank" value="pnb"> Punjab National Bank</label>
-            <label><input type="radio" name="bank" value="bob"> Bank of Baroda</label>
-            <label><input type="radio" name="bank" value="canara"> Canara Bank</label>
-            <label><input type="radio" name="bank" value="union"> Union Bank of India</label>
-            <label><input type="radio" name="bank" value="others"> Other Bank</label>
-          </div>
-        </div>
-
-        <!-- Wallet -->
-        <div class="pay-section" id="tab-wallet">
-          <div class="upi-options">
-            <button class="upi-option active" data-wallet="paypal"><div class="upi-name">PayPal</div><div class="upi-desc">International payments</div></button>
-            <button class="upi-option" data-wallet="paytmwallet"><div class="upi-name">Paytm Wallet</div><div class="upi-desc">Instant pay</div></button>
-            <button class="upi-option" data-wallet="amazonpaywallet"><div class="upi-name">Amazon Pay</div><div class="upi-desc">Wallet balance</div></button>
-            <button class="upi-option" data-wallet="mobikwik"><div class="upi-name">MobiKwik</div><div class="upi-desc">E-wallet</div></button>
-            <button class="upi-option" data-wallet="freecharge"><div class="upi-name">FreeCharge</div><div class="upi-desc">Quick pay</div></button>
-            <button class="upi-option" data-wallet="olamoney"><div class="upi-name">Ola Money</div><div class="upi-desc">Wallet</div></button>
-          </div>
-        </div>
-
-        <p class="payment-error" id="paymentError">Please fill in all payment details.</p>
-        <button class="donate-btn" id="donateBtn">Pay &#8377;<span id="payAmount">500</span></button>
         <p class="secure-note">&#128274; 256-bit SSL &bull; PCI Compliant &bull; Tax-exempt under 80G</p>
       </div>
     </div>
@@ -185,16 +93,15 @@
 
   <div id="footer-placeholder"></div>
 
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
+
   <script>
     const amountBtns = document.querySelectorAll('.amount-btn');
     const customAmount = document.getElementById('customAmount');
     const donateBtn = document.getElementById('donateBtn');
     const payAmount = document.getElementById('payAmount');
-    const paymentError = document.getElementById('paymentError');
-    const payTabs = document.querySelectorAll('.pay-tab');
 
     let selectedAmount = 500;
-    let activeTab = 'card';
 
     function updateAmount(val) {
       selectedAmount = val;
@@ -216,93 +123,13 @@
       if (val && val > 0) updateAmount(val);
     });
 
-    payTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        payTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        activeTab = tab.dataset.tab;
-        document.querySelectorAll('.pay-section').forEach(s => s.classList.remove('active'));
-        document.getElementById('tab-' + activeTab).classList.add('active');
-      });
-    });
-
-    document.querySelectorAll('.upi-option').forEach(btn => {
-      btn.addEventListener('click', function() {
-        this.parentElement.querySelectorAll('.upi-option').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-
-    const cardNumber = document.getElementById('cardNumber');
-    const cardExpiry = document.getElementById('cardExpiry');
-    const cardCvv = document.getElementById('cardCvv');
-
-    if (cardNumber) {
-      cardNumber.addEventListener('input', function() {
-        let v = this.value.replace(/\D/g, '').substring(0, 16);
-        this.value = v.replace(/(.{4})/g, '$1 ').trim();
-      });
-    }
-
-    if (cardExpiry) {
-      cardExpiry.addEventListener('input', function() {
-        let v = this.value.replace(/\D/g, '').substring(0, 4);
-        if (v.length > 2) this.value = v.substring(0, 2) + '/' + v.substring(2);
-        else this.value = v;
-      });
-    }
-
-    if (cardCvv) {
-      cardCvv.addEventListener('input', function() {
-        this.value = this.value.replace(/\D/g, '').substring(0, 4);
-      });
-    }
-
-    donateBtn.addEventListener('click', () => {
-      paymentError.style.display = 'none';
-
+    donateBtn.addEventListener('click', (e) => {
       if (!selectedAmount || selectedAmount <= 0) {
-        paymentError.textContent = 'Please select or enter a donation amount.';
-        paymentError.style.display = 'block';
+        e.preventDefault();
+        alert('Please select or enter a donation amount.');
         return;
       }
-
-      if (activeTab === 'card') {
-        const name = document.getElementById('cardName').value.trim();
-        const num = document.getElementById('cardNumber').value.replace(/\s/g, '').trim();
-        const exp = document.getElementById('cardExpiry').value.trim();
-        const cvv = document.getElementById('cardCvv').value.trim();
-        if (!name || !num || !exp || !cvv) {
-          paymentError.textContent = 'Please fill in all card details.';
-          paymentError.style.display = 'block'; return;
-        }
-        if (num.length < 13) {
-          paymentError.textContent = 'Please enter a valid card number.';
-          paymentError.style.display = 'block'; return;
-        }
-      } else if (activeTab === 'upi') {
-        const upi = document.getElementById('upiId').value.trim();
-        if (!upi) {
-          paymentError.textContent = 'Please enter your UPI ID.';
-          paymentError.style.display = 'block'; return;
-        }
-      } else if (activeTab === 'netbanking') {
-        const selected = document.querySelector('input[name="bank"]:checked');
-        if (!selected) {
-          paymentError.textContent = 'Please select a bank.';
-          paymentError.style.display = 'block'; return;
-        }
-      }
-
-      donateBtn.textContent = 'Processing...';
-      donateBtn.disabled = true;
-      setTimeout(() => {
-        alert('Thank you for your generous donation of \u20B9' + selectedAmount.toLocaleString('en-IN') + '! A receipt will be sent to your email.');
-        donateBtn.textContent = 'Pay \u20B9' + selectedAmount.toLocaleString('en-IN');
-        donateBtn.disabled = false;
-      }, 1500);
     });
-
   </script>
   <script src="include.js"></script>
 
