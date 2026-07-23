@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ | CLT India</title>
+  <meta name="description" content="Frequently asked questions about CLT India, e-Patashale, donations, tax exemption (80G), volunteering, and our education programs. Find answers to common queries.">
+  <meta name="keywords" content="CLT India FAQ, CLT India questions, e-Patashale FAQ, donate to CLT India, 80G tax exemption, NGO FAQ, education charity questions">
+  <link rel="canonical" href="https://cltindia.org/faq.html">
+  <meta property="og:title" content="FAQ | CLT India - Frequently Asked Questions">
+  <meta property="og:description" content="Find answers to frequently asked questions about CLT India, our programs, donations, and volunteering.">
+  <meta property="og:url" content="https://cltindia.org/faq.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://cltindia.org/assets/Clt-Logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FAQ | CLT India">
+  <meta name="twitter:description" content="Frequently asked questions about CLT India.">
+  <meta name="twitter:image" content="https://cltindia.org/assets/Clt-Logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root { --header-h: 80px; }
+    .page-hero {
+      margin-top: var(--header-h);
+      padding: 100px 24px 60px;
+      background: linear-gradient(135deg, var(--teal) 0%, #045f5f 100%);
+      text-align: center;
+      color: var(--white);
+    }
+    .page-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 12px; }
+    .page-hero p { font-size: 1.05rem; opacity: 0.85; max-width: 600px; margin: 0 auto; }
+    .content-section { padding: 80px 24px; background: #f7fafc; }
+    .content-container { max-width: 800px; margin: 0 auto; }
+    .faq-item { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 12px; overflow: hidden; }
+    .faq-question { padding: 20px 24px; font-weight: 600; color: var(--dark); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.2s; font-size: 1rem; }
+    .faq-question:hover { background: #f9fbfc; }
+    .faq-question::after { content: '+'; font-size: 1.4rem; color: var(--teal); transition: 0.3s; }
+    .faq-item.active .faq-question::after { content: '−'; }
+    .faq-answer { padding: 0 24px; max-height: 0; overflow: hidden; transition: 0.3s ease; }
+    .faq-item.active .faq-answer { padding: 0 24px 20px; max-height: 400px; }
+    .faq-answer p { color: var(--text-light); line-height: 1.7; margin: 0; }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <section class="page-hero">
+    <h1>Frequently Asked Questions</h1>
+    <p>Find answers to common questions about CLT India</p>
+  </section>
+
+  <section class="content-section">
+    <div class="content-container">
+
+      <div class="faq-item">
+        <div class="faq-question">What is CLT India?</div>
+        <div class="faq-answer"><p>Children's LoveCastle Trust India (CLT India) is a registered nonprofit NGO based in Bangalore, working since 1997 to transform the learning experience of children through digital STEM education, e-Patashale platform, and community outreach programs.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What is e-Patashale?</div>
+        <div class="faq-answer"><p>e-Patashale is CLT India's purpose-built low-cost digital STEM platform for rural classrooms. It delivers interactive pedagogy in Science, Technology, Engineering, and Mathematics in regional languages for grades 5-10.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How can I donate to CLT India?</div>
+        <div class="faq-answer"><p>You can donate online through our secure <a href="donate.html">Donate page</a> via credit card, debit card, UPI, or net banking. All donations are eligible for 80G tax exemption under Indian Income Tax Act.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Is my donation tax-exempt?</div>
+        <div class="faq-answer"><p>Yes, CLT India is registered under Section 80G of the Income Tax Act. Donors are eligible for 50% tax exemption on their donation amount. You will receive a receipt and 80G certificate via email.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How can I volunteer with CLT India?</div>
+        <div class="faq-answer"><p>We welcome volunteers for teaching, content creation, mentoring, and community outreach. Please visit our <a href="volunteer.html">Volunteer page</a> to sign up.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How do I contact CLT India?</div>
+        <div class="faq-answer"><p>You can reach us at <a href="contact.html">our contact page</a>, email us at info@cltindia.org, or call us at +91-80-26479138 during office hours. Our office is located in Jakkur, Bangalore.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Where does my donation go?</div>
+        <div class="faq-answer"><p>Your donation directly supports our education programs: e-Patashale digital classrooms, teacher training, STEM content development, and community outreach initiatives reaching underprivileged children across India.</p></div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(q) {
+      q.addEventListener('click', function() {
+        this.parentElement.classList.toggle('active');
+      });
+    });
+  </script>
+
+  <div id="footer-placeholder"></div>
+  <script src="include.js"></script>
+
+</body>
+</html>

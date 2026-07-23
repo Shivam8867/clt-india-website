@@ -9,6 +9,13 @@
   <url><loc>https://cltindia.org/impact.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://cltindia.org/donate.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://cltindia.org/blog.html</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://cltindia.org/blog-post.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://cltindia.org/career.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://cltindia.org/contact.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://cltindia.org/faq.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://cltindia.org/fcra.html</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://cltindia.org/terms.html</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://cltindia.org/testimonials.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://cltindia.org/annual-reports.html</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://cltindia.org/audit-reports.html</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://cltindia.org/newsletters.html</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
