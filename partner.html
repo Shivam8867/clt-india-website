@@ -127,13 +127,41 @@
   <div id="footer-placeholder"></div>
 
   <script>
-    document.getElementById('partnerForm').addEventListener('submit', function(e) {
+    document.getElementById('partnerForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-      alert('Thank you for your interest in partnering with CLT India! Our team will reach out to you within 2-3 business days.');
-      this.reset();
+      const btn = this.querySelector('.form-submit');
+      const original = btn.textContent;
+      btn.textContent = '⏳ Submitting...';
+      btn.disabled = true;
+
+      const result = await submitToSheet({
+        type: 'partner',
+        organization: document.getElementById('partnerOrg').value,
+        name: document.getElementById('partnerName').value,
+        email: document.getElementById('partnerEmail').value,
+        phone: document.getElementById('partnerPhone').value,
+        partnershipType: document.getElementById('partnerType').value,
+        message: document.getElementById('partnerMessage').value
+      });
+
+      if (result === null || result.success === true) {
+        btn.textContent = '✅ Submitted!';
+        btn.style.background = '#10b981';
+        this.reset();
+      } else {
+        btn.textContent = '❌ ' + (result.error || 'Try again');
+        btn.style.background = '#ef4444';
+      }
+
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
     });
   </script>
   <script src="include.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>

@@ -1,3 +1,37 @@
+/* === GOOGLE APPS SCRIPT CONFIG ===
+   Replace YOUR_DEPLOYMENT_ID with your actual Apps Script deployment URL:
+   Apps Script Editor → Deploy → New deployment → Web app
+   → Execute as: Me → Who has access: Anyone
+   → Copy the URL: https://script.google.com/macros/s/<DEPLOYMENT_ID>/exec
+*/
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec';
+
+async function submitToSheet(data) {
+  try {
+    const res = await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(data)
+    });
+    try {
+      return await res.json();
+    } catch {
+      return { success: res.ok };
+    }
+  } catch {
+    // CORS blocked — fall back to fire-and-forget (no-cors still delivers the request)
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(data)
+      });
+    } catch { /* ignore */ }
+    return null;
+  }
+}
+
 /* === HERO SLIDER === */
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
@@ -226,20 +260,32 @@ const counterObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.stat-num').forEach(el => counterObserver.observe(el));
 
 /* === NEWSLETTER FORM === */
-document.getElementById('newsletterForm')?.addEventListener('submit', function(e) {
+document.getElementById('newsletterForm')?.addEventListener('submit', async function(e) {
   e.preventDefault();
   const email = document.getElementById('emailInput').value;
-  if (email) {
-    const btn = this.querySelector('.btn-send');
-    const original = btn.textContent;
+  if (!email) return;
+
+  const btn = this.querySelector('.btn-send');
+  const original = btn.textContent;
+  btn.textContent = '⏳ Sending...';
+  btn.disabled = true;
+
+  const result = await submitToSheet({ type: 'newsletter', email });
+
+  if (result === null || result.success === true) {
     btn.textContent = '✅ Subscribed!';
     btn.style.background = '#10b981';
-    setTimeout(() => {
-      btn.textContent = original;
-      btn.style.background = '';
-      this.reset();
-    }, 3000);
+  } else {
+    btn.textContent = '❌ ' + (result.error || 'Try again');
+    btn.style.background = '#ef4444';
   }
+
+  setTimeout(() => {
+    btn.textContent = original;
+    btn.style.background = '';
+    btn.disabled = false;
+    this.reset();
+  }, 3000);
 });
 
 /* === SMOOTH ACTIVE NAV HIGHLIGHTING === */

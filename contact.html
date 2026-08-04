@@ -114,6 +114,39 @@
 
   <div id="footer-placeholder"></div>
   <script src="include.js"></script>
+  <script>
+    document.getElementById('contactForm')?.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.btn-submit');
+      const original = btn.textContent;
+      btn.textContent = '⏳ Sending...';
+      btn.disabled = true;
+
+      const result = await submitToSheet({
+        type: 'contact',
+        name: document.getElementById('cfName').value,
+        email: document.getElementById('cfEmail').value,
+        subject: document.getElementById('cfSubject').value,
+        message: document.getElementById('cfMessage').value
+      });
+
+      if (result === null || result.success === true) {
+        btn.textContent = '✅ Sent!';
+        btn.style.background = '#10b981';
+        this.reset();
+      } else {
+        btn.textContent = '❌ ' + (result.error || 'Try again');
+        btn.style.background = '#ef4444';
+      }
+
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
+    });
+  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>

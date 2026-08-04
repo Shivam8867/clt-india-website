@@ -113,14 +113,43 @@
 
   <div id="footer-placeholder"></div>
 
+  <script src="include.js"></script>
   <script>
-    document.getElementById('volunteerForm').addEventListener('submit', function(e) {
+    document.getElementById('volunteerForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-      alert('Thank you for registering as a volunteer! We will reach out to you shortly.');
-      this.reset();
+      const btn = this.querySelector('.form-submit');
+      const original = btn.textContent;
+      btn.textContent = '⏳ Submitting...';
+      btn.disabled = true;
+
+      const result = await submitToSheet({
+        type: 'volunteer',
+        name: document.getElementById('volName').value,
+        email: document.getElementById('volEmail').value,
+        phone: document.getElementById('volPhone').value,
+        city: document.getElementById('volCity').value,
+        interest: document.getElementById('volInterest').value,
+        availability: document.getElementById('volAvailability').value,
+        message: document.getElementById('volMessage').value
+      });
+
+      if (result === null || result.success === true) {
+        btn.textContent = '✅ Submitted!';
+        btn.style.background = '#10b981';
+        this.reset();
+      } else {
+        btn.textContent = '❌ ' + (result.error || 'Try again');
+        btn.style.background = '#ef4444';
+      }
+
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
     });
   </script>
-  <script src="include.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
