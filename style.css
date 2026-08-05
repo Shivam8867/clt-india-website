@@ -658,7 +658,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 
 .programs-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
 
@@ -1501,7 +1501,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
   .about-grid,
   .video-grid { grid-template-columns: 1fr; gap: 40px; }
 
-  .programs-grid { grid-template-columns: 1fr; }
+  .programs-grid { grid-template-columns: repeat(2, 1fr); }
 
   .impact-grid { grid-template-columns: 1fr; }
 
@@ -1536,6 +1536,8 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
   .prev { left: 6px; }
   .next { right: 6px; }
   .slider-dots { bottom: 16px; gap: 6px; }
+
+  .programs-grid { grid-template-columns: 1fr; }
 
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
 
