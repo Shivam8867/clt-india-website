@@ -169,7 +169,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 
 .btn-get-involved {
   display: inline-block;
-  background: #F06D22;
+  background: #f1ae44;
   color: var(--white);
   padding: 10px 24px;
   border-radius: 5px;
@@ -184,7 +184,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 .btn-get-involved:hover {
   background: #FD9743;
   transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(240,109,34,0.4);
+  box-shadow: 0 4px 15px rgba(241,174,68,0.4);
 }
 
 /* ================================================
@@ -222,6 +222,13 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
   white-space: nowrap;
   overflow: hidden;
   transition: var(--transition);
+}
+
+.strip-reg {
+  font-size: 1.4rem;
+  font-weight: 800;
+  vertical-align: super;
+  margin-left: 2px;
 }
 
 #site-header.scrolled {
@@ -299,7 +306,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 28px;
   list-style: none;
 }
 
@@ -2413,4 +2420,23 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
   text-anchor: middle;
   dominant-baseline: middle;
   pointer-events: none;
+}
+
+/* Map hover tooltip */
+.map-tooltip {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  background: rgba(20, 24, 33, 0.95);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  transform: translate(14px, -50%);
+  display: none;
+  transition: opacity 0.15s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }

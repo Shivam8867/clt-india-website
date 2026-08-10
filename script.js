@@ -181,14 +181,16 @@ gallerySlides.forEach(slide => {
   });
 });
 
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
-    lightbox.classList.remove('active');
-  }
-});
+if (lightbox) {
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
+      lightbox.classList.remove('active');
+    }
+  });
+}
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') lightbox.classList.remove('active');
+  if (e.key === 'Escape' && lightbox) lightbox.classList.remove('active');
 });
 
 /* === SCROLL TO TOP === */
@@ -311,5 +313,33 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(section => sectionObserver.observe(section));
 }
+
+/* === INDIA MAP HOVER TOOLTIP === */
+(function () {
+  const mapStates = document.querySelectorAll('.india-state');
+
+  if (mapStates.length === 0) return;
+
+  const tooltip = document.createElement('div');
+  tooltip.className = 'map-tooltip';
+  document.body.appendChild(tooltip);
+
+  mapStates.forEach(state => {
+    state.addEventListener('mouseenter', function () {
+      const name = this.getAttribute('data-state-name') || '';
+      tooltip.textContent = name;
+      tooltip.style.display = 'block';
+    });
+
+    state.addEventListener('mousemove', function (e) {
+      tooltip.style.left = e.clientX + 'px';
+      tooltip.style.top = e.clientY + 'px';
+    });
+
+    state.addEventListener('mouseleave', function () {
+      tooltip.style.display = 'none';
+    });
+  });
+})();
 
 
