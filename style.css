@@ -319,7 +319,6 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
   font-family: 'Quicksand', 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  text-transform: capitalize;
   line-height: 20px;
   color: #1F1C1A;
   padding: 0;
@@ -370,7 +369,6 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
-  text-transform: capitalize;
   line-height: 21px;
   color: #00235A;
   transition: var(--transition);
