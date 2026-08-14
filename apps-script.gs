@@ -1,12 +1,14 @@
 const CONFIG = {
   ADMIN_EMAIL: 'admin@cltindia.org',
-  SHEET_NAMES: ['Contacts', 'Volunteers', 'Newsletter', 'Donations', 'Partners'],
+  SHEET_NAMES: ['Contacts', 'Volunteers', 'Newsletter', 'Donations', 'Partners', 'Careers', 'JobPostings'],
   COLUMNS: {
     Contacts: ['Timestamp', 'Name', 'Email', 'Subject', 'Message'],
     Volunteers: ['Timestamp', 'Name', 'Email', 'Phone', 'City', 'Interest', 'Availability', 'Message'],
     Newsletter: ['Timestamp', 'Email'],
     Donations: ['Timestamp', 'Name', 'Email', 'Phone', 'Amount', 'PaymentID'],
-    Partners: ['Timestamp', 'Organization', 'Name', 'Email', 'Phone', 'PartnershipType', 'Message']
+    Partners: ['Timestamp', 'Organization', 'Name', 'Email', 'Phone', 'PartnershipType', 'Message'],
+    Careers: ['Timestamp', 'Name', 'Email', 'Phone', 'Position', 'Experience', 'Message', 'ResumeLink'],
+    JobPostings: ['ID', 'PostedDate', 'Title', 'Department', 'Location', 'Type', 'Experience', 'Description', 'Responsibilities', 'Requirements', 'Status']
   }
 };
 
@@ -22,17 +24,22 @@ function doPost(e) {
       case 'newsletter': result = handleNewsletter(data); break;
       case 'donation': result = handleDonation(data); break;
       case 'partner': result = handlePartner(data); break;
+      case 'career': result = handleCareer(data); break;
+      case 'jobpost': result = handleJobPost(data); break;
+      case 'jobdelete': result = handleJobDelete(data); break;
       default: throw new Error('Unknown form type: ' + type);
     }
 
-    return ContentService
-      .createTextOutput(JSON.stringify({ success: true, message: result }))
-      .setMimeType(ContentService.MimeType.JSON);
+    return jsonResponse({ success: true, message: result });
   } catch (err) {
-    return ContentService
-      .createTextOutput(JSON.stringify({ success: false, error: err.message }))
-      .setMimeType(ContentService.MimeType.JSON);
+    return jsonResponse({ success: false, error: err.message });
   }
+}
+
+function jsonResponse(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
 }
 
 function getSheet(name) {
@@ -115,6 +122,45 @@ function handlePartner(data) {
   return 'Partnership inquiry saved successfully';
 }
 
+function handleCareer(data) {
+  const sheet = getSheet('Careers');
+
+  let resumeLink = '';
+  if (data.resumeData && data.resumeName) {
+    try {
+      const bytes = Utilities.base64Decode(data.resumeData, Utilities.Charset.UTF_8);
+      const blob = Utilities.newBlob(bytes, data.resumeType || 'application/pdf', data.resumeName);
+      const folder = DriveApp.getFoldersByName('Career Resumes').hasNext()
+        ? DriveApp.getFoldersByName('Career Resumes').next()
+        : DriveApp.createFolder('Career Resumes');
+      const file = folder.createFile(blob);
+      file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+      resumeLink = file.getUrl();
+    } catch (err) {
+      resumeLink = 'Resume save failed: ' + err.message;
+    }
+  }
+
+  sheet.appendRow([
+    new Date(),
+    data.name,
+    data.email,
+    data.phone,
+    data.position,
+    data.experience,
+    data.message,
+    resumeLink
+  ]);
+
+  sendAutoReply(data.email, 'Job Application Received - CLT India',
+    `Dear ${data.name},\n\nThank you for applying for the ${data.position} position at CLT India.\n\nWe have received your application and resume. Our team will review your profile and contact you if your qualifications match our requirements.\n\nRegards,\nCLT India Team`);
+
+  sendAdminNotification('New Job Application',
+    `Position: ${data.position}\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nExperience: ${data.experience}\nMessage: ${data.message}\nResume: ${resumeLink || 'Not attached'}`);
+
+  return 'Application submitted successfully';
+}
+
 function sendAutoReply(to, subject, body) {
   MailApp.sendEmail({
     to: to,
@@ -131,7 +177,61 @@ function sendAdminNotification(subject, body) {
   });
 }
 
+function getJobsJson() {
+  const sheet = getSheet('JobPostings');
+  const values = sheet.getDataRange().getValues();
+  const jobs = [];
+  for (let i = 1; i < values.length; i++) {
+    const row = values[i];
+    if (!row[2]) continue;
+    if (String(row[10]).toLowerCase() === 'inactive') continue;
+    jobs.push({
+      id: row[0],
+      title: row[2],
+      department: row[3],
+      location: row[4],
+      type: row[5],
+      experience: row[6],
+      description: row[7],
+      responsibilities: String(row[8]).split('\n').filter(function (s) { return s.trim(); }),
+      requirements: String(row[9]).split('\n').filter(function (s) { return s.trim(); })
+    });
+  }
+  return jobs;
+}
+
+function handleJobPost(data) {
+  const sheet = getSheet('JobPostings');
+  const id = 'JOB-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+  sheet.appendRow([
+    id, new Date(), data.title, data.department, data.location, data.jobType,
+    data.experience, data.description, data.responsibilities, data.requirements, 'Active'
+  ]);
+  sendAdminNotification('New Job Posted on Website', `Position: ${data.title}\nDepartment: ${data.department}\nLocation: ${data.location}`);
+  return 'Job posted successfully';
+}
+
+function handleJobDelete(data) {
+  const sheet = getSheet('JobPostings');
+  const values = sheet.getDataRange().getValues();
+  for (let i = 1; i < values.length; i++) {
+    if (String(values[i][0]) === String(data.id)) {
+      sheet.getRange(i + 1, 11).setValue('Inactive');
+      return 'Job removed successfully';
+    }
+  }
+  throw new Error('Job not found');
+}
+
 function doGet(e) {
+  if (e && e.parameter && e.parameter.action === 'getJobs') {
+    const jobs = getJobsJson();
+    const callback = e.parameter.callback || '';
+    const out = callback ? callback + '(' + JSON.stringify(jobs) + ')' : JSON.stringify(jobs);
+    return ContentService
+      .createTextOutput(out)
+      .setMimeType(callback ? ContentService.MimeType.JAVASCRIPT : ContentService.MimeType.JSON);
+  }
   return ContentService
     .createTextOutput('CLT India Form Handler is running.')
     .setMimeType(ContentService.MimeType.TEXT);

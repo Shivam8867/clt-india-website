@@ -4,7 +4,7 @@
    → Execute as: Me → Who has access: Anyone
    → Copy the URL: https://script.google.com/macros/s/<DEPLOYMENT_ID>/exec
 */
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzGtQ9smsy8MKsKhn6By52EjJJ5EZghZuSmTI1Nq1KPrEAgiAAXJJklZfBzMeetFR6bNA/exec';
 
 async function submitToSheet(data) {
   try {

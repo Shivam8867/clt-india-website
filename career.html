@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers | CLT India</title>
+  <meta name="description" content="Join CLT India! Explore open positions and apply with your resume to help bring quality education to every child in India.">
+  <meta name="keywords" content="careers CLT India, jobs NGO Bangalore, CLT India job openings, apply CLT India, Children's LoveCastle Trust careers">
+  <link rel="canonical" href="https://cltindia.org/career.html">
+  <meta property="og:title" content="Careers | CLT India - Work With Us">
+  <meta property="og:description" content="Explore open positions at CLT India and apply with your resume.">
+  <meta property="og:url" content="https://cltindia.org/career.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://cltindia.org/assets/Clt-Logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Careers | CLT India">
+  <meta name="twitter:description" content="Work with us to transform children's learning experiences.">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root { --header-h: 114px; }
+    .page-hero {
+      margin-top: var(--header-h);
+      padding: 100px 24px 60px;
+      background: linear-gradient(135deg, var(--teal) 0%, #045f5f 100%);
+      text-align: center;
+      color: var(--white);
+    }
+    .page-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 12px; }
+    .page-hero p { font-size: 1.05rem; opacity: 0.85; max-width: 640px; margin: 0 auto; }
+
+    .content-section { padding: 80px 24px; background: #f7fafc; }
+    .content-container { max-width: 1000px; margin: 0 auto; }
+    .section-head { text-align: center; margin-bottom: 48px; }
+    .section-head h2 { font-size: 1.9rem; font-weight: 800; color: var(--dark); margin-bottom: 12px; }
+    .section-head p { color: var(--text-light); max-width: 620px; margin: 0 auto; }
+
+    /* Job list */
+    .job-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+    .job-card:hover { box-shadow: 0 10px 30px rgba(8,143,143,0.12); border-color: rgba(8,143,143,0.25); }
+    .job-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
+    .job-title { font-size: 1.3rem; font-weight: 700; color: var(--dark); margin: 0 0 8px; }
+    .job-meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 0; }
+    .job-tag {
+      background: rgba(8,143,143,0.08);
+      color: var(--teal);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .job-apply-btn {
+      background: var(--teal);
+      color: var(--white);
+      border: none;
+      padding: 10px 24px;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      flex-shrink: 0;
+    }
+    .job-apply-btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
+    .job-desc { color: var(--text-light); line-height: 1.7; margin-bottom: 16px; }
+    .job-section h4 { font-size: 0.9rem; font-weight: 700; color: var(--dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 14px 0 8px; }
+    .job-section ul { margin: 0; padding-left: 20px; color: var(--text-light); line-height: 1.7; }
+    .job-section li { margin-bottom: 4px; }
+    .jobs-empty { text-align: center; color: var(--text-light); padding: 40px; }
+
+    /* Application form */
+    .apply-wrap { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.06); padding: 40px; }
+    .apply-wrap .section-head { text-align: left; margin-bottom: 24px; }
+    .apply-form { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+    .apply-form .field-full { grid-column: 1 / -1; }
+    .apply-form label { display: block; font-weight: 600; color: var(--dark); margin-bottom: 6px; font-size: 0.9rem; }
+    .apply-form input, .apply-form select, .apply-form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: 0.2s;
+      margin-bottom: 18px;
+      box-sizing: border-box;
+      background: var(--white);
+    }
+    .apply-form input:focus, .apply-form select:focus, .apply-form textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(8,143,143,0.12);
+    }
+    .apply-form textarea { resize: vertical; min-height: 110px; }
+    .apply-form .btn-submit {
+      background: var(--teal);
+      color: var(--white);
+      border: none;
+      padding: 14px 40px;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .apply-form .btn-submit:hover { background: var(--teal-dark); transform: translateY(-1px); }
+    .form-note { font-size: 0.8rem; color: var(--text-light); margin: 8px 0 0; }
+
+    .file-upload { position: relative; }
+    .file-upload input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 2;
+      margin: 0;
+    }
+    .file-drop {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      text-align: center;
+      color: var(--text-light);
+      transition: 0.3s;
+      margin-bottom: 18px;
+    }
+    .file-drop:hover, .file-upload input[type="file"]:focus + .file-drop { border-color: var(--teal); background: rgba(8,143,143,0.04); }
+    .file-drop strong { color: var(--teal); }
+    .file-name { display: none; font-size: 0.85rem; color: var(--teal); font-weight: 600; margin-bottom: 18px; }
+
+    @media (max-width: 700px) {
+      .apply-form { grid-template-columns: 1fr; }
+      .job-card { padding: 22px; }
+      .apply-wrap { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <section class="page-hero">
+    <h1>Careers at CLT India</h1>
+    <p>Join our passionate team and help us bring quality education to every child in India.</p>
+  </section>
+
+  <section class="content-section">
+    <div class="content-container">
+
+      <div class="section-head">
+        <h2>Open Positions</h2>
+        <p>We are always looking for talented, committed people. Browse our current openings and apply with your resume.</p>
+      </div>
+      <div id="jobsContainer"></div>
+
+      <div class="section-head" style="margin-top:64px;">
+        <h2>Apply Now</h2>
+        <p>Fill in the form below and attach your resume. We review every application and will get back to shortlisted candidates.</p>
+      </div>
+
+      <div class="apply-wrap" id="apply">
+        <form class="apply-form" id="careerForm" novalidate>
+          <div>
+            <label for="appName">Full Name *</label>
+            <input type="text" id="appName" required>
+          </div>
+          <div>
+            <label for="appEmail">Email Address *</label>
+            <input type="email" id="appEmail" required>
+          </div>
+          <div>
+            <label for="appPhone">Phone Number *</label>
+            <input type="tel" id="appPhone" required>
+          </div>
+          <div>
+            <label for="position">Position Applying For *</label>
+            <select id="position" required>
+              <option value="">Select a position</option>
+            </select>
+          </div>
+          <div class="field-full">
+            <label for="experience">Relevant Experience (Years)</label>
+            <input type="text" id="experience">
+          </div>
+          <div class="field-full">
+            <label for="appMessage">Why do you want to work at CLT India?</label>
+            <textarea id="appMessage"></textarea>
+          </div>
+          <div class="field-full">
+            <label for="resume">Upload Resume * (PDF / DOC / DOCX, max 5 MB)</label>
+            <div class="file-upload">
+              <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
+              <div class="file-drop">
+                <strong>Click to choose a file</strong> or drag &amp; drop your resume here
+              </div>
+            </div>
+            <p class="file-name" id="fileName"></p>
+          </div>
+          <div class="field-full">
+            <button type="submit" class="btn-submit">Submit Application</button>
+            <p class="form-note">We respect your privacy. Your details and resume are used only for recruitment.</p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="include.js"></script>
+  <script src="career.js"></script>
+  <script>
+    document.getElementById('resume')?.addEventListener('change', function () {
+      var label = document.getElementById('fileName');
+      if (this.files && this.files[0]) {
+        label.textContent = 'Attached: ' + this.files[0].name;
+        label.style.display = 'block';
+      } else {
+        label.style.display = 'none';
+      }
+    });
+  </script>
+  <script src="script.js"></script>
+
+</body>
+</html>
