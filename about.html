@@ -780,7 +780,7 @@
       background: linear-gradient(135deg, #f8fcfc 0%, #edf5f5 100%);
     }
     @media (min-width: 1101px) {
-      .founder-img-wrap { margin-left: 2rem; }
+      .founder-img-wrap { margin-left: 3.5rem; }
     }
     .founder-card {
       display: flex;
@@ -792,7 +792,9 @@
     }
     .founder-img-wrap {
       flex: 0 0 auto;
-      width: 380px;
+      width: 220px;
+      margin-left: 3.5rem;
+      align-self: center;
       display: flex;
       align-items: center;
       background: #fff;
@@ -803,9 +805,26 @@
       height: auto;
       display: block;
     }
+    .founder-bio-below {
+      width: 100%;
+      max-width: 1800px;
+      margin: 0 auto;
+      background: #fff;
+      box-shadow: none;
+      padding: 0 3.5rem 2.5rem;
+      color: #444;
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+    .founder-bio-below p {
+      margin-bottom: 1rem;
+    }
+    .founder-bio-below p:last-child {
+      margin-bottom: 0;
+    }
     .founder-content {
       flex: 1;
-      padding: 3rem 3.5rem;
+      padding: 3rem 3.5rem 1rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -843,8 +862,9 @@
     }
     .founder-bio {
       color: #444;
-      font-size: 0.95rem;
+      font-size: 1rem;
       line-height: 1.85;
+      max-width: 1100px;
     }
     .founder-bio p {
       margin-bottom: 1rem;
@@ -854,13 +874,14 @@
     }
     @media (max-width: 1100px) {
       .founder-card { flex-direction: column; }
-      .founder-img-wrap { width: 100%; }
+      .founder-img-wrap { width: 100%; margin-left: 0; }
       .founder-content { padding: 2.5rem; text-align: center; }
       .founder-content h2::after { left: 50%; transform: translateX(-50%); }
       .founder-content .section-label { align-self: center; }
+      .founder-bio-below { padding: 0 2rem 2rem; }
     }
     @media (max-width: 600px) {
-      .founder-img-wrap { width: 100%; }
+      .founder-img-wrap { width: 100%; margin-left: 0; }
       .founder-content { padding: 1.5rem; }
       .founder-content h2 { font-size: 1.4rem; }
       .founder-bio { font-size: 0.88rem; line-height: 1.7; }
@@ -1135,7 +1156,7 @@
 
   <!-- Founder Section -->
   <div class="founder-section">
-    <div class="founder-card">
+      <div class="founder-card">
       <div class="founder-img-wrap">
         <img src="assets/board/bhagya.png" alt="Bhagya Rangachar">
       </div>
@@ -1144,10 +1165,12 @@
         <h2>Bhagya Rangachar</h2>
         <div class="founder-bio">
           <p>Ms. Bhagya Rangachar is the Founder of CLT India and President of the CLT International Foundation Inc., U.S.A. She served as CEO from 1997-2021 August. Bhagya lived in the U.S. and worked as a Software Professional for more than 15 years. Her academic and professional background has been in Science, Mathematics and Technology. She has completed Social Impact Leadership Program – a Dasra and Harvard Cohort. She has also been part of many technology and leadership cohorts in Boston at the Computer Clubhouse Network.</p>
-          <p>She has overseen the development of CLT for over 20 years, from being a Trust that was first to implement mid-day meals in government schools in Karnataka State to an organization that has developed large repository of NCERT-based digital STEM content in regional languages with low-cost technology delivery models and data analytics. Her body of work has been to bridge the gap of missed learning opportunities in STEM in rural schools due to teacher shortage and lack of learning resources in regional languages; and leveraging technology for distribution and scale. The recent launch of 2 mobile APPs in Google Play Store, Jigi and Jigi Jigi is to further amplify the efforts to give access to quality education in under-served communities. Bhagya was listed as one of 100 women in the Coffee Table Book, 'Phenomenal She' by Indian National Bar Association and has been recognized as one of the 50 Globally Listed Social Innovators on World CSR Day 2017.</p>
-          <p>Under her leadership, CLT has won many awards, including – 2 Millennium Alliance Awards by FICCI and USAID for low-cost innovation in e-learning, Digital India award by the Times Group. CNBC 18 recently showcased CLT as one of the leading changemakers in the country.</p>
         </div>
       </div>
+    </div>
+    <div class="founder-bio-below">
+      <p>She has overseen the development of CLT for over 20 years, from being a Trust that was first to implement mid-day meals in government schools in Karnataka State to an organization that has developed large repository of NCERT-based digital STEM content in regional languages with low-cost technology delivery models and data analytics. Her body of work has been to bridge the gap of missed learning opportunities in STEM in rural schools due to teacher shortage and lack of learning resources in regional languages; and leveraging technology for distribution and scale. The recent launch of 2 mobile APPs in Google Play Store, Jigi and Jigi Jigi is to further amplify the efforts to give access to quality education in under-served communities. Bhagya was listed as one of 100 women in the Coffee Table Book, 'Phenomenal She' by Indian National Bar Association and has been recognized as one of the 50 Globally Listed Social Innovators on World CSR Day 2017.</p>
+      <p>Under her leadership, CLT has won many awards, including – 2 Millennium Alliance Awards by FICCI and USAID for low-cost innovation in e-learning, Digital India award by the Times Group. CNBC 18 recently showcased CLT as one of the leading changemakers in the country.</p>
     </div>
   </div>
 
