@@ -99,7 +99,7 @@
         margin-top: var(--header-h);
       }
       .history-section .container {
-        padding: 0;
+        padding: 0 1rem;
       }
       .history-intro-title {
         font-size: 1.5rem;
@@ -875,16 +875,16 @@
     }
     @media (max-width: 1100px) {
       .founder-card { flex-direction: column; }
-      .founder-img-wrap { width: 220px; max-width: 80%; margin: 0 auto; }
+      .founder-img-wrap { width: 220px; max-width: 80%; margin: 2rem auto 0; }
       .founder-content { padding: 2.5rem; text-align: center; }
       .founder-content h2::after { left: 50%; transform: translateX(-50%); }
       .founder-content .section-label { align-self: center; }
       .founder-bio { text-align: left; }
-      .founder-bio-below { padding: 0 2rem 2rem; }
+      .founder-bio-below { padding: 0 1rem 2rem; }
     }
     @media (max-width: 600px) {
-      .founder-img-wrap { width: 180px; max-width: 75%; margin: 0 auto; }
-      .founder-content { padding: 1.5rem; }
+      .founder-img-wrap { width: 180px; max-width: 75%; margin: 2rem auto 0; }
+      .founder-content { padding: 1rem; }
       .founder-content h2 { font-size: 1.4rem; }
       .founder-bio { font-size: 1rem; line-height: 1.85; }
     }
@@ -895,6 +895,7 @@
     }
     @media (max-width: 600px) {
       .awards-section { padding: 3rem 1rem; }
+      .team-section { padding: 4rem 1rem; }
       .awards-grid { grid-template-columns: 1fr; gap: 1.25rem; margin-top: 2rem; }
       .award-card { padding: 1.25rem; }
       .award-image-wrap { height: 140px; }
