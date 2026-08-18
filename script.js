@@ -78,7 +78,7 @@ let hoverPauseTimer;
 function pauseOnHover() {
   clearInterval(autoPlay);
   clearTimeout(hoverPauseTimer);
-  hoverPauseTimer = setTimeout(startAutoPlay, 30000);
+  hoverPauseTimer = setTimeout(startAutoPlay, 15000);
 }
 
 function resumeOnHoverEnd() {
