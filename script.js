@@ -73,12 +73,29 @@ if (slides.length > 0) {
   startAutoPlay();
 }
 
+let hoverPauseTimer;
+
+function pauseOnHover() {
+  clearInterval(autoPlay);
+  clearTimeout(hoverPauseTimer);
+  hoverPauseTimer = setTimeout(startAutoPlay, 30000);
+}
+
+function resumeOnHoverEnd() {
+  clearTimeout(hoverPauseTimer);
+  clearInterval(autoPlay);
+  startAutoPlay();
+}
+
 /* === TOUCH SWIPE FOR HERO SLIDER === */
 const heroSlider = document.getElementById('heroSlider');
 let touchStartX = 0;
 let touchEndX = 0;
 
 if (heroSlider) {
+  heroSlider.addEventListener('mouseenter', pauseOnHover);
+  heroSlider.addEventListener('mouseleave', resumeOnHoverEnd);
+
   heroSlider.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
   }, { passive: true });
