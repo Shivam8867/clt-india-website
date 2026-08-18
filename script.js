@@ -92,10 +92,14 @@ const heroSlider = document.getElementById('heroSlider');
 let touchStartX = 0;
 let touchEndX = 0;
 
-if (heroSlider) {
-  heroSlider.addEventListener('mouseenter', pauseOnHover);
-  heroSlider.addEventListener('mouseleave', resumeOnHoverEnd);
+const heroSection = heroSlider ? (heroSlider.closest('.hero-section') || heroSlider) : null;
 
+if (heroSection) {
+  heroSection.addEventListener('mouseenter', pauseOnHover);
+  heroSection.addEventListener('mouseleave', resumeOnHoverEnd);
+}
+
+if (heroSlider) {
   heroSlider.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
   }, { passive: true });
