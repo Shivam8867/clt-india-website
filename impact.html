@@ -33,7 +33,7 @@
   <style>
     .im-hero {
       margin-top: var(--header-h);
-      padding: 140px 24px 100px;
+      padding: 80px 0;
       background: #088f8f;
       text-align: center;
       position: relative;
@@ -50,8 +50,9 @@
     .im-hero-inner {
       position: relative;
       z-index: 1;
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 0 24px;
     }
     .im-hero .section-label {
       color: var(--gold);
@@ -77,7 +78,7 @@
       color: rgba(255,255,255,0.7);
       font-size: 1.1rem;
       line-height: 1.8;
-      max-width: 650px;
+      max-width: 850px;
       margin: 0 auto;
     }
 
@@ -259,31 +260,231 @@
       background: linear-gradient(180deg, #f8fafc 0%, #fff 100%);
     }
     .im-videos .container {
-      max-width: 100%;
-      padding-left: 120px;
-      padding-right: 120px;
+      max-width: 1400px;
+      padding-left: 24px;
+      padding-right: 24px;
     }
-    .im-videos-grid {
+    .im-playlist {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      margin-top: 48px;
+      grid-template-columns: 580px 280px;
+      gap: 20px;
+      margin-top: 32px;
+      justify-content: center;
     }
-    .im-video-card {
-      background: #f1ae44;
-      border-radius: 20px;
+    .im-playlist-main {
+      min-width: 0;
+    }
+    .im-video-player {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-      border: 1px solid #eef2f6;
-      transition: all 0.4s ease;
+      background: #000;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
     }
-    .im-video-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 50px rgba(8,143,143,0.1);
+    .im-video-player iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .im-player-info {
+      margin-top: 10px;
+      padding: 0 4px;
+    }
+    .im-player-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .im-player-info p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .im-playlist-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 520px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .im-playlist-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 8px;
+      background: #fff;
+      border-radius: 8px;
+      padding: 5px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .im-playlist-item:hover {
+      background: #f0fafb;
       border-color: rgba(8,143,143,0.12);
     }
+    .im-playlist-item.active {
+      border-color: var(--teal);
+      background: #f0fafb;
+    }
+    .im-playlist-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #000;
+    }
+    .im-playlist-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .im-playlist-item:hover .im-playlist-thumb img {
+      transform: scale(1.05);
+    }
+    .im-play-badge {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      font-size: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .im-playlist-item.active .im-play-badge,
+    .im-playlist-item:hover .im-play-badge {
+      opacity: 1;
+    }
+    .im-playlist-meta {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      min-width: 0;
+    }
+    .im-playlist-meta h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.35;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .im-playlist-type {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    @media (max-width: 900px) {
+      .im-playlist { grid-template-columns: 1fr; }
+      .im-playlist-sidebar { flex-direction: row; flex-wrap: wrap; }
+      .im-playlist-item { grid-template-columns: 120px 1fr; flex: 1 1 calc(50% - 6px); min-width: 280px; }
+    }
+    @media (max-width: 600px) {
+      .im-playlist-sidebar { flex-direction: column; }
+      .im-playlist-item { min-width: 0; grid-template-columns: 120px 1fr; }
+      .im-video-player { aspect-ratio: 16 / 9; }
+    }
+
+    /* === FEATURED VIDEOS === */
+    .im-featured-videos {
+      padding: 80px 0;
+      background: linear-gradient(180deg, #f8fafc 0%, #fff 100%);
+    }
+    .im-featured-videos .container { max-width: 1200px; padding: 0 24px; }
+    .im-featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .im-featured-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #eef2f6;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      transition: all 0.3s ease;
+    }
+    .im-featured-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(8,143,143,0.08);
+      border-color: rgba(8,143,143,0.1);
+    }
+    .im-featured-player {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+    .im-featured-player iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .im-featured-info {
+      padding: 20px 20px 24px;
+    }
+    .im-featured-type {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .im-featured-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0 0 6px;
+      line-height: 1.35;
+    }
+    .im-featured-info p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.55;
+      margin: 0;
+    }
+    @media (max-width: 900px) {
+      .im-featured-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .im-featured-grid { grid-template-columns: 1fr; }
+    }
+
+    .im-video-wrapper {
+      position: relative;
+      width: 100%;
+      background: #000;
+    }
+    .im-video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
     .im-video-card .im-video-body {
-      padding: 24px 24px 28px;
+      padding: 24px 28px 28px;
     }
     .im-video-card .im-video-body h3 {
       font-size: 1.05rem;
@@ -298,25 +499,15 @@
       line-height: 1.6;
       margin: 0;
     }
-    .im-video-wrapper {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%;
-      background: #1a1a2e;
-    }
-    .im-video-wrapper iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
     @media (max-width: 1024px) {
-      .im-videos-grid { grid-template-columns: 1fr 1fr; }
+      .im-videos-grid { grid-template-columns: 1fr; }
       .im-videos .container {
         padding-left: 60px;
         padding-right: 60px;
       }
+    }
+    @media (max-width: 1024px) {
+      .im-videos-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 600px) {
       .im-videos-grid { grid-template-columns: 1fr; }
@@ -343,21 +534,56 @@
       <div class="impact-map-grid">
         <div class="impact-map-left">
           <h2 class="impact-map-title">Reach & Impact</h2>
-          <div class="impact-stats-list">
-            <div class="impact-stat-item">
-              <span class="impact-stat-num">5,000+</span> schools
+          <!-- SVG Gradients for progress rings -->
+          <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
+            <defs>
+              <linearGradient id="grad-teal" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#088f8f"/>
+                <stop offset="50%" stop-color="#0ab0b0"/>
+                <stop offset="100%" stop-color="#14d4d4"/>
+              </linearGradient>
+              <linearGradient id="grad-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f1ae44"/>
+                <stop offset="50%" stop-color="#f6c15e"/>
+                <stop offset="100%" stop-color="#fbd38a"/>
+              </linearGradient>
+              <linearGradient id="grad-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1a1a2e"/>
+                <stop offset="50%" stop-color="#33415e"/>
+                <stop offset="100%" stop-color="#4a5a7a"/>
+              </linearGradient>
+              <linearGradient id="grad-teal-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#066e6e"/>
+                <stop offset="50%" stop-color="#088f8f"/>
+                <stop offset="100%" stop-color="#0ab0b0"/>
+              </linearGradient>
+              <linearGradient id="grad-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#6366f1"/>
+                <stop offset="50%" stop-color="#8b5cf6"/>
+                <stop offset="100%" stop-color="#a78bfa"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="impact-stats-graphic" id="impactStats">
+            <div class="impact-stat-card" data-target="13" data-suffix="">
+              <span class="impact-stat-num">0<span class="impact-stat-suffix"></span></span>
+              <div class="impact-stat-label">States</div>
             </div>
-            <div class="impact-stat-item">
-              <span class="impact-stat-num">15,000+</span> classrooms
+            <div class="impact-stat-card" data-target="5000" data-suffix="+">
+              <span class="impact-stat-num">0<span class="impact-stat-suffix">+</span></span>
+              <div class="impact-stat-label">Schools</div>
             </div>
-            <div class="impact-stat-item">
-              <span class="impact-stat-num">90,000+</span> teachers benefited
+            <div class="impact-stat-card" data-target="15000" data-suffix="+">
+              <span class="impact-stat-num">0<span class="impact-stat-suffix">+</span></span>
+              <div class="impact-stat-label">Classrooms</div>
             </div>
-            <div class="impact-stat-item">
-              <span class="impact-stat-num">3M</span> students impacted
+            <div class="impact-stat-card" data-target="3000000" data-suffix="">
+              <span class="impact-stat-num">0<span class="impact-stat-suffix"></span></span>
+              <div class="impact-stat-label">Students Impacted</div>
             </div>
-            <div class="impact-stat-item">
-              Across <span class="impact-stat-num">13 states</span> of India
+            <div class="impact-stat-card" data-target="90000" data-suffix="+">
+              <span class="impact-stat-num">0<span class="impact-stat-suffix">+</span></span>
+              <div class="impact-stat-label">Teachers Benefited</div>
             </div>
           </div>
         </div>
@@ -404,6 +630,53 @@
             </svg>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Digital Dashboard -->
+  <section class="impact-map-section light-bg" id="dashboard" style="padding:90px 0;">
+    <div class="container">
+      <div class="section-header centered">
+        <img src="assets/dashboard1.png" alt="CLT India Digital Dashboard" class="dash-hero-img" loading="lazy">
+        <h2 class="section-title" style="margin-top:28px;">One Platform. Complete Control of <span style="color:var(--teal);">Digital Learning.</span></h2>
+        <p class="section-subtitle" style="max-width:1000px;">The CLT India Digital Dashboard is the central platform that powers and manages our technology-enabled learning ecosystem across schools. From managing educational content to monitoring usage, activating licences, tracking learning engagement, and generating reports, the dashboard brings the entire e-Patashale ecosystem together in one place.</p>
+      </div>
+
+      <div class="dash-rows">
+        <div class="dash-row">
+          <h3>Content & Resource Management</h3>
+          <p>Manage and organise the complete library of digital learning resources — videos, assessments, textbooks, lessons, and curriculum-aligned content. Update and manage the syllabus as programmes evolve.</p>
+        </div>
+
+        <div class="dash-row">
+          <h3>Licence & School Connectivity</h3>
+          <p>Every e-Patashale-enabled school and its connected TV devices are linked to the dashboard. Licences are activated and managed centrally, so only authorised schools and devices access the content.</p>
+        </div>
+
+        <div class="dash-row">
+          <h3>Usage & Analytics</h3>
+          <p>The dashboard captures usage data from across the digital learning ecosystem. Monitor which schools are actively using the platform, how frequently resources are used, and overall engagement through graphs and analytics.</p>
+        </div>
+
+        <div class="dash-row">
+          <h3>Connected Learning Apps</h3>
+          <p>Data from CLT India's three learning applications flows into the dashboard, providing a consolidated view of usage and engagement across the Classroom App, JIGI – The Teacher App, and JIGI-JIGI – The Student App.</p>
+        </div>
+
+        <div class="dash-row">
+          <h3>Partner Access</h3>
+          <p>Registered partners access relevant programme data and usage insights through the Partner section, enabling transparent and structured tracking of implementation, engagement, and programme usage.</p>
+        </div>
+
+        <div class="dash-row">
+          <h3>Reports & Monitoring</h3>
+          <p>The dashboard transforms programme data into meaningful reports, helping CLT India teams and partners monitor implementation, understand usage patterns, measure engagement, and make informed decisions.</p>
+        </div>
+      </div>
+
+      <div class="dash-banner">
+        <p>From content delivery to school-level usage and programme insights, the dashboard connects every part of CLT India's digital learning ecosystem.</p>
       </div>
     </div>
   </section>
@@ -465,16 +738,25 @@
           <h3>e-Shala Impact Assessment</h3>
           <p><span class="im-quote">&ldquo;</span>83.7% of the schools reported that enrollment in schools has increased due to this project.<span class="im-quote">&rdquo;</span></p>
           <div class="im-study-link-wrap">
-            <a href="assets/Impact%20docs/Christ%20University.pdf" class="im-study-link">Learn more</a>
+            <a href="assets/Impact%20docs/Christ%20University.pdf" class="im-study-link" target="_blank" rel="noopener">Learn more</a>
             <span class="im-study-arrow">&rarr;</span>
           </div>
         </div>
-        <div class="im-study-card">
-          <span class="im-study-badge">Dasra &amp; USAID</span>
+<div class="im-study-card">
+          <span class="im-study-badge">Dasra & USAID</span>
           <h3>Dasra Research Publication</h3>
           <p>CLT was chosen as a Dasra Fellow for their Research Publication (in partnership with USAID) as one of 7 Change Makers that is making a &lsquo;Difference&rsquo; in the way girls are impacted in secondary schools.</p>
           <div class="im-study-link-wrap">
             <a href="assets/Impact%20docs/Dasra.pdf" class="im-study-link">Learn more</a>
+            <span class="im-study-arrow">&rarr;</span>
+          </div>
+        </div>
+        <div class="im-study-card">
+          <span class="im-study-badge">Christ University</span>
+          <h3>EGR Endline — Comparative Analysis Report</h3>
+          <p>Endline evaluation of the Early Grade Reading program, comparing learning outcomes across intervention and control groups to measure program impact.</p>
+          <div class="im-study-link-wrap">
+            <a href="assets/Impact%20docs/Comparative_Analysis_Report%20(2).pdf" class="im-study-link" target="_blank" rel="noopener">Learn more</a>
             <span class="im-study-arrow">&rarr;</span>
           </div>
         </div>
@@ -487,52 +769,82 @@
     <div class="container">
       <div class="section-header centered">
         <span class="section-label">Watch</span>
-        <h2 class="section-title">In Their Own Words</h2>
-        <p class="section-subtitle">Hear from educators and changemakers about the impact of CLT's programs</p>
+        <h2 class="section-title">Stories from the Field</h2>
+        <p class="section-subtitle">Hear from teachers, students, and schools about their experiences with CLT e-Patashale</p>
       </div>
-      <div class="im-videos-grid">
-        <div class="im-video-card">
-          <div class="im-video-wrapper">
-            <iframe src="https://www.youtube.com/embed/OKMRtIhXeNo?controls=1&rel=0&modestbranding=1&autoplay=1&mute=1" allowfullscreen loading="lazy"></iframe>
+      <div class="im-playlist">
+        <div class="im-playlist-main">
+          <div class="im-video-player" id="imMainPlayer">
+            <iframe src="https://www.youtube.com/embed/fQWNqSYRroM?controls=1&rel=0&modestbranding=1&autoplay=0&mute=0" allowfullscreen></iframe>
           </div>
-          <div class="im-video-body">
-            <h3>Reimagine Education</h3>
-            <p>Redefining learning experiences through technology and innovation.</p>
-          </div>
-        </div>
-        <div class="im-video-card">
-          <div class="im-video-wrapper">
-            <iframe src="https://www.youtube.com/embed/gCacn1ZVMXE?controls=1&rel=0&modestbranding=1&autoplay=1&mute=1" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="im-video-body">
-            <h3>Carolyn Johnson — Educationist, Rotary International</h3>
-            <p>An education leader shares her perspective on CLT's transformative work.</p>
+          <div class="im-player-info">
+            <h3 id="imCurrentTitle">Digital Literacy in Action</h3>
+            <p id="imCurrentDesc">Students building digital skills for a connected future.</p>
           </div>
         </div>
-        <div class="im-video-card">
-          <div class="im-video-wrapper">
-            <iframe src="https://www.youtube.com/embed/ej2JUJx6clU?controls=1&rel=0&modestbranding=1&autoplay=1&mute=1" allowfullscreen loading="lazy"></iframe>
+        <div class="im-playlist-sidebar" id="imPlaylist">
+          <div class="im-playlist-item active" data-video="fQWNqSYRroM" data-title="Digital Literacy in Action" data-desc="Students building digital skills for a connected future.">
+            <div class="im-playlist-thumb">
+              <img src="https://img.youtube.com/vi/fQWNqSYRroM/mqdefault.jpg" alt="Digital Literacy in Action" loading="lazy">
+              <span class="im-play-badge">▶</span>
+            </div>
+            <div class="im-playlist-meta">
+              <h4>Digital Literacy in Action</h4>
+              <span class="im-playlist-type">Shorts</span>
+            </div>
           </div>
-          <div class="im-video-body">
-            <h3>Read to Rise</h3>
-            <p>Empowering children through the joy of reading and digital literacy.</p>
+          <div class="im-playlist-item" data-video="cp2TCsAp7oU" data-title="Classroom Transformation" data-desc="How digital tools are reshaping learning experiences.">
+            <div class="im-playlist-thumb">
+              <img src="https://img.youtube.com/vi/cp2TCsAp7oU/mqdefault.jpg" alt="Classroom Transformation" loading="lazy">
+            </div>
+            <div class="im-playlist-meta">
+              <h4>Classroom Transformation</h4>
+              <span class="im-playlist-type">Shorts</span>
+            </div>
           </div>
+          
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="newsletter-section" id="involved" style="padding:80px 0;">
+  <!-- Featured Videos -->
+  <section class="im-featured-videos">
     <div class="container">
-      <div class="newsletter-grid" style="grid-template-columns: 1fr;">
-        <div class="newsletter-content" style="text-align:center;max-width:600px;margin:0 auto;">
-          <span class="section-label">Be Part of the Change</span>
-          <h2 class="section-title">Help Us Reach Every Child</h2>
-          <p style="color:#1a1a2e;">Your support enables us to bring quality STEM education to more classrooms across India. Join us in transforming lives through education.</p>
-          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
-            <a href="donate.html" class="btn-primary">Donate Now</a>
-            <a href="volunteer.html" class="btn-primary" style="background:#f1ae44;box-shadow:0 4px 15px rgba(241,174,68,0.3);">Volunteer</a>
+      <div class="section-header centered">
+        <span class="section-label">Featured</span>
+        <h2 class="section-title">Stories of Impact</h2>
+        <p class="section-subtitle">In-depth conversations with educators and changemakers</p>
+      </div>
+      <div class="im-featured-grid">
+        <div class="im-featured-card">
+          <div class="im-featured-player">
+            <iframe src="https://www.youtube.com/embed/OKMRtIhXeNo?controls=1&rel=0&modestbranding=1&autoplay=0&mute=0" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="im-featured-info">
+            <span class="im-featured-type">Featured</span>
+            <h3>Reimagine Education</h3>
+            <p>Redefining learning experiences through technology and innovation.</p>
+          </div>
+        </div>
+        <div class="im-featured-card">
+          <div class="im-featured-player">
+            <iframe src="https://www.youtube.com/embed/gCacn1ZVMXE?controls=1&rel=0&modestbranding=1&autoplay=0&mute=0" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="im-featured-info">
+            <span class="im-featured-type">Interview</span>
+            <h3>Carolyn Johnson — Educationist, Rotary International</h3>
+            <p>An education leader shares her perspective on CLT's transformative work.</p>
+          </div>
+        </div>
+        <div class="im-featured-card">
+          <div class="im-featured-player">
+            <iframe src="https://www.youtube.com/embed/ej2JUJx6clU?controls=1&rel=0&modestbranding=1&autoplay=0&mute=0" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="im-featured-info">
+            <span class="im-featured-type">Program</span>
+            <h3>Read to Rise</h3>
+            <p>Empowering children through the joy of reading and digital literacy.</p>
           </div>
         </div>
       </div>
@@ -543,6 +855,48 @@
 
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
 
+  <script>
+    (function() {
+      var statCards = document.querySelectorAll('.impact-stat-card');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var card = entry.target;
+            var target = parseInt(card.dataset.target, 10);
+            var suffix = card.dataset.suffix || '';
+            var numEl = card.querySelector('.impact-stat-num');
+            function fmt(n) {
+              if (n >= 1000000) return (n / 1000000) + 'M';
+              return n.toLocaleString();
+            }
+            numEl.textContent = fmt(target) + suffix;
+            observer.unobserve(card);
+          }
+        });
+      }, { threshold: 0.3 });
+      statCards.forEach(function(card) { observer.observe(card); });
+    })();
+
+    (function() {
+      var items = document.querySelectorAll('.im-playlist-item');
+      var player = document.getElementById('imMainPlayer');
+      var titleEl = document.getElementById('imCurrentTitle');
+      var descEl = document.getElementById('imCurrentDesc');
+      if (!items.length || !player || !titleEl || !descEl) return;
+      items.forEach(function(item) {
+        item.addEventListener('click', function() {
+          var id = this.dataset.video;
+          var title = this.dataset.title;
+          var desc = this.dataset.desc;
+          player.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?controls=1&rel=0&modestbranding=1&autoplay=1&mute=0" allowfullscreen></iframe>';
+          titleEl.textContent = title;
+          descEl.textContent = desc;
+          items.forEach(function(i) { i.classList.remove('active'); });
+          this.classList.add('active');
+        });
+      });
+    })();
+  </script>
   <script src="script.js?v=1.16"></script>
   <script src="include.js"></script>
 </body>

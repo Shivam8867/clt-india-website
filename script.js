@@ -175,9 +175,15 @@ if (gallerySlides.length > 0) {
 function swapHeroImages() {
   const isMobile = window.innerWidth <= 768;
   document.querySelectorAll('.slide').forEach(slide => {
+    if (!slide.dataset.deskBg) slide.dataset.deskBg = slide.style.backgroundImage;
     if (isMobile) {
-      if (!slide.dataset.deskBg) slide.dataset.deskBg = slide.style.backgroundImage;
-      slide.style.backgroundImage = slide.dataset.deskBg.replace(/(\d+)\.png/, '$1-mobile.png');
+      const mobileUrl = slide.dataset.deskBg.replace(/(\d+)\.png/, '$1-mobile.png');
+      const urlMatch = mobileUrl.match(/url\((['"]?)(.*?)\1\)/);
+      if (!urlMatch) return;
+      const img = new Image();
+      img.onload = () => { slide.style.backgroundImage = mobileUrl; };
+      img.onerror = () => { slide.style.backgroundImage = slide.dataset.deskBg; };
+      img.src = urlMatch[2];
     } else if (slide.dataset.deskBg) {
       slide.style.backgroundImage = slide.dataset.deskBg;
     }
@@ -270,7 +276,49 @@ document.querySelectorAll('.program-card, .impact-card, .gi-card, .about-content
   fadeObserver.observe(el);
 });
 
-// Counter observer
+// Counter observer for impact page
+const impactCounterObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      const card = entry.target;
+      setTimeout(() => {
+        card.classList.add('visible');
+        animateImpactCounter(card);
+      }, index * 150);
+      impactCounterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.impact-stat-card').forEach(el => impactCounterObserver.observe(el));
+
+// Stat cards observer for index page
+const statCardObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, index * 120);
+      statCardObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.stat-card').forEach(el => statCardObserver.observe(el));
+
+function formatImpactNum(n) {
+  if (n >= 1000000) return (n / 1000000) + 'M';
+  return n.toLocaleString('en-IN');
+}
+
+function animateImpactCounter(card) {
+  const target = parseInt(card.dataset.target);
+  const suffix = card.dataset.suffix || '';
+  const numEl = card.querySelector('.impact-stat-num');
+  numEl.innerHTML = formatImpactNum(target) + `<span class="impact-stat-suffix">${suffix}</span>`;
+}
+
+// Legacy counter observer
 const counterObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
