@@ -1562,6 +1562,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 
 @media (max-width: 600px) {
   .container { padding: 0 16px; }
+  .about-section { padding: 20px 0 60px; }
   .hero-section { height: 52vh; min-height: 400px; }
   .slide { align-items: flex-start; justify-content: center; padding: 100px 0 40px; }
   .slide-content { padding: 0 24px; }
