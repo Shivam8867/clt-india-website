@@ -304,7 +304,7 @@
             <ul class="dropdown">
               <li><a href="index.html#epatashale">e-Patashale</a></li>
               <li><a href="index.html#egr">Early Grade Reading (EGR)</a></li>
-              <li><a href="index.html#digital">Digital Literacy</a></li>
+              <li><a href="digital-literacy.html">Digital Literacy</a></li>
             </ul>
           </li>
           <li><a href="impact.html">Our Impact</a></li>
@@ -634,7 +634,7 @@
           <ul class="footer-links">
             <li><a href="index.html#epatashale">e-Patashale</a></li>
             <li><a href="index.html#egr">Early Grade Reading (EGR)</a></li>
-            <li><a href="index.html#digital">Digital Literacy</a></li>
+            <li><a href="digital-literacy.html">Digital Literacy</a></li>
             <li><a href="index.html#teacher">Teacher Connect Program</a></li>
             <li><a href="index.html#community">Community Outreach</a></li>
           </ul>
@@ -670,5 +670,25 @@
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
 
   <script src="script.js?v=1.16"></script>
+  <script>
+    (function() {
+      var hamburger = document.getElementById('hamburger');
+      var mainNav = document.getElementById('main-nav');
+      if (hamburger && mainNav) {
+        hamburger.addEventListener('click', function() {
+          hamburger.classList.toggle('active');
+          mainNav.classList.toggle('open');
+        });
+      }
+      document.querySelectorAll('.has-dropdown > a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          if (window.innerWidth <= 900) {
+            e.preventDefault();
+            this.parentElement.classList.toggle('open');
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
