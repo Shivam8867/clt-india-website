@@ -171,6 +171,24 @@ if (gallerySlides.length > 0) {
   startGalleryAuto();
 }
 
+const gallerySliderEl = document.getElementById('gallerySlider');
+let touchStartX = 0;
+let touchEndX = 0;
+if (gallerySliderEl) {
+  gallerySliderEl.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  gallerySliderEl.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) goToGalleryGroup(galleryGroup + 1);
+      else goToGalleryGroup(galleryGroup - 1);
+      resetGalleryAuto();
+    }
+  }, { passive: true });
+}
+
 /* === RESPONSIVE HERO IMAGES === */
 function swapHeroImages() {
   const isMobile = window.innerWidth <= 768;

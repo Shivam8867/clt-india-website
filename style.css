@@ -1608,10 +1608,10 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 
   .stats-band { padding: 40px 0; }
 
-  .gallery-wrapper { gap: 8px; padding: 0 2px; }
+  .gallery-wrapper { gap: 0; padding: 0; }
   .gallery-slider { padding: 6px; border-radius: 10px; }
-  .gallery-slide { min-width: 100%; border-radius: 6px; }
-  .gallery-btn { width: 36px; height: 36px; font-size: 0.9rem; }
+  .gallery-slide { min-width: 100%; border-radius: 6px; aspect-ratio: 4/3; }
+  .gallery-btn { display: none; }
   .gallery-dots { margin-top: 16px; gap: 5px; }
   .gallery-dots .dot { width: 6px; height: 6px; }
   .gallery-dots .dot.active { width: 24px; }
