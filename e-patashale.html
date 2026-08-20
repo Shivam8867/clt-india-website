@@ -426,14 +426,102 @@
         </div>
       </div>
       <p style="color: var(--text-light); font-size: 1rem; line-height: 1.8; text-align: center; max-width: 700px; margin: 2rem auto 0;">Collaboration with State and District level governments, corporates, NGOs and local communities have made the model scalable.</p>
-      <div class="ep-gallery" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 2.5rem auto 0; max-width: 900px;">
-        <img src="assets/1.png" alt="Children learning with e-Patashale" style="width:100%;height:auto;display:block;border-radius:12px;">
-        <img src="assets/2.png" alt="Children learning with e-Patashale" style="width:100%;height:auto;display:block;border-radius:12px;">
+
+      <div class="ep-subject-cards" style="max-width: 1000px; margin: 2.5rem auto 0;">
+        <p class="ep-tab-heading" style="text-align:center;font-weight:700;color:#1a1a2e;margin:0 0 8px;font-size:1.1rem;">Digital Learning Content</p>
+        <p style="text-align:center;color:#5f6c80;font-size:0.9rem;margin-bottom:24px;">Structured digital content for Science, Mathematics and English Grammar across Grades 5 to 10</p>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+
+          <div class="ep-subject-card" style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
+            <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#088f8f,#045f5f);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M9 3v2M15 3v2M5 7h14M6 3h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg>
+            </div>
+            <h3 style="margin:0 0 8px;font-size:1.15rem;font-weight:800;color:#1a1a2e;">Science</h3>
+            <p style="margin:0;color:#5f6c80;line-height:1.6;font-size:0.88rem;">Science lessons bring the curriculum to life with clear concept explanations, hands-on experiments and regular assessments — making even the toughest topics easy to understand for every learner from Class 5 to 10.</p>
+          </div>
+
+          <div class="ep-subject-card" style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
+            <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#088f8f,#045f5f);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M9 9h6v6H9z"/><path d="M4 9h5M4 15h5M15 9h5M15 15h5M9 4v5M9 15v5M15 4v5M15 15v5"/></svg>
+            </div>
+            <h3 style="margin:0 0 8px;font-size:1.15rem;font-weight:800;color:#1a1a2e;">Mathematics</h3>
+            <p style="margin:0;color:#5f6c80;line-height:1.6;font-size:0.88rem;">Mathematics lessons build strong foundations with concept-based video explanations, solved examples and practice problems, backed by chapter-wise assessments that build confidence and speed for Class 5 to 10.</p>
+          </div>
+
+          <div class="ep-subject-card" style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
+            <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#088f8f,#045f5f);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+            </div>
+            <h3 style="margin:0 0 8px;font-size:1.15rem;font-weight:800;color:#1a1a2e;">English Grammar</h3>
+            <p style="margin:0;color:#5f6c80;line-height:1.6;font-size:0.88rem;">Grammar lessons take learners from the basics in Class 5 to advanced concepts by Class 10 — covering parts of speech, tenses, voice, clauses and writing skills, all explained simply in every video.</p>
+          </div>
+
+        </div>
       </div>
+
+      <div class="ep-videos" style="max-width: 1000px; margin: 2.5rem auto 0;">
+        <p class="ep-tab-heading" style="text-align:center;font-weight:700;color:#1a1a2e;margin:0 0 8px;font-size:1.1rem;">e-Patashale Videos by Grade</p>
+        <p style="text-align:center;color:#5f6c80;font-size:0.9rem;margin-bottom:20px;">Explore concept videos, experiments and assessments for Grades 5 to 10</p>
+        <div class="ep-grade-nav" style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:24px;"></div>
+        <div class="ep-grade-panels"></div>
+      </div>
+
+      <script>
+        (function() {
+          // Har grade me 8 sample videos: Kannada Sci/Math, English Sci/Math,
+          // Hindi Sci/Math (5th, 8th available; baaki grades English/Kannada mix) + 2 Grammar.
+          var VIDEOS = {
+            5: ['8CJwOAe009o', 'VRHMWaU-e-0', '7lVichcziCc', 'yRJ8rqpfneg', 'q_7rhMBy850', 'YuHiwsuRRKI', '5TeuibrhWEI', 'dwQAcLTR57M'],
+            6: ['xT31c7WaXts', 'rkhYBSSm3tE', 'P6uoSLu3KTE', 'Cx_HWDZy3aw', '913yaWp7_Io', 'pB2S0hkHyRw', '0CxDl5ckvmA', 'n4UogtrQzk8'],
+            7: ['6l7W6C1iMuQ', 'YOjRZdcL0Tc', 'gH7w8dVmFWM', 'r_yXLoOlqB8', 'cKNcJivFZJY', '8WKUksKuNho', 'v4rjLD81WeE', 'nvAUm6as-Y0'],
+            8: ['grj7Nss-MzY', '7pp8lJFgVdQ', 'yyuqYPY40Ps', '7vnjCoPtK8A', 'T5Dqp2DOK8o', 'ridpLlTRX7I', 'cgx0_wWmezA', '6eQPWMeLYYU'],
+            9: ['qM0jumN_w7I', 'uEe8XAb_zXk', 'T_rg1zuhV6w', 'xcz1DsTWJq0', 'N5CwrN8VUmU', 'pixhb1VDhdk', '6eQPWMeLYYU', 'xwT8h46E3AY'],
+            10: ['qqtx-EsbQmk', '2tD1U6X7WwI', 'aZX1OKvNmW8', 'hMIh-bcwVV8', 'bC5MKYvEK9E', 'VPjN6IY357A', '7_GFBV8yTGU', 'WPzjJ38RbN0']
+          };
+          var GRADES = [5, 6, 7, 8, 9, 10];
+          var nav = document.querySelector('.ep-grade-nav');
+          var wrap = document.querySelector('.ep-grade-panels');
+          GRADES.forEach(function(g, i) {
+            var b = document.createElement('button');
+            b.textContent = 'Grade ' + g;
+            b.dataset.grade = g;
+            b.style.cssText = 'background:' + (i === 0 ? '#088f8f' : '#e5ebf0') + ';color:' + (i === 0 ? '#fff' : '#1a1a2e') + ';border:none;padding:8px 20px;border-radius:6px;font-weight:600;font-size:0.85rem;cursor:pointer;transition:0.3s;';
+            b.addEventListener('click', function() {
+              nav.querySelectorAll('button').forEach(function(x) { x.style.background = '#e5ebf0'; x.style.color = '#1a1a2e'; });
+              b.style.background = '#088f8f'; b.style.color = '#fff';
+              wrap.querySelectorAll('.ep-grade-panel').forEach(function(p) { p.style.display = 'none'; });
+              wrap.querySelector('.ep-grade-panel[data-grade="' + g + '"]').style.display = 'block';
+            });
+            nav.appendChild(b);
+
+            var panel = document.createElement('div');
+            panel.className = 'ep-grade-panel';
+            panel.dataset.grade = g;
+            panel.style.display = i === 0 ? 'block' : 'none';
+            var grid = document.createElement('div');
+            grid.style.cssText = 'display:grid;grid-template-columns:repeat(4,1fr);gap:16px;';
+            VIDEOS[g].forEach(function(id, vi) {
+              var card = document.createElement('div');
+              card.style.cssText = 'background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.08);';
+              var player = document.createElement('div');
+              player.style.cssText = 'position:relative;padding-top:56.25%;background:#000;';
+              var iframe = document.createElement('iframe');
+              iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+              iframe.src = 'https://www.youtube.com/embed/' + (id || '');
+              iframe.setAttribute('allowfullscreen', '');
+              iframe.setAttribute('loading', 'lazy');
+              player.appendChild(iframe);
+              card.appendChild(player);
+              grid.appendChild(card);
+            });
+            panel.appendChild(grid);
+            wrap.appendChild(panel);
+          });
+        })();
+      </script>
       <style>
-        @media (max-width: 700px) {
-          .ep-gallery { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 800px) { .ep-grade-panels .ep-grade-panel > div { grid-template-columns: 1fr 1fr !important; } }
       </style>
     </div>
   </section>
