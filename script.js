@@ -172,15 +172,15 @@ if (gallerySlides.length > 0) {
 }
 
 const gallerySliderEl = document.getElementById('gallerySlider');
-let touchStartX = 0;
-let touchEndX = 0;
+let galleryTouchStartX = 0;
+let galleryTouchEndX = 0;
 if (gallerySliderEl) {
   gallerySliderEl.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
+    galleryTouchStartX = e.changedTouches[0].screenX;
   }, { passive: true });
   gallerySliderEl.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    const diff = touchStartX - touchEndX;
+    galleryTouchEndX = e.changedTouches[0].screenX;
+    const diff = galleryTouchStartX - galleryTouchEndX;
     if (Math.abs(diff) > 40) {
       if (diff > 0) goToGalleryGroup(galleryGroup + 1);
       else goToGalleryGroup(galleryGroup - 1);

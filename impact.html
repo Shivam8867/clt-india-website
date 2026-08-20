@@ -870,6 +870,7 @@
               return n.toLocaleString();
             }
             numEl.textContent = fmt(target) + suffix;
+            card.classList.add('visible');
             observer.unobserve(card);
           }
         });

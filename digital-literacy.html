@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Literacy Program | CLT India</title>
+  <meta name="description" content="CLT India's Digital Literacy Program - bridging the digital divide by providing comprehensive digital literacy resources and curriculum to marginalized students and school dropouts. An 8-week structured learning content developed by CLT.">
+  <meta name="keywords" content="digital literacy program, CLT India digital literacy, digital education resources, computer education Nagaland, Kohima schools, digital divide India, digital literacy NGO, digital curriculum">
+  <link rel="canonical" href="https://cltindia.org/digital-literacy.html">
+  <meta property="og:title" content="Digital Literacy Program | CLT India">
+  <meta property="og:description" content="Bridging the digital divide - comprehensive digital literacy resources and curriculum empowering marginalized students for education, employment, and a digital future.">
+  <meta property="og:url" content="https://cltindia.org/digital-literacy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://cltindia.org/assets/Clt-Logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Digital Literacy Program | CLT India">
+  <meta name="twitter:description" content="Comprehensive digital literacy resources and curriculum for marginalized students.">
+  <meta name="twitter:image" content="https://cltindia.org/assets/Clt-Logo.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Digital Literacy Program",
+  "description": "CLT India's Digital Literacy Program - digital literacy resources and curriculum for marginalized students and school dropouts.",
+  "url": "https://cltindia.org/digital-literacy.html",
+  "isPartOf": { "@type": "WebSite", "url": "https://cltindia.org/", "name": "CLT India" }
+}
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root { --header-h: 114px; }
+
+    /* === HERO === */
+    .dl-hero {
+      margin-top: var(--header-h);
+      padding: 140px 24px 120px;
+      background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 100%), url('assets/dlp bg.jpg') center center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+    .dl-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(255,255,255,0.04) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(241,174,68,0.05) 0%, transparent 45%);
+    }
+    .dl-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    }
+    .dl-hero .container { max-width: 800px; text-align: center; }
+    .dl-hero-content { text-align: center; }
+    .dl-hero .dl-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 10px 28px;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .dl-hero .dl-hero-badge span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 16px var(--gold);
+      animation: dlPulse 2s infinite;
+    }
+    @keyframes dlPulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
+    .dl-hero h1 {
+      font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+    .dl-hero h1 .accent {
+      font-weight: 700;
+      color: var(--gold);
+      position: relative;
+    }
+    .dl-hero h1 .accent::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, var(--gold), #f6c15e);
+      opacity: 0.3;
+      border-radius: 4px;
+      z-index: -1;
+    }
+    .dl-hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.9);
+      max-width: 540px;
+      margin: 0 0 36px;
+      line-height: 1.8;
+    }
+    .dl-hero-stats {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .dl-hero-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .dl-hero-stat .num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+    .dl-hero-stat .label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 1024px) {
+      .dl-hero { padding: 120px 24px 80px; }
+      .dl-hero .container { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .dl-hero-content { text-align: center; }
+      .dl-hero p { margin-left: auto; margin-right: auto; }
+      .dl-hero-stats { justify-content: center; }
+      .dl-hero-visual { max-width: 480px; margin: 0 auto; }
+      .dl-hero-visual img { height: 360px; }
+    }
+    @media (max-width: 600px) {
+      .dl-hero { padding: 100px 20px 60px; }
+      .dl-hero h1 { font-size: 2.4rem; }
+      .dl-hero p { font-size: 1.05rem; }
+      .dl-hero-stats { gap: 20px; }
+      .dl-hero-stat .num { font-size: 1.6rem; }
+      .dl-hero-visual img { height: 280px; }
+    }
+    .dl-hero h1 {
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.12;
+      letter-spacing: -1px;
+      margin-bottom: 22px;
+    }
+    .dl-hero h1 .accent { color: var(--gold); }
+    .dl-hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    .dl-hero .dl-hero-meta {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .dl-hero .dl-hero-meta .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 50px;
+    }
+
+    /* === SHARED === */
+    .dl-section { padding: 100px 0; }
+    .dl-section.alt { background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); }
+    .dl-section .section-header.centered { margin-bottom: 60px; }
+
+    /* === ABOUT === */
+    .dl-about-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .dl-about-text .section-label { margin-bottom: 18px; }
+    .dl-about-text h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .dl-about-text p {
+      color: var(--text-light);
+      font-size: 0.98rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .dl-about-text p strong { color: var(--teal); }
+
+    .dl-about-visual { display: flex; flex-direction: column; gap: 24px; }
+    .dl-tile {
+      background: #fff;
+      border-radius: 20px;
+      padding: 28px 30px;
+      border: 1px solid #eef2f6;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: all 0.35s ease;
+    }
+    .dl-tile:hover {
+      transform: translateX(6px);
+      box-shadow: 0 16px 40px rgba(8,143,143,0.1);
+      border-color: rgba(8,143,143,0.15);
+    }
+    .dl-tile .dl-tile-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--teal) 0%, #0ab0b0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      box-shadow: 0 8px 20px rgba(8,143,143,0.25);
+    }
+    .dl-tile:nth-child(2) .dl-tile-icon {
+      background: linear-gradient(135deg, var(--gold) 0%, #f6c15e 100%);
+      box-shadow: 0 8px 20px rgba(241,174,68,0.3);
+    }
+    .dl-tile:nth-child(3) .dl-tile-icon {
+      background: linear-gradient(135deg, #1a1a2e 0%, #33415e 100%);
+      box-shadow: 0 8px 20px rgba(26,26,46,0.25);
+    }
+.dl-tile h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+    .dl-tile p { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; margin: 0; }
+
+    /* === ABOUT SINGLE IMAGE === */
+    .dl-single-image {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      max-width: 100%;
+      aspect-ratio: 4 / 5;
+    }
+    .dl-single-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .dl-about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .dl-about-visual { order: -1; }
+    }
+
+    /* === WHY === */
+    .dl-why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .dl-why-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 40px 32px;
+      border: 1px solid #eef2f6;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .dl-why-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--teal), #0ab0b0);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .dl-why-card:nth-child(2)::before { background: linear-gradient(90deg, var(--gold), #f6c15e); }
+    .dl-why-card:nth-child(3)::before { background: linear-gradient(90deg, #1a1a2e, #33415e); }
+    .dl-why-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(8,143,143,0.12);
+      border-color: rgba(8,143,143,0.12);
+    }
+    .dl-why-card:hover::before { transform: scaleX(1); }
+    .dl-why-num {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--teal);
+      background: rgba(8,143,143,0.08);
+      padding: 5px 14px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .dl-why-card:nth-child(2) .dl-why-num { color: var(--gold-dark); background: rgba(241,174,68,0.12); }
+    .dl-why-card:nth-child(3) .dl-why-num { color: var(--dark); background: rgba(26,26,46,0.08); }
+    .dl-why-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      margin-bottom: 18px;
+      background: #f0fafb;
+      border: 1px solid rgba(8,143,143,0.12);
+    }
+    .dl-why-card:nth-child(2) .dl-why-icon { background: #fff8e8; border-color: rgba(241,174,68,0.2); }
+    .dl-why-card:nth-child(3) .dl-why-icon { background: #eef0f5; border-color: rgba(26,26,46,0.1); }
+    .dl-why-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+    .dl-why-card p { font-size: 0.92rem; color: var(--text-light); line-height: 1.75; margin: 0; }
+
+    /* === STAKEHOLDERS === */
+    .dl-audience {
+      padding: 0;
+      background: linear-gradient(135deg, #066e6e 0%, #088f8f 100%);
+      color: #fff;
+    }
+    .dl-audience-inner {
+      padding: 100px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .dl-audience .section-label { background: rgba(255,255,255,0.15); color: var(--gold); }
+    .dl-audience h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .dl-audience p { color: rgba(255,255,255,0.85); font-size: 0.98rem; line-height: 1.8; margin-bottom: 16px; }
+    .dl-audience-chips { display: flex; flex-direction: column; gap: 16px; }
+    .dl-audience-chip {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 18px;
+      padding: 24px 26px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      transition: all 0.35s ease;
+    }
+    .dl-audience-chip:hover { background: rgba(255,255,255,0.16); transform: translateX(6px); }
+    .dl-audience-chip .chip-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .dl-audience-chip h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .dl-audience-chip p { font-size: 0.88rem; color: rgba(255,255,255,0.8); margin: 0; line-height: 1.6; }
+
+    /* === CONTENT MODULES === */
+    .dl-curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+    }
+    .dl-week-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px 32px;
+      border: 1px solid #eef2f6;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      transition: all 0.35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .dl-week-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(8,143,143,0.1);
+      border-color: rgba(8,143,143,0.12);
+    }
+    .dl-week-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .dl-week-num {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--teal) 0%, #0ab0b0 100%);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 8px 20px rgba(8,143,143,0.22);
+    }
+    .dl-week-card:nth-child(even) .dl-week-num {
+      background: linear-gradient(135deg, var(--gold) 0%, #f6c15e 100%);
+      color: #1a1a2e;
+      box-shadow: 0 8px 20px rgba(241,174,68,0.3);
+    }
+    .dl-week-head h3 { font-size: 1.08rem; font-weight: 700; color: var(--dark); line-height: 1.35; }
+    .dl-week-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .dl-week-card ul li {
+      position: relative;
+      padding-left: 22px;
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+    .dl-week-card ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--teal);
+      font-weight: 800;
+    }
+    .dl-week-card:nth-child(even) ul li::before { color: var(--gold-dark); }
+
+    /* === PROCESS === */
+    .dl-process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      position: relative;
+    }
+    .dl-step {
+      text-align: center;
+      position: relative;
+      padding: 36px 24px;
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid #eef2f6;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      transition: all 0.35s ease;
+    }
+    .dl-step:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(8,143,143,0.1); }
+    .dl-step .dl-step-num {
+      width: 46px;
+      height: 46px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), #0ab0b0);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 18px rgba(8,143,143,0.25);
+    }
+    .dl-step:nth-child(even) .dl-step-num { background: linear-gradient(135deg, var(--gold), #f6c15e); color: #1a1a2e; }
+    .dl-step .dl-step-icon { font-size: 1.9rem; margin-bottom: 12px; }
+    .dl-step h3 { font-size: 1.08rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+    .dl-step p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; margin: 0; }
+
+    /* === BENEFITS === */
+    .dl-benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .dl-benefit {
+      background: var(--teal);
+      border-radius: 20px;
+      padding: 34px 28px;
+      color: #fff;
+      text-align: center;
+      transition: all 0.35s ease;
+    }
+    .dl-benefit:nth-child(2) { background: var(--gold); color: #1a1a2e; }
+    .dl-benefit:nth-child(3) { background: #088f8f; }
+    .dl-benefit:nth-child(4) { background: #f1ae44; color: #1a1a2e; }
+    .dl-benefit:hover { transform: translateY(-6px); box-shadow: 0 18px 44px rgba(0,0,0,0.15); }
+    .dl-benefit .dl-benefit-icon { font-size: 2rem; margin-bottom: 14px; }
+    .dl-benefit h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+    .dl-benefit p { font-size: 0.88rem; line-height: 1.65; margin: 0; opacity: 0.88; }
+
+    @media (max-width: 1024px) {
+      .dl-hero { padding: 120px 24px 100px; }
+      .dl-about-grid, .dl-scope-grid, .dl-audience-inner { gap: 40px; }
+      .dl-process-grid, .dl-benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .dl-about-grid, .dl-scope-grid, .dl-audience-inner { grid-template-columns: 1fr; }
+      .dl-why-grid, .dl-curriculum-grid { grid-template-columns: 1fr; }
+      .dl-section { padding: 64px 0; }
+      .dl-audience-inner { padding: 64px 0; }
+    }
+    @media (max-width: 600px) {
+      .dl-hero { padding: 100px 20px 80px; }
+      .dl-hero h1 { font-size: 2.2rem; }
+      .dl-hero p { font-size: 1rem; }
+      .dl-process-grid, .dl-benefits-grid { grid-template-columns: 1fr; }
+      .dl-tile { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="dl-hero">
+    <div class="dl-hero-glow"></div>
+    <div class="container">
+      <div class="dl-hero-content">
+        <h1>Digital Literacy<br><span class="accent">Program</span></h1>
+        <p>Enabling marginalized students to use technology effectively for education, employment, and a more connected future.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="dl-section">
+    <div class="container">
+      <div class="dl-about-grid">
+        <div class="dl-about-visual">
+          <div class="dl-single-image">
+            <img src="assets/dlp.png" alt="Digital Literacy Program - Students learning with CLT India" loading="lazy">
+          </div>
+        </div>
+        <div class="dl-about-text">
+          <span class="section-label">About the Program</span>
+          <h2>Computing is a Life Skill. Every Child Deserves It.</h2>
+          <p>The <strong>Digital Literacy Program</strong> is CLT India's initiative to bring structured digital learning resources to marginalized communities. We provide comprehensive, in-house developed curriculum that spans two levels — Foundation and Advanced — giving students hands-on experience with technology regardless of their background.</p>
+          <p>Our program reaches students who have dropped out of school as well as those currently pursuing their education, ensuring no learner is left behind in the digital transition. By bridging the access gap, we support holistic development and open pathways to further education and livelihoods.</p>
+          <p>Aligned with the <strong>Digital India</strong> vision, the program equips beneficiaries with both technical proficiency and soft skills, creating a foundation for meaningful participation in the digital economy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audience -->
+  <section class="dl-audience">
+    <div class="container">
+      <div class="dl-audience-inner">
+        <div>
+          <p class="dl-audience-intro">The program welcomes young students who are either currently enrolled in high school, PUC, or degree programs — or who have dropped out and are looking for a way back into learning and opportunity.</p>
+        </div>
+        <div class="dl-audience-chips">
+          <div class="dl-audience-chip">
+            <div class="chip-icon">🎓</div>
+            <div>
+              <h3>High School / PUC / Degree Students</h3>
+              <p>Students currently pursuing their education who want hands-on digital skills.</p>
+            </div>
+          </div>
+          <div class="dl-audience-chip">
+            <div class="chip-icon">🔄</div>
+            <div>
+              <h3>School Dropouts</h3>
+              <p>Young learners who have left school and seek a fresh start through digital skills.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Modules -->
+  <section class="dl-modules dl-section">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Content Modules</span>
+        <h2 class="section-title">Two-Level Digital Literacy Curriculum</h2>
+        <p class="section-subtitle">A structured progression from foundational computer literacy to advanced digital skills — all content developed in-house by CLT.</p>
+      </div>
+
+      <!-- Level Tabs -->
+      <div class="dl-tabs" role="tablist" aria-label="Curriculum Levels">
+        <button class="dl-tab active" role="tab" aria-selected="true" aria-controls="level-1" id="tab-1" data-level="1">
+          <span class="dl-tab-icon">📚</span>
+          <span class="dl-tab-label">
+            <strong>Level 1 — Foundation</strong>
+            <span>9 Chapters · Core Digital Literacy</span>
+          </span>
+        </button>
+        <button class="dl-tab" role="tab" aria-selected="false" aria-controls="level-2" id="tab-2" data-level="2" tabindex="-1">
+          <span class="dl-tab-icon">🚀</span>
+          <span class="dl-tab-label">
+            <strong>Level 2 — Advanced</strong>
+            <span>5 Chapters · Web & Data Skills</span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Level 1 Panel -->
+      <div class="dl-panel active" role="tabpanel" id="level-1" aria-labelledby="tab-1">
+        <div class="dl-chapter-grid">
+          <article class="dl-chapter-card" data-chapter="1">
+            <div class="dl-chapter-badge">01</div>
+            <div class="dl-chapter-icon">💻</div>
+            <h4>Introduction to Computer</h4>
+            <p>Fundamentals of computing, what computers do, and why they matter in today's world.</p>
+          </article>
+          <article class="dl-chapter-card" data-chapter="2">
+            <div class="dl-chapter-badge">02</div>
+            <div class="dl-chapter-icon">🖥️</div>
+            <h4>Understanding Hardware</h4>
+            <p>Physical components — CPU, memory, storage, input/output devices, and how they work together.</p>
+          </article>
+          <article class="dl-chapter-card" data-chapter="3">
+            <div class="dl-chapter-badge">03</div>
+            <div class="dl-chapter-icon">⚙️</div>
+            <h4>Understanding Software</h4>
+            <p>Operating systems, applications, file systems, and the software-hardware relationship.</p>
+          </article>
+          <article class="dl-chapter-card" data-chapter="4">
+            <div class="dl-chapter-badge">04</div>
+            <div class="dl-chapter-icon">⌨️</div>
+            <h4>Basic Computer Operation</h4>
+            <p>File management, keyboard shortcuts, system settings, and everyday productivity workflows.</p>
+          </article>
+          <article class="dl-chapter-card" data-chapter="5">
+            <div class="dl-chapter-badge">05</div>
+            <div class="dl-chapter-icon">🌐</div>
+            <h4>Web Browsing</h4>
+            <p>Browsers, search engines, URLs, bookmarks, tabs, and effective information finding.</p>
+          </article>
+          <article class="dl-chapter-card" data-chapter="6">
+            <div class="dl-chapter-badge">06</div>
+            <div class="dl-chapter-icon">📧</div>
+            <h4>Google Apps</h4>
+            <p>Gmail, Drive, Docs, Sheets, Slides, Calendar — collaboration and productivity in the cloud.</p>
+          </article>
+          <article class="dl-chapter-card" data-chapter="7">
+            <div class="dl-chapter-badge">07</div>
+            <div class="dl-chapter-icon">🔗</div>
+            <h4>Computer Networks</h4>
+            <p>LAN, WAN, Wi-Fi, IP addresses, routers, and how devices communicate globally.</p>
+          </article>
+          <article class="dl-chapter-card" data-chapter="8">
+            <div class="dl-chapter-badge">08</div>
+            <div class="dl-chapter-icon">🤖</div>
+            <h4>Fun with AI</h4>
+            <p>AI basics, prompt engineering, generative tools, and creative applications for learners.</p>
+          </article>
+          <article class="dl-chapter-card" data-chapter="9">
+            <div class="dl-chapter-badge">09</div>
+            <div class="dl-chapter-icon">🛡️</div>
+            <h4>Cyber Ethics</h4>
+            <p>Digital citizenship, privacy, security hygiene, netiquette, and responsible online behavior.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Level 2 Panel -->
+      <div class="dl-panel" role="tabpanel" id="level-2" aria-labelledby="tab-2" hidden>
+        <div class="dl-chapter-grid">
+          <article class="dl-chapter-card" data-chapter="1">
+            <div class="dl-chapter-badge">01</div>
+            <div class="dl-chapter-icon">🏷️</div>
+            <h4>HTML</h4>
+            <p>Semantic markup, document structure, forms, accessibility, and modern HTML5 best practices.</p>
+          </article>
+          <article class="dl-chapter-card" data-chapter="2">
+            <div class="dl-chapter-badge">02</div>
+            <div class="dl-chapter-icon">🎨</div>
+            <h4>CSS</h4>
+            <p>Styling, flexbox, grid, animations, responsive design, and CSS custom properties.</p>
+          </article>
+          <article class="dl-chapter-card" data-chapter="3">
+            <div class="dl-chapter-badge">03</div>
+            <div class="dl-chapter-icon">🧩</div>
+            <h4>Problem Solving</h4>
+            <p>Computational thinking, algorithms, debugging strategies, and logical reasoning frameworks.</p>
+          </article>
+          <article class="dl-chapter-card" data-chapter="4">
+            <div class="dl-chapter-badge">04</div>
+            <div class="dl-chapter-icon">🗄️</div>
+            <h4>DBMS</h4>
+            <p>Database concepts, relational models, normalization, ER diagrams, and data integrity.</p>
+          </article>
+          <article class="dl-chapter-card" data-chapter="5">
+            <div class="dl-chapter-badge">05</div>
+            <div class="dl-chapter-icon">📊</div>
+            <h4>SQL</h4>
+            <p>Queries, joins, subqueries, aggregation, indexes, and practical data manipulation.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* === CONTENT MODULES - NEW UI === */
+    .dl-tabs {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .dl-tab {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 28px;
+      background: #fff;
+      border: 2px solid #eef2f6;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 280px;
+    }
+    .dl-tab:hover { border-color: rgba(8,143,143,0.3); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(8,143,143,0.08); }
+    .dl-tab.active {
+      border-color: var(--teal);
+      background: linear-gradient(135deg, #f0fafb 0%, #fff 100%);
+      box-shadow: 0 8px 24px rgba(8,143,143,0.12);
+    }
+    .dl-tab:nth-child(2).active { border-color: var(--gold); background: linear-gradient(135deg, #fff8e8 0%, #fff 100%); box-shadow: 0 8px 24px rgba(241,174,68,0.15); }
+    .dl-tab-icon { font-size: 1.5rem; }
+    .dl-tab-label { display: flex; flex-direction: column; gap: 2px; text-align: left; }
+    .dl-tab-label strong { font-size: 0.95rem; color: var(--dark); font-weight: 700; }
+    .dl-tab-label span { font-size: 0.78rem; color: var(--text-light); }
+    .dl-tab.active .dl-tab-label strong { color: var(--teal); }
+    .dl-tab:nth-child(2).active .dl-tab-label strong { color: var(--gold-dark); }
+
+    .dl-panel { display: none; animation: dlFadeIn 0.35s ease; }
+    .dl-panel.active { display: block; }
+    @keyframes dlFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .dl-chapter-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .dl-chapter-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 28px 24px;
+      border: 1px solid #eef2f6;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .dl-chapter-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal), #0ab0b0);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .dl-chapter-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 48px rgba(8,143,143,0.12);
+      border-color: rgba(8,143,143,0.1);
+    }
+    .dl-chapter-card:hover::before { transform: scaleX(1); }
+    .dl-panel:nth-child(3) .dl-chapter-card::before { background: linear-gradient(90deg, var(--gold), #f6c15e); }
+    .dl-panel:nth-child(3) .dl-chapter-card:hover { box-shadow: 0 20px 48px rgba(241,174,68,0.12); border-color: rgba(241,174,68,0.1); }
+
+    .dl-chapter-badge {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--teal);
+      background: rgba(8,143,143,0.08);
+      padding: 5px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    .dl-panel:nth-child(3) .dl-chapter-badge { color: var(--gold-dark); background: rgba(241,174,68,0.12); }
+    .dl-chapter-icon { font-size: 1.8rem; margin-bottom: 12px; line-height: 1; }
+    .dl-chapter-card h4 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; line-height: 1.35; }
+    .dl-chapter-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; margin: 0; }
+
+    .dl-panel-footer {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #eef2f6;
+    }
+    .dl-chapter-count, .dl-chapter-duration {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dl-chapter-count::before { content: '📖'; }
+    .dl-chapter-duration::before { content: '⏱️'; }
+
+    @media (max-width: 1024px) {
+      .dl-chapter-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .dl-chapter-grid { grid-template-columns: 1fr; }
+      .dl-tab { min-width: 100%; justify-content: center; }
+    }
+  </style>
+
+  <!-- Benefits -->
+  <section class="dl-section">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Program Benefits</span>
+        <h2 class="section-title">What Learners Gain</h2>
+      </div>
+      <div class="dl-benefits-grid">
+        <div class="dl-benefit">
+          <div class="dl-benefit-icon">✨</div>
+          <h3>Empowerment</h3>
+          <p>Essential digital skills for personal and professional growth.</p>
+        </div>
+        <div class="dl-benefit">
+          <div class="dl-benefit-icon">🛠️</div>
+          <h3>Skill Development</h3>
+          <p>Navigate and utilize digital technologies effectively.</p>
+        </div>
+        <div class="dl-benefit">
+          <div class="dl-benefit-icon">💼</div>
+          <h3>Career Readiness</h3>
+          <p>Preparation for job opportunities requiring digital literacy.</p>
+        </div>
+        <div class="dl-benefit">
+          <div class="dl-benefit-icon">🚶</div>
+          <h3>Confidence Building</h3>
+          <p>Confidence in using digital tools and platforms every day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
+
+  <script>
+    (function() {
+      var tabs = document.querySelectorAll('.dl-tab');
+      var panels = document.querySelectorAll('.dl-panel');
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          var level = this.dataset.level;
+          tabs.forEach(function(t) {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+            t.setAttribute('tabindex', '-1');
+          });
+          panels.forEach(function(p) {
+            p.classList.remove('active');
+            p.hidden = true;
+          });
+          this.classList.add('active');
+          this.setAttribute('aria-selected', 'true');
+          this.removeAttribute('tabindex');
+          var panel = document.getElementById('level-' + level);
+          if (panel) {
+            panel.classList.add('active');
+            panel.hidden = false;
+          }
+        });
+        tab.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+          }
+        });
+      });
+    })();
+  </script>
+  <script src="script.js?v=1.16"></script>
+  <script src="include.js"></script>
+</body>
+</html>
