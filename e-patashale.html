@@ -342,8 +342,10 @@
     @media (max-width: 900px) {
       .ep-approach .ep-approach-grid { grid-template-columns: 1fr; }
       .ep-apps .ep-apps-grid { grid-template-columns: 1fr; }
+      .ep-subject-cards > div { grid-template-columns: repeat(2, 1fr) !important; }
     }
     @media (max-width: 600px) {
+      .ep-subject-cards > div { grid-template-columns: 1fr !important; }
       .ep-hero { padding: 80px 20px 60px; }
       .ep-hero h1 { font-size: 2.2rem; }
       .ep-stats .ep-stats-grid { grid-template-columns: 1fr; max-width: 400px; }
