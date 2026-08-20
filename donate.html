@@ -293,7 +293,6 @@
         notes: { address: 'CLT India, Bengaluru' },
         theme: { color: '#088F8F' },
         handler: function(response) {
-          alert('Payment successful!\nPayment ID: ' + response.razorpay_payment_id + '\nThank you for your generous donation!');
           submitToSheet({
             type: 'donation',
             name: donorName.value.trim(),
@@ -302,6 +301,8 @@
             amount: selectedAmount,
             paymentId: response.razorpay_payment_id
           });
+          alert('Payment successful!\nPayment ID: ' + response.razorpay_payment_id + '\nThank you for your generous donation!');
+          window.location.href = 'donate.html';
         },
         modal: {
           ondismiss: function() {
