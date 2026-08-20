@@ -1,5 +1,6 @@
 const CONFIG = {
   ADMIN_EMAIL: 'admin@cltindia.org',
+  SENDER_NAME: 'CLT India',
   SHEET_NAMES: ['Contacts', 'Volunteers', 'Newsletter', 'Donations', 'Partners', 'Careers', 'JobPostings'],
   COLUMNS: {
     Contacts: ['Timestamp', 'Name', 'Email', 'Subject', 'Message'],
@@ -162,18 +163,20 @@ function handleCareer(data) {
 }
 
 function sendAutoReply(to, subject, body) {
-  MailApp.sendEmail({
+  GmailApp.sendEmail({
     to: to,
     subject: subject,
-    body: body
+    body: body,
+    name: CONFIG.SENDER_NAME
   });
 }
 
 function sendAdminNotification(subject, body) {
-  MailApp.sendEmail({
+  GmailApp.sendEmail({
     to: CONFIG.ADMIN_EMAIL,
     subject: subject,
-    body: body
+    body: body,
+    name: CONFIG.SENDER_NAME
   });
 }
 

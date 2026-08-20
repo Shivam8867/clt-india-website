@@ -30,13 +30,40 @@
     .page-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 12px; }
     .page-hero p { font-size: 1.05rem; opacity: 0.85; max-width: 600px; margin: 0 auto; }
     .content-section { padding: 80px 24px; background: #f7fafc; }
-    .content-container { max-width: 800px; margin: 0 auto; }
-    .content-container h2 { font-size: 1.3rem; font-weight: 800; color: var(--dark); margin-bottom: 12px; margin-top: 40px; }
-    .content-container h2:first-child { margin-top: 0; }
-    .content-container h3 { font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; margin-top: 28px; }
-    .content-container p { color: var(--text-light); line-height: 1.7; margin-bottom: 14px; }
-    .content-container ul { padding-left: 20px; color: var(--text-light); line-height: 1.7; margin-bottom: 14px; }
-    .content-container ul li { margin-bottom: 6px; }
+    .content-container { max-width: 900px; margin: 0 auto; }
+    .policies-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .policy-card {
+      background: var(--white);
+      border: 1px solid #e6ebf0;
+      border-radius: 12px;
+      padding: 36px 32px;
+      text-align: center;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .policy-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1); }
+    .policy-icon {
+      width: 72px; height: 72px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal) 0%, #045f5f 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white);
+    }
+    .policy-icon svg { width: 34px; height: 34px; }
+    .policy-card h3 { font-size: 1.25rem; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
+    .policy-card p { color: var(--text-light); line-height: 1.6; font-size: 0.9rem; margin-bottom: 22px; }
+    .policy-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--teal); color: var(--white);
+      padding: 12px 28px; border-radius: 6px;
+      font-weight: 700; font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .policy-btn:hover { background: #045f5f; color: var(--white); }
+    .policy-btn svg { width: 16px; height: 16px; }
+    @media (max-width: 640px) { .policies-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -50,32 +77,33 @@
 
   <section class="content-section">
     <div class="content-container">
+      <div class="policies-grid">
 
-      <p>Please read these Terms of Service (&ldquo;Terms&rdquo;, &ldquo;Terms of Service&rdquo;) carefully before using the www.cltindia.org website (the &ldquo;Service&rdquo;) operated by CLT India (&ldquo;us&rdquo;, &ldquo;we&rdquo;, or &ldquo;our&rdquo;).</p>
-      <p>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.</p>
-      <p>By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service.</p>
+        <div class="policy-card">
+          <div class="policy-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-4.35-9-8.5C1.5 9 4 5.5 7.5 5.5c2 0 3.4 1.2 4.5 2.7 1.1-1.5 2.5-2.7 4.5-2.7C20 5.5 22.5 9 21 12.5 19 16.65 12 21 12 21z"/></svg>
+          </div>
+          <h3>Child Protection Policy</h3>
+          <p>Our commitment to safeguarding children and ensuring a safe, secure environment in all CLT India programs and activities.</p>
+          <a class="policy-btn" href="assets/docs/CLT-India-Child-Protection-Policy.pdf" target="_blank" rel="noopener">
+            View Policy
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
 
-      <h2>Links To Other Websites</h2>
-      <p>Our Service may contain links to third-party websites or services that are not owned or controlled by CLT India.</p>
-      <p>CLT India has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party websites or services. You further acknowledge and agree that CLT India shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
-      <p>We strongly advise you to read the terms and conditions and privacy policies of any third-party websites or services that you visit.</p>
+        <div class="policy-card">
+          <div class="policy-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3>Data Protection Policy</h3>
+          <p>Our framework for collecting, handling, and safeguarding personal data in compliance with applicable privacy laws.</p>
+          <a class="policy-btn" href="assets/docs/CLT-India-Data-Protection-Policy.pdf" target="_blank" rel="noopener">
+            View Policy
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
 
-      <h2>Termination</h2>
-      <p>We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
-      <p>All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.</p>
-
-      <h2>Governing Law</h2>
-      <p>These Terms shall be governed and construed in accordance with the laws of Bangalore, India, without regard to its conflict of law provisions.</p>
-      <p>CLT India asserts its copyright over the entire content of the website. Any unauthorised use of it&rsquo;s name, logo, demonstrative content will amount to offences punishable under law.</p>
-
-      <h2>Policies &amp; Reports</h2>
-      <ul>
-        <li><a href="assets/docs/CLT-India-Child-Protection-Policy.pdf" target="_blank" rel="noopener">CLT India Child Protection Policy</a> (Click to view)</li>
-        <li><a href="assets/docs/CLT-India-Data-Protection-Policy.pdf" target="_blank" rel="noopener">CLT India Data Protection Policy</a> (Click to view)</li>
-      </ul>
-
-      <p style="margin-top: 40px; font-size: 0.85rem; color: var(--text-light);">Last updated: August 2026</p>
-
+      </div>
     </div>
   </section>
 
