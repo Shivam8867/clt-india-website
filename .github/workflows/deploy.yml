@@ -11,19 +11,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Setup SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
-
       - name: Deploy via SCP
-        run: |
-          scp -o StrictHostKeyChecking=no -r \
-            --exclude='.git' \
-            --exclude='.github' \
-            --exclude='deploy.bat' \
-            --exclude='.gitignore' \
-            ./ ylr5llvbdv02@${{ secrets.SSH_HOST }}:public_html/
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ylr5llvbdv02
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "."
+          target: "public_html"
+          strip_components: 0
+          overwrite: true
 
