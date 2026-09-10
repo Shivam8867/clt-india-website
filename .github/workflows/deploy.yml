@@ -14,17 +14,16 @@ jobs:
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
 
-      - name: Deploy via SSH
+      - name: Deploy via SCP
         run: |
-          rsync -avz --delete \
+          scp -o StrictHostKeyChecking=no -r \
             --exclude='.git' \
             --exclude='.github' \
             --exclude='deploy.bat' \
             --exclude='.gitignore' \
-            -e "ssh -i ~/.ssh/id_ed25519" \
             ./ ylr5llvbdv02@${{ secrets.SSH_HOST }}:public_html/
 
