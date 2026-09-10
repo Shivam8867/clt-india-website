@@ -11,8 +11,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Upload via FTP
+      - name: Setup SSH
         run: |
-          sudo apt-get install -y lftp
-          lftp -c "set ftp:ssl-allow no; open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; mirror -R --verbose --exclude .git/ --exclude .github/ --exclude deploy.bat --exclude .gitignore ./ /"
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Deploy via SSH
+        run: |
+          rsync -avz --delete \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='deploy.bat' \
+            --exclude='.gitignore' \
+            -e "ssh -i ~/.ssh/id_ed25519" \
+            ./ ylr5llvbdv02@${{ secrets.SSH_HOST }}:public_html/
 
