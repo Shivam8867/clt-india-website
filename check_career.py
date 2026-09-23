@@ -1,0 +1,7 @@
+c = open(r'D:\CLT INDIA WEBSITE\career.html').read()
+print('main tags balanced:', c.count('<main>') == c.count('</main>'))
+print('career.js has defer:', 'career.js" defer' in c)
+print('scripts before </main>:', c.rfind('</main>') > c.rfind('career.js'))
+print()
+print('Last 200 chars:')
+print(repr(c[-200:]))

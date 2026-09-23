@@ -116,6 +116,10 @@ function populatePositionSelect() {
 }
 
 function loadJobsFromServer() {
+  if (typeof APPS_SCRIPT_URL === 'undefined') {
+    renderJobs();
+    return;
+  }
   var cb = 'cltJobsCb' + Date.now();
   var script = document.createElement('script');
   var done = false;
@@ -123,17 +127,19 @@ function loadJobsFromServer() {
     if (done) return;
     done = true;
     delete window[cb];
-    console.warn('CLT: Could not load jobs from server. Check APPS_SCRIPT_URL and Apps Script deployment.');
+    renderJobs();
   }, 8000);
   window[cb] = function (jobs) {
     if (done) return;
     done = true;
     clearTimeout(timer);
     delete window[cb];
-    if (jobs && jobs.length) {
+    if (jobs && jobs.length > 0) {
       JOBS = jobs;
       renderJobs();
       populatePositionSelect();
+    } else {
+      renderJobs();
     }
   };
   script.onerror = function () {
