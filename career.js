@@ -2,94 +2,9 @@
    To post a new job, copy one of the objects below and add it to the JOBS array.
    To remove a job, delete its object from the array.
 */
-let JOBS = [
-  {
-    id: 'digital-content-developer',
-    title: 'Digital Content Developer',
-    department: 'e-Patashale',
-    location: 'Bangalore',
-    type: 'Full-time',
-    experience: '2-5 years',
-    description: 'We are looking for a creative Digital Content Developer to build engaging NCERT-aligned STEM content in regional languages for our e-Patashale platform.',
-    responsibilities: [
-      'Develop interactive digital lessons and assessments for K-12 STEM subjects',
-      'Convert existing content into regional languages (Kannada, Telugu, etc.)',
-      'Work with teachers and subject experts to improve content quality',
-      'Test content on our low-cost learning devices and apps'
-    ],
-    requirements: [
-      'Degree in Education, Science, Engineering or a related field',
-      'Experience with e-learning content or instructional design',
-      'Strong command of English and at least one regional language',
-      'Familiarity with tools like Articulate, Canva or PowerPoint'
-    ]
-  },
-  {
-    id: 'program-coordinator',
-    title: 'Program Coordinator',
-    department: 'Early Grade Reading (EGR)',
-    location: 'Bangalore',
-    type: 'Full-time',
-    experience: '3-6 years',
-    description: 'We are seeking a Program Coordinator to manage our Early Grade Reading program across partner government schools in Karnataka.',
-    responsibilities: [
-      'Plan and execute EGR program activities in partner schools',
-      'Coordinate with teachers, school heads and government officials',
-      'Monitor program data and prepare impact reports',
-      'Organize teacher training workshops'
-    ],
-    requirements: [
-      'Master’s degree in Social Work, Education or related field',
-      'Experience managing education or community programs',
-      'Strong communication and people skills in English and Kannada',
-      'Willingness to travel to rural schools'
-    ]
-  },
-  {
-    id: 'field-officer',
-    title: 'Field Officer',
-    department: 'Operations',
-    location: 'Karnataka',
-    type: 'Field-based',
-    experience: '1-3 years',
-    description: 'We are looking for energetic Field Officers to support the installation, training and maintenance of digital classrooms in rural schools.',
-    responsibilities: [
-      'Install and configure digital classroom equipment in schools',
-      'Train teachers and students on using CLT content and devices',
-      'Provide on-site troubleshooting and maintenance support',
-      'Collect feedback and usage data from schools'
-    ],
-    requirements: [
-      'Diploma/Degree in any discipline; technical aptitude preferred',
-      'Comfortable travelling across rural Karnataka',
-      'Good Kannada and English communication skills',
-      'Basic computer hardware knowledge'
-    ]
-  },
-  {
-    id: 'web-developer',
-    title: 'Web Developer',
-    department: 'IT',
-    location: 'Bangalore',
-    type: 'Full-time',
-    experience: '2-4 years',
-    description: 'We are hiring a Web Developer to build and maintain CLT India’s websites, learning portals and Google Workspace integrations.',
-    responsibilities: [
-      'Develop and maintain responsive HTML/CSS/JS pages',
-      'Integrate forms with Google Sheets and Apps Script',
-      'Build and improve the Jigi and Jigi Jigi learning apps',
-      'Ensure website performance, accessibility and SEO'
-    ],
-    requirements: [
-      'Strong HTML, CSS, JavaScript and Git skills',
-      'Experience with Google Apps Script, Sheets API or Firebase',
-      'Knowledge of responsive design and cross-browser support',
-      'Portfolio of past projects required'
-    ]
-  }
-];
+let JOBS = [];
 
-const POSITION_OPTIONS = JOBS.map(function (job) { return job.title; });
+const POSITION_OPTIONS = [];
 
 document.addEventListener('DOMContentLoaded', function () {
   renderJobs();
@@ -134,13 +49,9 @@ function loadJobsFromServer() {
     done = true;
     clearTimeout(timer);
     delete window[cb];
-    if (jobs && jobs.length > 0) {
-      JOBS = jobs;
-      renderJobs();
-      populatePositionSelect();
-    } else {
-      renderJobs();
-    }
+    JOBS = jobs && jobs.length > 0 ? jobs : [];
+    renderJobs();
+    populatePositionSelect();
   };
   script.onerror = function () {
     if (done) return;
