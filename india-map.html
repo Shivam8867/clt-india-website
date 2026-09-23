@@ -16,7 +16,8 @@
     <meta name="twitter:title" content="CLT India | Impact Map">
     <meta name="twitter:description" content="CLT India's reach across 13 states.">
     <meta name="twitter:image" content="https://cltindia.org/assets/Clt-Logo.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="style.css" as="style">
+<link rel="stylesheet" href="style.css">
     <style>
         /* ===== MAP PAGE SPECIFIC ===== */
         :root {
@@ -296,8 +297,12 @@
     "sameAs": ["https://www.facebook.com/CLTIndia.1997","https://www.instagram.com/cltindia/","https://www.linkedin.com/company/cltindia/","https://www.youtube.com/@study-e-stationbycltindia9626/"]
   }
   </script>
+
+<link rel="preload" href="assets/Clt-Logo.png" as="image">
+<link rel="preload" href="script.js" as="script">
 </head>
 <body>
+<main>
 
   <!-- STICKY HEADER -->
   <header id="site-header">
@@ -682,7 +687,8 @@
   <!-- Scroll to Top -->
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
 
-  <script src="script.js?v=1.16"></script>
+  </main>
+<script src="script.js?v=1.17" defer"></script>
   <script>
     (function() {
       var hamburger = document.getElementById('hamburger');

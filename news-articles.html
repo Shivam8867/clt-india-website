@@ -17,7 +17,8 @@
 <meta name="twitter:description" content="Press coverage and media mentions featuring CLT India.">
 <meta name="twitter:image" content="https://cltindia.org/assets/Clt-Logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="style.css" as="style">
+<link rel="stylesheet" href="style.css">
   <style>
     :root { --header-h: 114px; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -170,8 +171,12 @@
     "sameAs": ["https://www.facebook.com/CLTIndia.1997","https://www.instagram.com/cltindia/","https://www.linkedin.com/company/cltindia/","https://www.youtube.com/@study-e-stationbycltindia9626/"]
   }
   </script>
+
+<link rel="preload" href="assets/Clt-Logo.png" as="image">
+<link rel="preload" href="script.js" as="script">
 </head>
 <body>
+<main>
 
   <div id="header-placeholder"></div>
 
@@ -200,7 +205,8 @@
 
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8679;</button>
 
-  <script src="script.js?v=1.16"></script>
+  </main>
+<script src="script.js?v=1.17" defer"></script>
   <script>
     const images = [
       'intel-toi.jpg',
@@ -243,6 +249,6 @@
       if (e.key === 'Escape') document.getElementById('lbOverlay').classList.remove('active');
     });
   </script>
-  <script src="include.js"></script>
+  <script src="include.js" defer></script>
 </body>
 </html>

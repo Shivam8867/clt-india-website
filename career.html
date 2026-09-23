@@ -16,7 +16,8 @@
   <meta name="twitter:title" content="Careers | CLT India">
   <meta name="twitter:description" content="Work with us to transform children's learning experiences.">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="style.css" as="style">
+<link rel="stylesheet" href="style.css">
   <style>
     :root { --header-h: 114px; }
     .page-hero {
@@ -155,8 +156,12 @@
     "sameAs": ["https://www.facebook.com/CLTIndia.1997","https://www.instagram.com/cltindia/","https://www.linkedin.com/company/cltindia/","https://www.youtube.com/@study-e-stationbycltindia9626/"]
   }
   </script>
+
+<link rel="preload" href="assets/Clt-Logo.png" as="image">
+<link rel="preload" href="script.js" as="script">
 </head>
 <body>
+<main>
 
   <div id="header-placeholder"></div>
 
@@ -228,7 +233,7 @@
   </section>
 
   <div id="footer-placeholder"></div>
-  <script src="include.js"></script>
+  <script src="include.js" defer></script>
   <script src="career.js"></script>
   <script>
     document.getElementById('resume')?.addEventListener('change', function () {
@@ -241,7 +246,8 @@
       }
     });
   </script>
-  <script src="script.js?v=1.16"></script>
+  </main>
+<script src="script.js?v=1.17" defer"></script>
 
 </body>
 </html>

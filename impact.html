@@ -29,7 +29,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="style.css" as="style">
+<link rel="stylesheet" href="style.css">
   <style>
     .im-hero {
       margin-top: var(--header-h);
@@ -523,8 +524,12 @@
       padding-top: calc(var(--header-h) + 60px);
     }
   </style>
+
+<link rel="preload" href="assets/Clt-Logo.png" as="image">
+<link rel="preload" href="script.js" as="script">
 </head>
 <body>
+<main>
 
   <div id="header-placeholder"></div>
 
@@ -887,8 +892,9 @@
       });
     })();
   </script>
-  <script src="script.js?v=1.16"></script>
-  <script src="include.js"></script>
+  </main>
+<script src="script.js?v=1.17" defer"></script>
+  <script src="include.js" defer></script>
 </body>
 </html>
 

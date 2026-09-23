@@ -27,7 +27,8 @@
 }
 </script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="style.css" as="style">
+<link rel="stylesheet" href="style.css">
   <style>
     :root { --header-h: 114px; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -148,8 +149,12 @@
       .amount-options { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
+
+<link rel="preload" href="assets/Clt-Logo.png" as="image">
+<link rel="preload" href="script.js" as="script">
 </head>
 <body>
+<main>
 
   <div id="header-placeholder"></div>
 
@@ -322,8 +327,9 @@
       rzp.open();
     });
   </script>
-  <script src="include.js"></script>
-  <script src="script.js?v=1.16"></script>
+  <script src="include.js" defer></script>
+  </main>
+<script src="script.js?v=1.17" defer"></script>
 
 </body>
 </html>
